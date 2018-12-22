@@ -14,6 +14,9 @@
 		04B3766A21CE576300784506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B3766821CE576300784506 /* LaunchScreen.storyboard */; };
 		04B3767521CE576400784506 /* ConflateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3767421CE576400784506 /* ConflateTests.swift */; };
 		04B3768421CE8AC300784506 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3768321CE8AC300784506 /* GradientView.swift */; };
+		04B3768621CEA19500784506 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B3768521CEA19400784506 /* GoogleService-Info.plist */; };
+		11FF1D3E2504BBC1F2A6F7A1 /* Pods_Conflate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE278C4DAFD7F85B0A2CBB2 /* Pods_Conflate.framework */; };
+		7F3C638E2526D0D2A061DA0D /* Pods_ConflateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069A02F18CCAC6B9CC5C6429 /* Pods_ConflateTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,13 @@
 		04B3767421CE576400784506 /* ConflateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConflateTests.swift; sourceTree = "<group>"; };
 		04B3767621CE576400784506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B3768321CE8AC300784506 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		04B3768521CEA19400784506 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		069A02F18CCAC6B9CC5C6429 /* Pods_ConflateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConflateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FE278C4DAFD7F85B0A2CBB2 /* Pods_Conflate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conflate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		244088A1F0E14B3B213E8D84 /* Pods-Conflate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conflate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Conflate/Pods-Conflate.debug.xcconfig"; sourceTree = "<group>"; };
+		8A9BBE3E0F9D346A998FC40F /* Pods-ConflateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConflateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConflateTests/Pods-ConflateTests.release.xcconfig"; sourceTree = "<group>"; };
+		DE5E9939DFBC3F0DFB937B97 /* Pods-Conflate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conflate.release.xcconfig"; path = "Pods/Target Support Files/Pods-Conflate/Pods-Conflate.release.xcconfig"; sourceTree = "<group>"; };
+		F3208DFE4742E8CABFEEDDB2 /* Pods-ConflateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConflateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConflateTests/Pods-ConflateTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11FF1D3E2504BBC1F2A6F7A1 /* Pods_Conflate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F3C638E2526D0D2A061DA0D /* Pods_ConflateTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +76,8 @@
 				04B3765E21CE575B00784506 /* Conflate */,
 				04B3767321CE576400784506 /* ConflateTests */,
 				04B3765D21CE575B00784506 /* Products */,
+				556DC361BEFF6A902015A8CD /* Pods */,
+				9F482AD527ECD44AA41268BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +102,7 @@
 				04B3766621CE576300784506 /* Assets.xcassets */,
 				04B3766821CE576300784506 /* LaunchScreen.storyboard */,
 				04B3766B21CE576300784506 /* Info.plist */,
+				04B3768521CEA19400784506 /* GoogleService-Info.plist */,
 			);
 			path = Conflate;
 			sourceTree = "<group>";
@@ -131,6 +146,26 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		556DC361BEFF6A902015A8CD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				244088A1F0E14B3B213E8D84 /* Pods-Conflate.debug.xcconfig */,
+				DE5E9939DFBC3F0DFB937B97 /* Pods-Conflate.release.xcconfig */,
+				F3208DFE4742E8CABFEEDDB2 /* Pods-ConflateTests.debug.xcconfig */,
+				8A9BBE3E0F9D346A998FC40F /* Pods-ConflateTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9F482AD527ECD44AA41268BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1FE278C4DAFD7F85B0A2CBB2 /* Pods_Conflate.framework */,
+				069A02F18CCAC6B9CC5C6429 /* Pods_ConflateTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +173,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04B3767921CE576400784506 /* Build configuration list for PBXNativeTarget "Conflate" */;
 			buildPhases = (
+				C350E0CB68DCFA6BC498115F /* [CP] Check Pods Manifest.lock */,
 				04B3765821CE575B00784506 /* Sources */,
 				04B3765921CE575B00784506 /* Frameworks */,
 				04B3765A21CE575B00784506 /* Resources */,
+				4658C4FB6A292B7191DF7ADF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +192,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04B3767C21CE576400784506 /* Build configuration list for PBXNativeTarget "ConflateTests" */;
 			buildPhases = (
+				392E652F2E72D7595717629B /* [CP] Check Pods Manifest.lock */,
 				04B3766C21CE576400784506 /* Sources */,
 				04B3766D21CE576400784506 /* Frameworks */,
 				04B3766E21CE576400784506 /* Resources */,
@@ -215,6 +253,7 @@
 				04B3766A21CE576300784506 /* LaunchScreen.storyboard in Resources */,
 				04B3766721CE576300784506 /* Assets.xcassets in Resources */,
 				04B3766521CE575B00784506 /* Main.storyboard in Resources */,
+				04B3768621CEA19500784506 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +265,77 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		392E652F2E72D7595717629B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ConflateTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4658C4FB6A292B7191DF7ADF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Conflate/Pods-Conflate-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Conflate/Pods-Conflate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C350E0CB68DCFA6BC498115F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Conflate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04B3765821CE575B00784506 /* Sources */ = {
@@ -394,6 +504,7 @@
 		};
 		04B3767A21CE576400784506 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 244088A1F0E14B3B213E8D84 /* Pods-Conflate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -412,6 +523,7 @@
 		};
 		04B3767B21CE576400784506 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE5E9939DFBC3F0DFB937B97 /* Pods-Conflate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -430,6 +542,7 @@
 		};
 		04B3767D21CE576400784506 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3208DFE4742E8CABFEEDDB2 /* Pods-ConflateTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -451,6 +564,7 @@
 		};
 		04B3767E21CE576400784506 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A9BBE3E0F9D346A998FC40F /* Pods-ConflateTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
