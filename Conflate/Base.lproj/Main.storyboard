@@ -44,7 +44,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GRa-Oy-Ngy">
                                         <rect key="frame" x="0.0" y="111" width="311" height="5"/>
@@ -183,7 +183,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqv-tq-AGq">
                                         <rect key="frame" x="0.0" y="111" width="311" height="5"/>
@@ -317,6 +317,6 @@
         <image name="back-filled" width="112.5" height="112.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F9d-at-Rht"/>
+        <segue reference="UIQ-Dv-lvs"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -19,6 +19,7 @@
 		04B3768621CEA19500784506 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B3768521CEA19400784506 /* GoogleService-Info.plist */; };
 		04F9C34421D0F9D000CCFB00 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9C34321D0F9D000CCFB00 /* LoginViewModel.swift */; };
 		04F9C34621D0F9E200CCFB00 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9C34521D0F9E200CCFB00 /* SignUpViewModel.swift */; };
+		04F9C34821D10D5700CCFB00 /* UIViewController+hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9C34721D10D5700CCFB00 /* UIViewController+hideKeyboard.swift */; };
 		11FF1D3E2504BBC1F2A6F7A1 /* Pods_Conflate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE278C4DAFD7F85B0A2CBB2 /* Pods_Conflate.framework */; };
 		7F3C638E2526D0D2A061DA0D /* Pods_ConflateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069A02F18CCAC6B9CC5C6429 /* Pods_ConflateTests.framework */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		04B3768521CEA19400784506 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04F9C34321D0F9D000CCFB00 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		04F9C34521D0F9E200CCFB00 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		04F9C34721D10D5700CCFB00 /* UIViewController+hideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+hideKeyboard.swift"; sourceTree = "<group>"; };
 		069A02F18CCAC6B9CC5C6429 /* Pods_ConflateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConflateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE278C4DAFD7F85B0A2CBB2 /* Pods_Conflate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Conflate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		244088A1F0E14B3B213E8D84 /* Pods-Conflate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conflate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Conflate/Pods-Conflate.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				04B3766121CE575B00784506 /* LoginVC.swift */,
 				04763B4221D0ED3200421DA0 /* SignUpVC.swift */,
+				04F9C34721D10D5700CCFB00 /* UIViewController+hideKeyboard.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B3766221CE575B00784506 /* LoginVC.swift in Sources */,
+				04F9C34821D10D5700CCFB00 /* UIViewController+hideKeyboard.swift in Sources */,
 				04B3766021CE575B00784506 /* AppDelegate.swift in Sources */,
 				04F9C34421D0F9D000CCFB00 /* LoginViewModel.swift in Sources */,
 				04B3768421CE8AC300784506 /* GradientView.swift in Sources */,
