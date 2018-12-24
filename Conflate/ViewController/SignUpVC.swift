@@ -58,27 +58,13 @@ class SignUpVC: UIViewController {
             
         }
         
-        // create the alert
+        
         let alert = UIAlertController(title: "OOPS", message: errorDescription, preferredStyle: UIAlertController.Style.alert)
         
-        // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
-        // show the alert
         self.present(alert, animated: true, completion: nil)
     }
     
 }
-
-extension UITextField {
-
-func makeWarningError() {
-    self.layer.cornerRadius = 3.0
-    self.layer.borderWidth = 3.0
-    self.layer.borderColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-    self.layer.masksToBounds = true
-}
-    
-}
-    
 
