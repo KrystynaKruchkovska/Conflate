@@ -7,6 +7,9 @@ target 'Conflate' do
 
   # Pods for Conflate
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'FirebaseUI/Facebook'
 
 
 
