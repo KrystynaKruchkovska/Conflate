@@ -33,10 +33,17 @@ class AuthService {
     
     func signInUser(email:String,password:String, handler:@escaping (_ success: Bool) -> ()){
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            
+            if let error = error {
+                print("login user error: \(error)")
+                handler(false)
+                return
+            }
             guard let user = user?.user else{
                 handler(false)
                 return
             }
+            handler(true)
         }
     }
 }

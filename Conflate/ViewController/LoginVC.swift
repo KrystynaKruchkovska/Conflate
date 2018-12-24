@@ -9,6 +9,8 @@
 import UIKit
 
 class LoginVC: UIViewController {
+    
+    private let loginViewModel = LoginViewModel()
 
     @IBOutlet weak var emailTxtField: UITextField!
     
@@ -23,6 +25,16 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func LoginBtnWasPressed(_ sender: UIButton) {
+        guard let useremail = emailTxtField.text else { return}
+        guard let userpassword = passwordTxtField.text else { return}
+        
+        self.loginViewModel.signIn(email: useremail, password: userpassword) { (success) in
+            if (success) {
+                print("user create succesfully")
+            } else {
+                print("user create failed")
+            }
+        }
     }
     
     @IBAction func forgotPasswordWasPressed(_ sender: UIButton) {

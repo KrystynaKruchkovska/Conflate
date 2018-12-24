@@ -11,6 +11,6 @@ import Foundation
 class LoginViewModel{
     private let authService = AuthService ()
     func signIn(email: String, password: String, handler:@escaping (_ success: Bool) -> ()){
-        authService.signInUser(email: email, password: password,handler: handler)
+        self.authService.signInUser(email: email, password: password,handler: handler)
     }
 }
