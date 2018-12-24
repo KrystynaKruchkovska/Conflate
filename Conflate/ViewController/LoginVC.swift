@@ -31,8 +31,6 @@ class LoginVC: UIViewController {
     @IBAction func loginWithFBWasPressed(_ sender: UIButton) {
     }
     
-    override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
-        
-    }
+  
 }
 

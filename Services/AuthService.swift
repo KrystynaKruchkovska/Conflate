@@ -11,16 +11,32 @@ import Firebase
 
 class AuthService {
     
-    func createUser(email:String,password:String){
+    func createUser(email:String, password:String, handler:@escaping (_ success: Bool) -> ()) {
+        
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-            // ...
-            guard let user = authResult?.user else { return }
+            
+            if let error = error {
+                print("create user error: \(error)")
+                handler(false)
+                return
+            }
+            
+            guard let _ = authResult?.user else {
+                handler(false)
+                return
+            }
+            
+            handler(true)
         }
+        
     }
     
-    func signInUser(email:String,password:String){
+    func signInUser(email:String,password:String, handler:@escaping (_ success: Bool) -> ()){
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            // ...
+            guard let user = user?.user else{
+                handler(false)
+                return
+            }
         }
     }
 }
