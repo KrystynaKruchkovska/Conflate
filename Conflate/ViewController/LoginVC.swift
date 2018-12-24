@@ -28,11 +28,20 @@ class LoginVC: UIViewController {
         guard let useremail = emailTxtField.text else { return}
         guard let userpassword = passwordTxtField.text else { return}
         
-        self.loginViewModel.signIn(email: useremail, password: userpassword) { (success) in
-            if (success) {
-                print("user create succesfully")
+        // show spinner
+        
+        self.loginViewModel.signIn(email: useremail, password: userpassword) { (error) in
+            // stop spinner
+            
+            if let error = error {
+                // it didn't work
+                print("user login failed")
+                self.showAlert(error: error)
+                return
             } else {
-                print("user create failed")
+               
+                print("user login succesfully")
+                // move to logged in viewcontroller
             }
         }
     }
@@ -41,6 +50,17 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func loginWithFBWasPressed(_ sender: UIButton) {
+    }
+    
+    func showAlert(error:Error?){
+        // create the alert
+        let alert = UIAlertController(title: "OOPS", message: "\(error?.localizedDescription ?? "Login failed")", preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
     
   
