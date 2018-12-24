@@ -95,7 +95,6 @@
 		04B3765321CE575B00784506 = {
 			isa = PBXGroup;
 			children = (
-				04763B3D21D0E59A00421DA0 /* Services */,
 				04B3765E21CE575B00784506 /* Conflate */,
 				04B3767321CE576400784506 /* ConflateTests */,
 				04B3765D21CE575B00784506 /* Products */,
@@ -116,6 +115,7 @@
 		04B3765E21CE575B00784506 /* Conflate */ = {
 			isa = PBXGroup;
 			children = (
+				04763B3D21D0E59A00421DA0 /* Services */,
 				04B3768221CE57F800784506 /* ViewModel */,
 				04B3768121CE57C100784506 /* Model */,
 				04B3767F21CE577D00784506 /* View */,
