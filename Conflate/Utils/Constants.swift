@@ -11,8 +11,8 @@ import Foundation
 struct Constants {
     
     struct Storyboard {
-        static let mainStoryboard = "main"
-        static let loginVC = "loginVC"
+        static let mainStoryboard = "Main"
+        static let loginVC = "LoginVC"
     }
     
 }
