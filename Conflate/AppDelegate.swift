@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        let storyboard = UIStoryboard(name: Constants.Storyboard.mainStoryboard, bundle: Bundle.main)
+        let storyboard = UIStoryboard(name: Constants.Storyboard.loginSignUp, bundle: Bundle.main)
         let loginVC = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.loginVC)
         window?.makeKeyAndVisible()
         window?.rootViewController?.present(loginVC, animated: true, completion: nil)
