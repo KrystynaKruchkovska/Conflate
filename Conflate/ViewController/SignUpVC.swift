@@ -41,10 +41,11 @@ class SignUpVC: UIViewController {
         showSpinner()
         
         self.signUpViewModel.createUser(email: useremail, password: userpassword) { (error, user) in
-            self.hideSpinner()
+            
             if error != nil {
                 print("user create failed")
                 self.showAlert(error: error)
+                self.hideSpinner()
                 
             } else {
                 guard let user = user else {
@@ -53,6 +54,7 @@ class SignUpVC: UIViewController {
                 }
                 
                 self.signUpViewModel.sendVerificationEmail(user: user, handler: { (error) in
+                    self.hideSpinner()
                     if let error = error {
                         self.showAlert(error: error)
                     }else{

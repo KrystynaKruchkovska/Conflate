@@ -10,16 +10,7 @@ import Foundation
 import Firebase
 
 class AuthService {
-    
-    func getEmailConfiguration() -> ActionCodeSettings {
-        
-        let actionCodeSettings = ActionCodeSettings()
-        //actionCodeSettings.url = URL(string: "https://conflate-343a5.firebaseapp.com")
-        
-        actionCodeSettings.handleCodeInApp = false
-        actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
-        return actionCodeSettings
-    }
+ 
     
     func createUser(email:String, password:String, handler:@escaping (_ error:Error?,_ user:User?) -> ()) {
         
@@ -49,6 +40,8 @@ class AuthService {
                 return
             }
             print("Check your email for link")
+            handler(nil)
+            
         })
     }
     
