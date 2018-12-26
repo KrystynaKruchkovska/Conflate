@@ -17,9 +17,13 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var confirmPasswordTxtField: UITextField!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        self.hideSpinner()
     }
     
     
@@ -27,8 +31,10 @@ class SignUpVC: UIViewController {
         guard let useremail = emailTxtField.text else { return}
         guard let userpassword = passwordTxtField.text else { return}
         guard let confirmuserpassword = confirmPasswordTxtField.text else { return}
+        showSpinner()
        
         if userpassword != confirmuserpassword{
+            hideSpinner()
             self.confirmPasswordTxtField.makeWarningError()
             let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Password should be the same"])
 
@@ -38,6 +44,7 @@ class SignUpVC: UIViewController {
         }
         
         self.signUpViewModel.createUser(email: useremail, password: userpassword) { (error) in
+            self.hideSpinner()
             if error != nil {
                 print("user create failed")
                 self.showAlert(error: error)
@@ -64,6 +71,14 @@ class SignUpVC: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
+    func showSpinner() {
+        spinner.isHidden = false
+        spinner.startAnimating()
+    }
     
+    func hideSpinner() {
+        self.spinner.isHidden = true
+        self.spinner.stopAnimating()
+    }
 }
 

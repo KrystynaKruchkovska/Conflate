@@ -15,10 +15,12 @@ class LoginVC: UIViewController {
     @IBOutlet weak var emailTxtField: UITextField!
     
     @IBOutlet weak var passwordTxtField: UITextField!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        self.hideSpinner()
     }
     
     @IBAction func signUpWasPressed(_ sender: Any) {
@@ -28,10 +30,10 @@ class LoginVC: UIViewController {
         guard let useremail = emailTxtField.text else { return}
         guard let userpassword = passwordTxtField.text else { return}
         
-        // show spinner
+        showSpinner()
         
         self.loginViewModel.signIn(email: useremail, password: userpassword) { (error) in
-            // stop spinner
+            self.hideSpinner()
             
             if let error = error {
                 // it didn't work
@@ -61,6 +63,17 @@ class LoginVC: UIViewController {
         
         // show the alert
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func showSpinner() {
+        spinner.isHidden = false
+        spinner.startAnimating()
+    }
+    
+    func hideSpinner() {
+        self.spinner.isHidden = true
+        self.spinner.stopAnimating()
     }
     
   
