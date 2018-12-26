@@ -61,10 +61,7 @@ class SignUpVC: UIViewController {
         guard let errorDescription = error?.localizedDescription  else {
             print("not showing error without description")
             return
-            
         }
-        
-        
         let alert = UIAlertController(title: "OOPS", message: errorDescription, preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))

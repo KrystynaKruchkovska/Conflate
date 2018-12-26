@@ -8,12 +8,11 @@
 
 import UIKit
 
-class LoginVC: UIViewController {
+class SignInVC: UIViewController {
     
-    private let loginViewModel = LoginViewModel()
+    private let loginViewModel = SignInViewModel ()
 
     @IBOutlet weak var emailTxtField: UITextField!
-    
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
@@ -55,16 +54,13 @@ class LoginVC: UIViewController {
     }
     
     func showAlert(error:Error?){
-        // create the alert
+
         let alert = UIAlertController(title: "Oops", message: "\(error?.localizedDescription ?? "Login failed")", preferredStyle: UIAlertController.Style.alert)
         
-        // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        // show the alert
+   
         self.present(alert, animated: true, completion: nil)
     }
-    
     
     func showSpinner() {
         spinner.isHidden = false
@@ -75,7 +71,6 @@ class LoginVC: UIViewController {
         self.spinner.isHidden = true
         self.spinner.stopAnimating()
     }
-    
   
 }
 
