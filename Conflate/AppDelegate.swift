@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let loginVC = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.loginVC)
         window?.makeKeyAndVisible()
         window?.rootViewController?.present(loginVC, animated: true, completion: nil)
-        
+
         return true
     }
 
