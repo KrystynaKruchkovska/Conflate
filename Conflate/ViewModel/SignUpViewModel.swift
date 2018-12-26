@@ -19,5 +19,5 @@ class SignUpViewModel{
     func sendVerificationEmail(user:User,handler:@escaping (_ error:Error?)->()){
         self.authService.sendVerificationEmail(user: user, handler: handler)
     }
-    
+
 }

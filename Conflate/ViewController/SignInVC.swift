@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SignInVC: UIViewController {
     
-    private let loginViewModel = SignInViewModel ()
-
+    private let signInViewModel = SignInViewModel()
+    private let signUpViewModel = SignUpViewModel()
+    
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -19,7 +21,7 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        self.hideSpinner()
+        self.hideSpinnerAndControlOn()
     }
     
     @IBAction func signUpWasPressed(_ sender: Any) {
@@ -29,21 +31,52 @@ class SignInVC: UIViewController {
         guard let useremail = emailTxtField.text else { return}
         guard let userpassword = passwordTxtField.text else { return}
         
-        showSpinner()
+        showSpinnerAndControlOff()
         
-        self.loginViewModel.signIn(email: useremail, password: userpassword) { (error) in
-            self.hideSpinner()
+        self.signInViewModel.signIn(email: useremail, password: userpassword) { (error, user) in
+            self.hideSpinnerAndControlOn()
             
             if let error = error {
-                // it didn't work
+                
                 print("user login failed")
-                self.showAlert(error: error)
+                self.showAlert(error: error, secondAlertAction: nil)
                 return
+                
             } else {
-               
                 print("user login succesfully")
-                // move to logged in viewcontroller
+                
+                guard let user = user else {
+                    self.showAlertWithMessage("Internal error : (")
+                    return
+                }
+                
+                self.checkIfVerified(user:user)
             }
+        }
+    }
+    
+    func checkIfVerified(user:User) {
+        if user.isEmailVerified {
+            // TODO: dismiss this viewcontroller to show main tab bar controller
+        } else {
+            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Your account is not verified. Click \"Resend\" if you want us to resend activation email"])
+            
+            let secondAction = UIAlertAction(title: "Resend", style: UIAlertAction.Style.default){ (action)  in
+                self.showSpinnerAndControlOff()
+                
+                self.signUpViewModel.sendVerificationEmail(user: user, handler: { (error) in
+                    self.hideSpinnerAndControlOn()
+                    
+                    if let error = error {
+                        self.showAlert(error: error, secondAlertAction: nil)
+                    } else {
+                        self.showAlertWithMessage("Verification email was sent!")
+                    }
+                    
+                })
+            }
+            
+            self.showAlert(error: error, secondAlertAction: secondAction)
         }
     }
     
@@ -53,24 +86,44 @@ class SignInVC: UIViewController {
     @IBAction func loginWithFBWasPressed(_ sender: UIButton) {
     }
     
-    func showAlert(error:Error?){
-
-        let alert = UIAlertController(title: "Oops", message: "\(error?.localizedDescription ?? "Login failed")", preferredStyle: UIAlertController.Style.alert)
+    func showAlert(error:Error?, secondAlertAction:UIAlertAction?){
+        let oopsTitle = "Oops!"
+        let wowTitle = "Wow!"
+        var messageTitle = ""
+        
+        if secondAlertAction != nil{
+            messageTitle = oopsTitle
+        } else {
+            messageTitle = wowTitle
+        }
+        
+        let alert = UIAlertController(title: messageTitle, message: "\(error?.localizedDescription ?? "Login failed")", preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-   
+        
+        if let secondAction = secondAlertAction {
+            alert.addAction(secondAction)
+        }
+        
         self.present(alert, animated: true, completion: nil)
     }
     
-    func showSpinner() {
+    func showSpinnerAndControlOff() {
         spinner.isHidden = false
         spinner.startAnimating()
+        self.view.isUserInteractionEnabled = false
     }
     
-    func hideSpinner() {
+    func hideSpinnerAndControlOn() {
         self.spinner.isHidden = true
         self.spinner.stopAnimating()
+        self.view.isUserInteractionEnabled = true
     }
-  
+    
+    func showAlertWithMessage(_ message:String) {
+        let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : message])
+        showAlert(error: error, secondAlertAction: nil)
+    }
+    
 }
 

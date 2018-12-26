@@ -7,13 +7,12 @@
 //
 
 import Foundation
-
+import Firebase
 
 class SignInViewModel {
     private let authService = AuthService()
     
-    func signIn(email: String, password: String, handler:@escaping (_ error:Error?) -> ()){
+    func signIn(email: String, password: String, handler:@escaping (_ error:Error?, _ user:User?) -> ()){
         self.authService.signInUser(email: email, password: password,handler: handler)
     }
-
 }

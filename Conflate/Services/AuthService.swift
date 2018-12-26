@@ -45,28 +45,22 @@ class AuthService {
         })
     }
     
-    func signInUser(email:String,password:String, handler:@escaping (_ error:Error?) -> ()){
+    func signInUser(email:String,password:String, handler:@escaping (_ error:Error?, _ user:User?) -> ()){
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             
             if let error = error {
                 print("login user error: \(error)")
-                handler(error)
+                handler(error, nil)
                 return
             }
             
             guard let user = user?.user else {
                 let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Internal error"])
-                handler(error)
+                handler(error, nil)
                 return
             }
-            
-            if !user.isEmailVerified {
-                let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Email for your account is not verified. Check your email or RESEND EMAIL-TODO"])
-                handler(error)
-                return
-            }
-            
-            handler(nil)
+
+            handler(nil, user)
         }
     }
     

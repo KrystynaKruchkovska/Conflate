@@ -23,7 +23,7 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        self.hideSpinner()
+        self.hideSpinnerAndControlOn()
     }
     
     
@@ -38,14 +38,14 @@ class SignUpVC: UIViewController {
             return
         }
         
-        showSpinner()
+        showSpinnerAndControlOff()
         
         self.signUpViewModel.createUser(email: useremail, password: userpassword) { (error, user) in
             
             if error != nil {
                 print("user create failed")
                 self.showAlert(error: error)
-                self.hideSpinner()
+                self.hideSpinnerAndControlOn()
                 
             } else {
                 guard let user = user else {
@@ -54,7 +54,7 @@ class SignUpVC: UIViewController {
                 }
                 
                 self.signUpViewModel.sendVerificationEmail(user: user, handler: { (error) in
-                    self.hideSpinner()
+                    self.hideSpinnerAndControlOn()
                     if let error = error {
                         self.showAlert(error: error)
                     }else{
@@ -63,7 +63,7 @@ class SignUpVC: UIViewController {
                 })
                 
                 print("user create succesfully")
-                // TODO: dismiss current view controller
+                // TODO: go to login view controller
             }
         }
         
@@ -96,14 +96,16 @@ class SignUpVC: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func showSpinner() {
+    func showSpinnerAndControlOff() {
         spinner.isHidden = false
         spinner.startAnimating()
+        self.view.isUserInteractionEnabled = false
     }
     
-    func hideSpinner() {
+    func hideSpinnerAndControlOn() {
         self.spinner.isHidden = true
         self.spinner.stopAnimating()
+        self.view.isUserInteractionEnabled = true
     }
 }
 
