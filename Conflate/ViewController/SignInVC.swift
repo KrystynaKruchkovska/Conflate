@@ -11,8 +11,7 @@ import FirebaseAuth
 
 class SignInVC: UIViewController {
     
-    private let signInViewModel = SignInViewModel()
-    private let signUpViewModel = SignUpViewModel()
+    private let authViewModel = AuthViewModel()
     
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
@@ -33,7 +32,7 @@ class SignInVC: UIViewController {
         
         showSpinnerAndControlOff()
         
-        self.signInViewModel.signIn(email: useremail, password: userpassword) { (error, user) in
+        self.authViewModel.signIn(email: useremail, password: userpassword) { (error, user) in
             self.hideSpinnerAndControlOn()
             
             if let error = error {
@@ -64,7 +63,7 @@ class SignInVC: UIViewController {
             let secondAction = UIAlertAction(title: "Resend", style: UIAlertAction.Style.default){ (action)  in
                 self.showSpinnerAndControlOff()
                 
-                self.signUpViewModel.sendVerificationEmail(user: user, handler: { (error) in
+                self.authViewModel.sendVerificationEmail(user: user, handler: { (error) in
                     self.hideSpinnerAndControlOn()
                     
                     if let error = error {

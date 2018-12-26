@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class SignUpViewModel{
+class AuthViewModel {
     private let authService = AuthService()
     
     func createUser(email:String, password:String, handler:@escaping (_ error:Error?,_ user:User?) -> ()) {
@@ -18,6 +18,10 @@ class SignUpViewModel{
     
     func sendVerificationEmail(user:User,handler:@escaping (_ error:Error?)->()){
         self.authService.sendVerificationEmail(user: user, handler: handler)
+    }
+    
+    func signIn(email: String, password: String, handler:@escaping (_ error:Error?, _ user:User?) -> ()){
+        self.authService.signInUser(email: email, password: password,handler: handler)
     }
 
 }

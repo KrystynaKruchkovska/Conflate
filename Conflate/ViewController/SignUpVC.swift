@@ -10,7 +10,7 @@ import UIKit
 
 class SignUpVC: UIViewController {
     
-    let signUpViewModel = SignUpViewModel()
+    private let authViewModel = AuthViewModel()
     
     @IBOutlet weak var nicknameTxtField: UITextField!
     @IBOutlet weak var emailTxtField: UITextField!
@@ -18,7 +18,6 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var confirmPasswordTxtField: UITextField!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +39,7 @@ class SignUpVC: UIViewController {
         
         showSpinnerAndControlOff()
         
-        self.signUpViewModel.createUser(email: useremail, password: userpassword) { (error, user) in
+        self.authViewModel.createUser(email: useremail, password: userpassword) { (error, user) in
             
             if error != nil {
                 print("user create failed")
@@ -53,7 +52,7 @@ class SignUpVC: UIViewController {
                     return
                 }
                 
-                self.signUpViewModel.sendVerificationEmail(user: user, handler: { (error) in
+                self.authViewModel.sendVerificationEmail(user: user, handler: { (error) in
                     self.hideSpinnerAndControlOn()
                     if let error = error {
                         self.showAlert(error: error)
