@@ -33,8 +33,7 @@ class SignUpVC: UIViewController {
             let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Password should be the same"])
 
             showAlert(error: error)
-            
-            //show alert
+
             return
         }
         

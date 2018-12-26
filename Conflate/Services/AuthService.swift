@@ -32,15 +32,26 @@ class AuthService {
                 return
             }
             
-            guard let _ = authResult?.user else {
+            guard let user = authResult?.user else {
                 handler(error)
                 return
             }
             
+            self.sendVerificationEmailTo(user: user)
+            
             handler(nil)
-            self.sendActivationEmail(email:email)
         }
         
+    }
+    
+    func sendVerificationEmailTo(user:User) {
+        user.sendEmailVerification(completion: { error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            print("Check your email for link")
+        })
     }
     
     func signInUser(email:String,password:String, handler:@escaping (_ error:Error?) -> ()){
@@ -51,23 +62,21 @@ class AuthService {
                 handler(error)
                 return
             }
-            guard let user = user?.user else{
+            
+            guard let user = user?.user else {
+                let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Internal error"])
                 handler(error)
                 return
             }
+            
+            if !user.isEmailVerified {
+                let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Email for your account is not verified. Check your email or RESEND EMAIL-TODO"])
+                handler(error)
+                return
+            }
+            
             handler(nil)
         }
     }
     
-    func sendActivationEmail(email:String) {
-        Auth.auth().sendSignInLink(toEmail:email,
-                                   actionCodeSettings: getEmailConfiguration()) { error in
-                                    if let error = error {
-                                        print(error.localizedDescription)
-                                        return
-                                    }
-                                    print("Check your email for link")
-                                  
-        }
-    }
 }
