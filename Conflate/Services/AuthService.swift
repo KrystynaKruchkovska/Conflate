@@ -11,6 +11,16 @@ import Firebase
 
 class AuthService {
     
+    func getEmailConfiguration() -> ActionCodeSettings {
+        
+        let actionCodeSettings = ActionCodeSettings()
+        //actionCodeSettings.url = URL(string: "https://conflate-343a5.firebaseapp.com")
+        
+        actionCodeSettings.handleCodeInApp = false
+        actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
+        return actionCodeSettings
+    }
+    
     func createUser(email:String, password:String, handler:@escaping (_ error:Error?) -> ()) {
         
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
@@ -28,6 +38,7 @@ class AuthService {
             }
             
             handler(nil)
+            self.sendActivationEmail(email:email)
         }
         
     }
@@ -45,6 +56,18 @@ class AuthService {
                 return
             }
             handler(nil)
+        }
+    }
+    
+    func sendActivationEmail(email:String) {
+        Auth.auth().sendSignInLink(toEmail:email,
+                                   actionCodeSettings: getEmailConfiguration()) { error in
+                                    if let error = error {
+                                        print(error.localizedDescription)
+                                        return
+                                    }
+                                    print("Check your email for link")
+                                  
         }
     }
 }
