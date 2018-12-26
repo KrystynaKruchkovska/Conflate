@@ -21,33 +21,31 @@ class AuthService {
         return actionCodeSettings
     }
     
-    func createUser(email:String, password:String, handler:@escaping (_ error:Error?) -> ()) {
+    func createUser(email:String, password:String, handler:@escaping (_ error:Error?,_ user:User?) -> ()) {
         
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             
             if let error = error {
                 print("create user error: \(error)")
-                handler(error)
+                handler(error,nil)
                 
                 return
             }
-            
             guard let user = authResult?.user else {
-                handler(error)
+                handler(error,nil)
                 return
             }
-            
-            self.sendVerificationEmailTo(user: user)
-            
-            handler(nil)
+       
+            handler(nil,user)
         }
         
     }
     
-    func sendVerificationEmailTo(user:User) {
+    func sendVerificationEmail(user:User, handler:@escaping (_ error:Error?)->()){
         user.sendEmailVerification(completion: { error in
             if let error = error {
                 print(error.localizedDescription)
+                handler(error)
                 return
             }
             print("Check your email for link")

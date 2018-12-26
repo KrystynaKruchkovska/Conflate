@@ -31,43 +31,69 @@ class SignUpVC: UIViewController {
         guard let useremail = emailTxtField.text else { return}
         guard let userpassword = passwordTxtField.text else { return}
         guard let confirmuserpassword = confirmPasswordTxtField.text else { return}
-        showSpinner()
-       
-        if userpassword != confirmuserpassword{
-            hideSpinner()
+        
+        if userpassword != confirmuserpassword {
             self.confirmPasswordTxtField.makeWarningError()
-            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Password should be the same"])
-
-            showAlert(error: error)
-
+            showAlertWithErrorMessage("Password should be the same")
             return
         }
         
-        self.signUpViewModel.createUser(email: useremail, password: userpassword) { (error) in
+        showSpinner()
+        
+        self.signUpViewModel.createUser(email: useremail, password: userpassword) { (error, user) in
             self.hideSpinner()
             if error != nil {
                 print("user create failed")
                 self.showAlert(error: error)
                 
             } else {
-                print("user create succesfully")
+                guard let user = user else {
+                    self.showAlertWithErrorMessage("Internal error :(")
+                    return
+                }
                 
+                self.signUpViewModel.sendVerificationEmail(user: user, handler: { (error) in
+                    if let error = error {
+                        self.showAlert(error: error)
+                    }else{
+                        self.verifyEmailAlert(message: "Verification email was sent successfully, check your email")
+                    }
+                })
+                
+                print("user create succesfully")
+                // TODO: dismiss current view controller
             }
         }
+        
     }
     
     
-    func showAlert(error:Error?){
-        guard let errorDescription = error?.localizedDescription  else {
-            print("not showing error without description")
-            return
-        }
-        let alert = UIAlertController(title: "OOPS", message: errorDescription, preferredStyle: UIAlertController.Style.alert)
+    func verifyEmailAlert(message:String){
+        let alert = UIAlertController(title: "WELL DONE!", message: message, preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func showAlertWithErrorMessage(_ message:String) {
+        let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : message])
+        showAlert(error: error)
+    }
+    
+    func showAlert(error:Error?){
+        guard let errorDescription = error?.localizedDescription  else {
+            self.showAlertWithErrorMessage("Internal error :(")
+            return
+        }
+        
+        let alert = UIAlertController(title: "Oops", message: errorDescription, preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func showSpinner() {
         spinner.isHidden = false
         spinner.startAnimating()
