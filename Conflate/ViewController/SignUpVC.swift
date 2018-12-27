@@ -10,7 +10,7 @@ import UIKit
 
 class SignUpVC: UIViewController {
     
-    private let authViewModel = AuthViewModel()
+    var authViewModel:AuthViewModel!
     
     @IBOutlet weak var nicknameTxtField: UITextField!
     @IBOutlet weak var emailTxtField: UITextField!

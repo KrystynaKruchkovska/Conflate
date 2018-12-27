@@ -13,19 +13,28 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
-        
-        let storyboard = UIStoryboard(name: Constants.Storyboard.loginSignUp, bundle: Bundle.main)
-        let loginVC = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.loginVC)
-        window?.makeKeyAndVisible()
-        window?.rootViewController?.present(loginVC, animated: true, completion: nil)
+        showSignInVC()
 
         return true
+    }
+    
+    func showSignInVC(){
+    
+        let storyboard = UIStoryboard(name: Constants.Storyboard.authSB, bundle: Bundle.main)
+        let signInVC = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.signInVC)
+        let authViewModel = AuthViewModel()
+        
+        if let signInVC = signInVC as? SignInVC {
+            signInVC.authViewModel = authViewModel
+        }
+        
+        window?.makeKeyAndVisible()
+        window?.rootViewController?.present(signInVC, animated: true, completion: nil)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

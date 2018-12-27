@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sign InVC-->
+        <!--SignInVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="SignInVC" customModule="Conflate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInVC" id="BYZ-38-t0r" userLabel="SignInVC" customClass="SignInVC" customModule="Conflate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="GradientView" customModule="Conflate" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,7 +100,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="signUpWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AJJ-KN-jEG"/>
                                     <segue destination="MFv-Rv-tqu" kind="presentation" id="UIQ-Dv-lvs"/>
                                 </connections>
                             </button>
@@ -317,6 +316,6 @@
         <image name="back-filled" width="112.5" height="112.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F9d-at-Rht"/>
+        <segue reference="UIQ-Dv-lvs"/>
     </inferredMetricsTieBreakers>
 </document>

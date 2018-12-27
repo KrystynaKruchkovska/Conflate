@@ -11,7 +11,7 @@
 		04763B4321D0ED3200421DA0 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04763B4221D0ED3200421DA0 /* SignUpVC.swift */; };
 		04B3766021CE575B00784506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3765F21CE575B00784506 /* AppDelegate.swift */; };
 		04B3766221CE575B00784506 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3766121CE575B00784506 /* SignInVC.swift */; };
-		04B3766521CE575B00784506 /* LoginSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B3766321CE575B00784506 /* LoginSignUp.storyboard */; };
+		04B3766521CE575B00784506 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B3766321CE575B00784506 /* Auth.storyboard */; };
 		04B3766721CE576300784506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B3766621CE576300784506 /* Assets.xcassets */; };
 		04B3766A21CE576300784506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B3766821CE576300784506 /* LaunchScreen.storyboard */; };
 		04B3767521CE576400784506 /* ConflateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3767421CE576400784506 /* ConflateTests.swift */; };
@@ -42,7 +42,7 @@
 		04B3765C21CE575B00784506 /* Conflate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conflate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B3765F21CE575B00784506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B3766121CE575B00784506 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
-		04B3766421CE575B00784506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginSignUp.storyboard; sourceTree = "<group>"; };
+		04B3766421CE575B00784506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
 		04B3766621CE576300784506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04B3766921CE576300784506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04B3766B21CE576300784506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 		E585014F21D2AD7B00FCEFBB /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				04B3766321CE575B00784506 /* LoginSignUp.storyboard */,
+				04B3766321CE575B00784506 /* Auth.storyboard */,
 				04B3766821CE576300784506 /* LaunchScreen.storyboard */,
 				E585015021D2AD9C00FCEFBB /* Main.storyboard */,
 			);
@@ -307,7 +307,7 @@
 				04B3766A21CE576300784506 /* LaunchScreen.storyboard in Resources */,
 				E585015121D2AD9C00FCEFBB /* Main.storyboard in Resources */,
 				04B3766721CE576300784506 /* Assets.xcassets in Resources */,
-				04B3766521CE575B00784506 /* LoginSignUp.storyboard in Resources */,
+				04B3766521CE575B00784506 /* Auth.storyboard in Resources */,
 				04B3768621CEA19500784506 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,12 +462,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		04B3766321CE575B00784506 /* LoginSignUp.storyboard */ = {
+		04B3766321CE575B00784506 /* Auth.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				04B3766421CE575B00784506 /* Base */,
 			);
-			name = LoginSignUp.storyboard;
+			name = Auth.storyboard;
 			sourceTree = "<group>";
 		};
 		04B3766821CE576300784506 /* LaunchScreen.storyboard */ = {

@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class SignInVC: UIViewController {
     
-    private let authViewModel = AuthViewModel()
+    var authViewModel:AuthViewModel!
     
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
@@ -23,8 +23,17 @@ class SignInVC: UIViewController {
         self.hideSpinnerAndControlOn()
     }
     
-    @IBAction func signUpWasPressed(_ sender: Any) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is SignUpVC {
+            let vc = segue.destination as? SignUpVC
+            
+            if vc?.authViewModel !== self.authViewModel {
+                vc?.authViewModel = self.authViewModel
+            }
+            
+        }
     }
+    
     
     @IBAction func LoginBtnWasPressed(_ sender: UIButton) {
         guard let useremail = emailTxtField.text else { return}
