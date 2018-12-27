@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04763B3F21D0E60400421DA0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04763B3E21D0E60300421DA0 /* AuthService.swift */; };
+		0424B22121D5609E0005E3C3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424B22021D5609E0005E3C3 /* AuthService.swift */; };
+		04763B3F21D0E60400421DA0 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04763B3E21D0E60300421DA0 /* FirebaseAuthService.swift */; };
 		04763B4321D0ED3200421DA0 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04763B4221D0ED3200421DA0 /* SignUpVC.swift */; };
 		04B3766021CE575B00784506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3765F21CE575B00784506 /* AppDelegate.swift */; };
 		04B3766221CE575B00784506 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3766121CE575B00784506 /* SignInVC.swift */; };
@@ -37,7 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04763B3E21D0E60300421DA0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		0424B22021D5609E0005E3C3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		04763B3E21D0E60300421DA0 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		04763B4221D0ED3200421DA0 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		04B3765C21CE575B00784506 /* Conflate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conflate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B3765F21CE575B00784506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,7 +89,8 @@
 		04763B3D21D0E59A00421DA0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				04763B3E21D0E60300421DA0 /* AuthService.swift */,
+				04763B3E21D0E60300421DA0 /* FirebaseAuthService.swift */,
+				0424B22021D5609E0005E3C3 /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -437,7 +440,8 @@
 				04B3766021CE575B00784506 /* AppDelegate.swift in Sources */,
 				04B3768421CE8AC300784506 /* GradientView.swift in Sources */,
 				04763B4321D0ED3200421DA0 /* SignUpVC.swift in Sources */,
-				04763B3F21D0E60400421DA0 /* AuthService.swift in Sources */,
+				04763B3F21D0E60400421DA0 /* FirebaseAuthService.swift in Sources */,
+				0424B22121D5609E0005E3C3 /* AuthService.swift in Sources */,
 				04F9C34621D0F9E200CCFB00 /* AuthViewModel.swift in Sources */,
 				E5FD211B21D16CFC003A9E4A /* Constants.swift in Sources */,
 			);

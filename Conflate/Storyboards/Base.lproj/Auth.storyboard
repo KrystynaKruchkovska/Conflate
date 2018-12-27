@@ -100,7 +100,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="MFv-Rv-tqu" kind="presentation" id="UIQ-Dv-lvs"/>
+                                    <segue destination="MFv-Rv-tqu" kind="show" id="UIQ-Dv-lvs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWT-Ta-vBU">
@@ -253,8 +253,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonWasPressed:" destination="2El-qx-j72" eventType="touchUpInside" id="4IP-D5-EbX"/>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="F9d-at-Rht"/>
+                                    <action selector="backbuttonWasPressed:" destination="MFv-Rv-tqu" eventType="touchUpInside" id="Gmp-Dc-K67"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWh-rX-nbV">
@@ -307,7 +306,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDr-J8-YBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="2El-qx-j72" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-2036" y="-675"/>
         </scene>
@@ -315,7 +313,4 @@
     <resources>
         <image name="back-filled" width="112.5" height="112.5"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="UIQ-Dv-lvs"/>
-    </inferredMetricsTieBreakers>
 </document>

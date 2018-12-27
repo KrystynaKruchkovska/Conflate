@@ -24,6 +24,9 @@ class SignUpVC: UIViewController {
         self.hideKeyboardWhenTappedAround()
         self.hideSpinnerAndControlOn()
     }
+    @IBAction func backbuttonWasPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     @IBAction func createUserBtnWasPressed(_ sender: UIButton) {

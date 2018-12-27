@@ -27,14 +27,14 @@ class SignInVC: UIViewController {
         if segue.destination is SignUpVC {
             let vc = segue.destination as? SignUpVC
             
-            if vc?.authViewModel !== self.authViewModel {
+           if vc?.authViewModel !== self.authViewModel {
                 vc?.authViewModel = self.authViewModel
             }
-            
+        
         }
     }
     
-    
+
     @IBAction func LoginBtnWasPressed(_ sender: UIButton) {
         guard let useremail = emailTxtField.text else { return}
         guard let userpassword = passwordTxtField.text else { return}

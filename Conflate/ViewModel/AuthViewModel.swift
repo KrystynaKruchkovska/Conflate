@@ -10,7 +10,12 @@ import Foundation
 import Firebase
 
 class AuthViewModel {
-    private let authService = AuthService()
+    
+    private let authService:AuthService
+    
+    init(authService:AuthService) {
+        self.authService = authService
+    }
     
     func createUser(email:String, password:String, handler:@escaping (_ error:Error?,_ user:User?) -> ()) {
         self.authService.createUser(email: email, password: password, handler: handler)

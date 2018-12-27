@@ -27,7 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         let storyboard = UIStoryboard(name: Constants.Storyboard.authSB, bundle: Bundle.main)
         let signInVC = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.signInVC)
-        let authViewModel = AuthViewModel()
+        
+        let authService = FirebaseAuthService()
+        let authViewModel = AuthViewModel(authService: authService)
         
         if let signInVC = signInVC as? SignInVC {
             signInVC.authViewModel = authViewModel
