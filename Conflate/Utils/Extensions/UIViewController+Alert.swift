@@ -15,7 +15,7 @@ extension UIViewController {
         let errorTitle = Constants.Alerts.errorAlertTitle
         
         guard let message = error?.localizedDescription  else {
-            self.showAlert("Internal error :(", title: errorTitle, secondAlertAction: secondAlertAction)
+            self.showAlert(Constants.Strings.internal_error, title: errorTitle, secondAlertAction: secondAlertAction)
             return
         }
         

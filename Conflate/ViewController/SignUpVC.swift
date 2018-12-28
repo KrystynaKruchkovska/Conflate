@@ -36,7 +36,7 @@ class SignUpVC: UIViewController {
         
         if userpassword != confirmuserpassword {
             self.confirmPasswordTxtField.makeWarningError()
-            showAlert("Password should be the same", title: Constants.Alerts.errorAlertTitle)
+            showAlert(Constants.Strings.different_passwords, title: Constants.Alerts.errorAlertTitle)
             return
         }
         
@@ -48,10 +48,9 @@ class SignUpVC: UIViewController {
                 print("user create failed")
                 self?.showAlertWithError(error)
                 self?.hideSpinnerAndControlOn(spinner: self?.spinner)
-                
             } else {
                 guard let user = user else {
-                    self?.showAlert("Internal error :(", title: Constants.Alerts.errorAlertTitle)
+                    self?.showAlert(Constants.Strings.internal_error, title: Constants.Alerts.errorAlertTitle)
                     return
                 }
                 
@@ -60,15 +59,19 @@ class SignUpVC: UIViewController {
                     if let error = error {
                         self?.showAlertWithError(error)
                     }else{
-                        self?.showAlert("Verification email was sent successfully, check your email", title: Constants.Alerts.successAlertTitle)
+                        self?.showAlert(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle)
                     }
                 })
                 
                 print("user create succesfully")
-                // TODO: go to login view controller
+                //TODO: line below should be executed after user click ok on alert
+                self?.showSignInVC()
             }
         }
-        
+    }
+    
+    func showSignInVC() {
+        self.dismiss(animated: true, completion:nil)
     }
     
 }

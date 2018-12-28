@@ -41,7 +41,7 @@ class SignInVC: UIViewController {
         button.frame = CGRect(x: 0, y: 0, width: self.passwordTxtField.frame.width/3.0, height: self.passwordTxtField.frame.height)
         button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.setTitleColor(#colorLiteral(red: 0.5019607843, green: 0.4, blue: 0.768627451, alpha: 1), for: .normal)
-        button.setTitle("Forgot?", for: .normal)
+        button.setTitle(Constants.Strings.forgot, for: .normal)
         button.addTarget(self, action: #selector(forgotPasswordButtonAction), for: .touchUpInside)
     }
     
@@ -66,15 +66,15 @@ class SignInVC: UIViewController {
             
             if let error = error {
                 
-                print("user login failed")
+                print("user sign in failed")
                 self?.showAlertWithError(error, secondAlertAction: nil)
                 return
                 
             } else {
-                print("user login succesfully")
+                print("user signed succesfully")
                 
                 guard let user = user else {
-                    self?.showAlert("Internal error : (", title: "Oops")
+                    self?.showAlert(Constants.Strings.internal_error, title: Constants.Alerts.errorAlertTitle)
                     return
                 }
                 
@@ -85,11 +85,11 @@ class SignInVC: UIViewController {
     
     func checkIfVerified(user:User) {
         if user.isEmailVerified {
-            // TODO: dismiss this viewcontroller to show main tab bar controller
+            showTabBarVC()
         } else {
-            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Your account is not verified. Click \"Resend\" if you want us to resend activation email"])
+            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : Constants.Strings.verification_invalid])
             
-            let secondAction = UIAlertAction(title: "Resend", style: UIAlertAction.Style.default) { [weak self] (action)  in
+            let secondAction = UIAlertAction(title: Constants.Alerts.resend, style: UIAlertAction.Style.default) { [weak self] (action)  in
                 self?.showSpinnerAndControlOff(spinner: self?.spinner)
                 
                 self?.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
@@ -98,7 +98,7 @@ class SignInVC: UIViewController {
                     if let error = error {
                         self?.showAlertWithError(error)
                     } else {
-                        self?.showAlert("Verification email was sent!", title: Constants.Alerts.successAlertTitle)
+                        self?.showAlert(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle)
                     }
                     
                 })
@@ -106,6 +106,10 @@ class SignInVC: UIViewController {
             
             self.showAlertWithError(error, secondAlertAction: secondAction)
         }
+    }
+    
+    func showTabBarVC() {
+        self.dismiss(animated: true, completion: nil)
     }
         
     @IBAction func loginWithFBWasPressed(_ sender: UIButton) {
