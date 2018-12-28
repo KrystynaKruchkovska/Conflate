@@ -12,6 +12,7 @@ import FirebaseAuth
 class SignInVC: UIViewController {
     
     var authViewModel:AuthViewModel!
+    var forgotPasswordBtn = UIButton()
     
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
@@ -21,6 +22,8 @@ class SignInVC: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         self.hideSpinnerAndControlOn()
+        configureForgotPasswordButton(button: forgotPasswordBtn)
+        passwordTxtField.addButton(forgotPasswordBtn)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,6 +35,23 @@ class SignInVC: UIViewController {
             }
         
         }
+    }
+    
+    func configureForgotPasswordButton(button:UIButton){
+        button.frame = CGRect(x: 0, y: 0, width: self.passwordTxtField.frame.width/3.0, height: self.passwordTxtField.frame.height)
+        button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        button.setTitleColor(#colorLiteral(red: 0.5019607843, green: 0.4, blue: 0.768627451, alpha: 1), for: .normal)
+        button.setTitle("Forgot?", for: .normal)
+        button.addTarget(self, action: #selector(forgotPasswordButtonAction), for: .touchUpInside)
+    }
+    
+    @objc func forgotPasswordButtonAction(sender: UIButton!) {
+        let storyboard = UIStoryboard(name: Constants.Storyboard.authSB, bundle: Bundle.main)
+        let forgotPasswordVC = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.forgotPasswordVC)
+        if let presentVC = forgotPasswordVC as? ForgotPasswordVC{
+            presentVC.authViewModel = self.authViewModel
+        }
+        present(forgotPasswordVC, animated: true, completion: nil)
     }
     
 
@@ -87,11 +107,20 @@ class SignInVC: UIViewController {
             self.showAlert(error: error, secondAlertAction: secondAction)
         }
     }
-    
-    @IBAction func forgotPasswordWasPressed(_ sender: UIButton) {
+        
+    @IBAction func loginWithFBWasPressed(_ sender: UIButton) {
+    }
+
+    func showSpinnerAndControlOff() {
+        spinner.isHidden = false
+        spinner.startAnimating()
+        self.view.isUserInteractionEnabled = false
     }
     
-    @IBAction func loginWithFBWasPressed(_ sender: UIButton) {
+    func hideSpinnerAndControlOn() {
+        self.spinner.isHidden = true
+        self.spinner.stopAnimating()
+        self.view.isUserInteractionEnabled = true
     }
     
     func showAlert(error:Error?, secondAlertAction:UIAlertAction?){
@@ -99,7 +128,7 @@ class SignInVC: UIViewController {
         let wowTitle = "Wow!"
         var messageTitle = ""
         
-        if secondAlertAction != nil{
+        if secondAlertAction != nil {
             messageTitle = oopsTitle
         } else {
             messageTitle = wowTitle
@@ -114,18 +143,6 @@ class SignInVC: UIViewController {
         }
         
         self.present(alert, animated: true, completion: nil)
-    }
-    
-    func showSpinnerAndControlOff() {
-        spinner.isHidden = false
-        spinner.startAnimating()
-        self.view.isUserInteractionEnabled = false
-    }
-    
-    func hideSpinnerAndControlOn() {
-        self.spinner.isHidden = true
-        self.spinner.stopAnimating()
-        self.view.isUserInteractionEnabled = true
     }
     
     func showAlertWithMessage(_ message:String) {

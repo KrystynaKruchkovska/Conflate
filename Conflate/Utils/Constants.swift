@@ -13,6 +13,7 @@ struct Constants {
     struct Storyboard {
         static let authSB = "Auth"
         static let signInVC = "SignInVC"
+        static let forgotPasswordVC = "ForgotPasswordVC"
     }
     
 }

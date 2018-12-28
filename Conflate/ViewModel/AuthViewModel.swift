@@ -28,5 +28,9 @@ class AuthViewModel {
     func signIn(email: String, password: String, handler:@escaping (_ error:Error?, _ user:User?) -> ()){
         self.authService.signInUser(email: email, password: password,handler: handler)
     }
+    
+    func resetPassword(email: String,handler:@escaping (_ error:Error?) -> ()){
+        self.authService.resetPassword(email: email, handler: handler)
+    }
 
 }

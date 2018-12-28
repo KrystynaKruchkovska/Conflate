@@ -17,5 +17,7 @@ protocol AuthService {
     
     func signInUser(email:String,password:String, handler:@escaping (_ error:Error?, _ user:User?) -> ())
     
+    func resetPassword(email:String, handler:@escaping (_ error:Error?) -> ())
+    
 }
 

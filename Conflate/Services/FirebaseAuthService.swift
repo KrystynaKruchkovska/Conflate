@@ -10,6 +10,19 @@ import Foundation
 import Firebase
 
 class FirebaseAuthService: AuthService {
+    
+    func resetPassword(email: String, handler: @escaping (_ error:Error?) -> ()) {
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if error != nil{
+                print("create user error: \(String(describing: error))")
+                handler(error)
+                return
+            }
+            
+            handler(nil)
+        }
+    }
+    
  
     func createUser(email:String, password:String, handler:@escaping (_ error:Error?,_ user:User?) -> ()) {
         
@@ -17,16 +30,16 @@ class FirebaseAuthService: AuthService {
             
             if let error = error {
                 print("create user error: \(error)")
-                handler(error,nil)
+                handler(error, nil)
                 
                 return
             }
             guard let user = authResult?.user else {
-                handler(error,nil)
+                handler(error, nil)
                 return
             }
        
-            handler(nil,user)
+            handler(nil, user)
         }
         
     }
