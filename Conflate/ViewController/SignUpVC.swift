@@ -16,7 +16,6 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var confirmPasswordTxtField: UITextField!
-    
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -24,6 +23,7 @@ class SignUpVC: UIViewController {
         self.hideKeyboardWhenTappedAround()
         self.hideSpinnerAndControlOn()
     }
+    
     @IBAction func backbuttonWasPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -42,25 +42,25 @@ class SignUpVC: UIViewController {
         
         showSpinnerAndControlOff()
         
-        self.authViewModel.createUser(email: useremail, password: userpassword) { (error, user) in
+        self.authViewModel.createUser(email: useremail, password: userpassword) { [weak self](error, user) in
             
             if error != nil {
                 print("user create failed")
-                self.showAlert(error: error)
-                self.hideSpinnerAndControlOn()
+                self?.showAlert(error: error)
+                self?.hideSpinnerAndControlOn()
                 
             } else {
                 guard let user = user else {
-                    self.showAlertWithErrorMessage("Internal error :(")
+                    self?.showAlertWithErrorMessage("Internal error :(")
                     return
                 }
                 
-                self.authViewModel.sendVerificationEmail(user: user, handler: { (error) in
-                    self.hideSpinnerAndControlOn()
+                self?.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
+                    self?.hideSpinnerAndControlOn()
                     if let error = error {
-                        self.showAlert(error: error)
+                        self?.showAlert(error: error)
                     }else{
-                        self.verifyEmailAlert(message: "Verification email was sent successfully, check your email")
+                        self?.verifyEmailAlert(message: "Verification email was sent successfully, check your email")
                     }
                 })
                 

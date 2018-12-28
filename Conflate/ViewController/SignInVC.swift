@@ -41,24 +41,24 @@ class SignInVC: UIViewController {
         
         showSpinnerAndControlOff()
         
-        self.authViewModel.signIn(email: useremail, password: userpassword) { (error, user) in
-            self.hideSpinnerAndControlOn()
+        self.authViewModel.signIn(email: useremail, password: userpassword) { [weak self](error, user) in
+            self?.hideSpinnerAndControlOn()
             
             if let error = error {
                 
                 print("user login failed")
-                self.showAlert(error: error, secondAlertAction: nil)
+                self?.showAlert(error: error, secondAlertAction: nil)
                 return
                 
             } else {
                 print("user login succesfully")
                 
                 guard let user = user else {
-                    self.showAlertWithMessage("Internal error : (")
+                    self?.showAlertWithMessage("Internal error : (")
                     return
                 }
                 
-                self.checkIfVerified(user:user)
+                self?.checkIfVerified(user:user)
             }
         }
     }
@@ -72,13 +72,13 @@ class SignInVC: UIViewController {
             let secondAction = UIAlertAction(title: "Resend", style: UIAlertAction.Style.default){ (action)  in
                 self.showSpinnerAndControlOff()
                 
-                self.authViewModel.sendVerificationEmail(user: user, handler: { (error) in
-                    self.hideSpinnerAndControlOn()
+                self.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
+                    self?.hideSpinnerAndControlOn()
                     
                     if let error = error {
-                        self.showAlert(error: error, secondAlertAction: nil)
+                        self?.showAlert(error: error, secondAlertAction: nil)
                     } else {
-                        self.showAlertWithMessage("Verification email was sent!")
+                        self?.showAlertWithMessage("Verification email was sent!")
                     }
                     
                 })
