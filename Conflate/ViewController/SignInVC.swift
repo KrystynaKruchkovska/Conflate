@@ -67,14 +67,14 @@ class SignInVC: UIViewController {
             if let error = error {
                 
                 print("user login failed")
-                self?.showAlert(error: error, secondAlertAction: nil)
+                self?.showAlertWithError(error, secondAlertAction: nil)
                 return
                 
             } else {
                 print("user login succesfully")
                 
                 guard let user = user else {
-                    self?.showAlertWithMessage("Internal error : (")
+                    self?.showAlert("Internal error : (", title: "Oops")
                     return
                 }
                 
@@ -96,48 +96,20 @@ class SignInVC: UIViewController {
                     self?.hideSpinnerAndControlOn(spinner: self?.spinner)
                     
                     if let error = error {
-                        self?.showAlert(error: error, secondAlertAction: nil)
+                        self?.showAlertWithError(error)
                     } else {
-                        self?.showAlertWithMessage("Verification email was sent!")
+                        self?.showAlert("Verification email was sent!", title: Constants.Alerts.successAlertTitle)
                     }
                     
                 })
             }
             
-            self.showAlert(error: error, secondAlertAction: secondAction)
+            self.showAlertWithError(error, secondAlertAction: secondAction)
         }
     }
         
     @IBAction func loginWithFBWasPressed(_ sender: UIButton) {
     }
 
-    
-    func showAlert(error:Error?, secondAlertAction:UIAlertAction?){
-        let oopsTitle = "Oops!"
-        let wowTitle = "Wow!"
-        var messageTitle = ""
-        
-        if secondAlertAction != nil {
-            messageTitle = oopsTitle
-        } else {
-            messageTitle = wowTitle
-        }
-        
-        let alert = UIAlertController(title: messageTitle, message: "\(error?.localizedDescription ?? "Login failed")", preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        if let secondAction = secondAlertAction {
-            alert.addAction(secondAction)
-        }
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func showAlertWithMessage(_ message:String) {
-        let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : message])
-        showAlert(error: error, secondAlertAction: nil)
-    }
-    
 }
 

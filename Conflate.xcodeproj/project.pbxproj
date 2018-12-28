@@ -11,7 +11,8 @@
 		0424B22721D66BE60005E3C3 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424B22621D66BE50005E3C3 /* CustomTextField.swift */; };
 		0424B22921D66CE00005E3C3 /* UITextField+Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424B22821D66CE00005E3C3 /* UITextField+Button.swift */; };
 		0424B22B21D679440005E3C3 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424B22A21D679440005E3C3 /* ForgotPasswordVC.swift */; };
-		0424B22D21D688CA0005E3C3 /* UIViewController + Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424B22C21D688C90005E3C3 /* UIViewController + Spinner.swift */; };
+		0424B22D21D688CA0005E3C3 /* UIViewController+Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424B22C21D688C90005E3C3 /* UIViewController+Spinner.swift */; };
+		0424B22F21D692250005E3C3 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424B22E21D692250005E3C3 /* UIViewController+Alert.swift */; };
 		04763B3F21D0E60400421DA0 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04763B3E21D0E60300421DA0 /* FirebaseAuthService.swift */; };
 		04763B4321D0ED3200421DA0 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04763B4221D0ED3200421DA0 /* SignUpVC.swift */; };
 		04B3766021CE575B00784506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3765F21CE575B00784506 /* AppDelegate.swift */; };
@@ -46,7 +47,8 @@
 		0424B22621D66BE50005E3C3 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		0424B22821D66CE00005E3C3 /* UITextField+Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Button.swift"; sourceTree = "<group>"; };
 		0424B22A21D679440005E3C3 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
-		0424B22C21D688C90005E3C3 /* UIViewController + Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Spinner.swift"; sourceTree = "<group>"; };
+		0424B22C21D688C90005E3C3 /* UIViewController+Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Spinner.swift"; sourceTree = "<group>"; };
+		0424B22E21D692250005E3C3 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		04763B3E21D0E60300421DA0 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		04763B4221D0ED3200421DA0 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		04B3765C21CE575B00784506 /* Conflate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conflate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,7 +231,8 @@
 				E5FD211C21D16E0F003A9E4A /* UITextField+ErrorBorder.swift */,
 				04F9C34721D10D5700CCFB00 /* UIViewController+hideKeyboard.swift */,
 				0424B22821D66CE00005E3C3 /* UITextField+Button.swift */,
-				0424B22C21D688C90005E3C3 /* UIViewController + Spinner.swift */,
+				0424B22C21D688C90005E3C3 /* UIViewController+Spinner.swift */,
+				0424B22E21D692250005E3C3 /* UIViewController+Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -450,9 +453,10 @@
 				0424B22721D66BE60005E3C3 /* CustomTextField.swift in Sources */,
 				04B3766221CE575B00784506 /* SignInVC.swift in Sources */,
 				04F9C34821D10D5700CCFB00 /* UIViewController+hideKeyboard.swift in Sources */,
+				0424B22F21D692250005E3C3 /* UIViewController+Alert.swift in Sources */,
 				04B3766021CE575B00784506 /* AppDelegate.swift in Sources */,
 				0424B22921D66CE00005E3C3 /* UITextField+Button.swift in Sources */,
-				0424B22D21D688CA0005E3C3 /* UIViewController + Spinner.swift in Sources */,
+				0424B22D21D688CA0005E3C3 /* UIViewController+Spinner.swift in Sources */,
 				04B3768421CE8AC300784506 /* GradientView.swift in Sources */,
 				04763B4321D0ED3200421DA0 /* SignUpVC.swift in Sources */,
 				0424B22B21D679440005E3C3 /* ForgotPasswordVC.swift in Sources */,

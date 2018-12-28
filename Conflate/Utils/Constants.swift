@@ -16,4 +16,9 @@ struct Constants {
         static let forgotPasswordVC = "ForgotPasswordVC"
     }
     
+    struct Alerts {
+        static let errorAlertTitle = "Oops"
+        static let successAlertTitle = "Whoop"
+    }
+    
 }

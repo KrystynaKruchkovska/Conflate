@@ -36,7 +36,7 @@ class SignUpVC: UIViewController {
         
         if userpassword != confirmuserpassword {
             self.confirmPasswordTxtField.makeWarningError()
-            showAlertWithErrorMessage("Password should be the same")
+            showAlert("Password should be the same", title: Constants.Alerts.errorAlertTitle)
             return
         }
         
@@ -44,28 +44,23 @@ class SignUpVC: UIViewController {
         
         self.authViewModel.createUser(email: useremail, password: userpassword) { [weak self](error, user) in
             
-            guard let unwrappedSelf = self else {
-                print("there is no referance to self")
-                return
-            }
-            
             if error != nil {
                 print("user create failed")
-                self?.showAlert(error: error)
+                self?.showAlertWithError(error)
                 self?.hideSpinnerAndControlOn(spinner: self?.spinner)
                 
             } else {
                 guard let user = user else {
-                    self?.showAlertWithErrorMessage("Internal error :(")
+                    self?.showAlert("Internal error :(", title: Constants.Alerts.errorAlertTitle)
                     return
                 }
                 
                 self?.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
                     self?.hideSpinnerAndControlOn(spinner: self?.spinner)
                     if let error = error {
-                        self?.showAlert(error: error)
+                        self?.showAlertWithError(error)
                     }else{
-                        self?.verifyEmailAlert(message: "Verification email was sent successfully, check your email")
+                        self?.showAlert("Verification email was sent successfully, check your email", title: Constants.Alerts.successAlertTitle)
                     }
                 })
                 
@@ -76,32 +71,5 @@ class SignUpVC: UIViewController {
         
     }
     
-    
-    func verifyEmailAlert(message:String){
-        let alert = UIAlertController(title: "WELL DONE!", message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func showAlertWithErrorMessage(_ message:String) {
-        let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : message])
-        showAlert(error: error)
-    }
-    
-    func showAlert(error:Error?){
-        guard let errorDescription = error?.localizedDescription  else {
-            self.showAlertWithErrorMessage("Internal error :(")
-            return
-        }
-        
-        let alert = UIAlertController(title: "Oops", message: errorDescription, preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-
 }
 

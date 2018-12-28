@@ -31,9 +31,9 @@ class ForgotPasswordVC: UIViewController {
         self.authViewModel.resetPassword(email: email) { [weak self](error) in
             self?.hideSpinnerAndControlOn(spinner: self?.spinner)
             if error != nil{
-                self?.showAlert(error: error, secondAlertAction: nil)
+                self?.showAlertWithError(error)
             } else {
-                self?.showAlertWithMessage("Now you can reset password, check your mail")
+                self?.showAlert("You can reset your password now, check your email", title: Constants.Alerts.successAlertTitle)
             }
         }
     }
@@ -43,33 +43,33 @@ class ForgotPasswordVC: UIViewController {
     }
     
 
-    
-    func showAlert(error:Error?, secondAlertAction:UIAlertAction?){
-        let oopsTitle = "Oops!"
-        let wowTitle = "Wow!"
-        var messageTitle = ""
-        
-        if secondAlertAction != nil {
-            messageTitle = oopsTitle
-        } else {
-            messageTitle = wowTitle
-        }
-        
-        let alert = UIAlertController(title: messageTitle, message: "\(error?.localizedDescription ?? "Login failed")", preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        if let secondAction = secondAlertAction {
-            alert.addAction(secondAction)
-        }
-        
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func showAlertWithMessage(_ message:String) {
-        let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : message])
-        showAlert(error: error, secondAlertAction: nil)
-    }
+//    
+//    func showAlert(error:Error?, secondAlertAction:UIAlertAction?){
+//        let oopsTitle = "Oops!"
+//        let wowTitle = "Wow!"
+//        var messageTitle = ""
+//        
+//        if secondAlertAction != nil {
+//            messageTitle = oopsTitle
+//        } else {
+//            messageTitle = wowTitle
+//        }
+//        
+//        let alert = UIAlertController(title: messageTitle, message: "\(error?.localizedDescription ?? "Login failed")", preferredStyle: UIAlertController.Style.alert)
+//        
+//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+//        
+//        if let secondAction = secondAlertAction {
+//            alert.addAction(secondAction)
+//        }
+//        
+//        self.present(alert, animated: true, completion: nil)
+//    }
+//    
+//    func showAlertWithMessage(_ message:String) {
+//        let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : message])
+//        showAlert(error: error, secondAlertAction: nil)
+//    }
     
     
 }
