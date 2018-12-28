@@ -18,22 +18,22 @@ class ForgotPasswordVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideSpinnerAndControlOn()
+        self.hideSpinnerAndControlOn(spinner: spinner)
     }
     
     @IBAction func sendResetPasswordEmailWasPressed(_ sender: UIButton) {
-        showSpinnerAndControlOff()
+        showSpinnerAndControlOff(spinner: spinner)
         guard let email = emailTextField.text else{
             print("email == nil")
             return
         }
         
-        self.authViewModel.resetPassword(email: email) { (error) in
-            self.hideSpinnerAndControlOn()
+        self.authViewModel.resetPassword(email: email) { [weak self](error) in
+            self?.hideSpinnerAndControlOn(spinner: self?.spinner)
             if error != nil{
-                self.showAlert(error: error, secondAlertAction: nil)
+                self?.showAlert(error: error, secondAlertAction: nil)
             } else {
-                self.showAlertWithMessage("Now you can reset password, check your mail")
+                self?.showAlertWithMessage("Now you can reset password, check your mail")
             }
         }
     }
@@ -42,17 +42,7 @@ class ForgotPasswordVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    func showSpinnerAndControlOff() {
-        spinner.isHidden = false
-        spinner.startAnimating()
-        self.view.isUserInteractionEnabled = false
-    }
-    
-    func hideSpinnerAndControlOn() {
-        self.spinner.isHidden = true
-        self.spinner.stopAnimating()
-        self.view.isUserInteractionEnabled = true
-    }
+
     
     func showAlert(error:Error?, secondAlertAction:UIAlertAction?){
         let oopsTitle = "Oops!"

@@ -21,7 +21,7 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        self.hideSpinnerAndControlOn()
+        self.hideSpinnerAndControlOn(spinner: spinner)
         configureForgotPasswordButton(button: forgotPasswordBtn)
         passwordTxtField.addButton(forgotPasswordBtn)
     }
@@ -59,10 +59,10 @@ class SignInVC: UIViewController {
         guard let useremail = emailTxtField.text else { return}
         guard let userpassword = passwordTxtField.text else { return}
         
-        showSpinnerAndControlOff()
+        showSpinnerAndControlOff(spinner: spinner)
         
         self.authViewModel.signIn(email: useremail, password: userpassword) { [weak self](error, user) in
-            self?.hideSpinnerAndControlOn()
+            self?.hideSpinnerAndControlOn(spinner: self?.spinner)
             
             if let error = error {
                 
@@ -89,11 +89,11 @@ class SignInVC: UIViewController {
         } else {
             let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Your account is not verified. Click \"Resend\" if you want us to resend activation email"])
             
-            let secondAction = UIAlertAction(title: "Resend", style: UIAlertAction.Style.default){ (action)  in
-                self.showSpinnerAndControlOff()
+            let secondAction = UIAlertAction(title: "Resend", style: UIAlertAction.Style.default) { [weak self] (action)  in
+                self?.showSpinnerAndControlOff(spinner: self?.spinner)
                 
-                self.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
-                    self?.hideSpinnerAndControlOn()
+                self?.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
+                    self?.hideSpinnerAndControlOn(spinner: self?.spinner)
                     
                     if let error = error {
                         self?.showAlert(error: error, secondAlertAction: nil)
@@ -111,17 +111,6 @@ class SignInVC: UIViewController {
     @IBAction func loginWithFBWasPressed(_ sender: UIButton) {
     }
 
-    func showSpinnerAndControlOff() {
-        spinner.isHidden = false
-        spinner.startAnimating()
-        self.view.isUserInteractionEnabled = false
-    }
-    
-    func hideSpinnerAndControlOn() {
-        self.spinner.isHidden = true
-        self.spinner.stopAnimating()
-        self.view.isUserInteractionEnabled = true
-    }
     
     func showAlert(error:Error?, secondAlertAction:UIAlertAction?){
         let oopsTitle = "Oops!"

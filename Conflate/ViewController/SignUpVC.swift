@@ -21,7 +21,7 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        self.hideSpinnerAndControlOn()
+        self.hideSpinnerAndControlOn(spinner: spinner)
     }
     
     @IBAction func backbuttonWasPressed(_ sender: UIButton) {
@@ -40,14 +40,19 @@ class SignUpVC: UIViewController {
             return
         }
         
-        showSpinnerAndControlOff()
+        showSpinnerAndControlOff(spinner: spinner)
         
         self.authViewModel.createUser(email: useremail, password: userpassword) { [weak self](error, user) in
+            
+            guard let unwrappedSelf = self else {
+                print("there is no referance to self")
+                return
+            }
             
             if error != nil {
                 print("user create failed")
                 self?.showAlert(error: error)
-                self?.hideSpinnerAndControlOn()
+                self?.hideSpinnerAndControlOn(spinner: self?.spinner)
                 
             } else {
                 guard let user = user else {
@@ -56,7 +61,7 @@ class SignUpVC: UIViewController {
                 }
                 
                 self?.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
-                    self?.hideSpinnerAndControlOn()
+                    self?.hideSpinnerAndControlOn(spinner: self?.spinner)
                     if let error = error {
                         self?.showAlert(error: error)
                     }else{
@@ -97,17 +102,6 @@ class SignUpVC: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
-    
-    func showSpinnerAndControlOff() {
-        spinner.isHidden = false
-        spinner.startAnimating()
-        self.view.isUserInteractionEnabled = false
-    }
-    
-    func hideSpinnerAndControlOn() {
-        self.spinner.isHidden = true
-        self.spinner.stopAnimating()
-        self.view.isUserInteractionEnabled = true
-    }
+
 }
 
