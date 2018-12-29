@@ -11,12 +11,23 @@ import Firebase
 import FirebaseStorage
 
 class FirebaseUserService:UserServise{
-    
+
     static let DB_BASE = Database.database().reference()
-    static let userID = Auth.auth().currentUser?.uid
     
     public private (set) var  _REF_BASE = DB_BASE
     public private (set)  var _REF_USERS = DB_BASE.child("users")
     
+    func addUser(uid: String, userData: Dictionary<String, AnyObject>,handler:@escaping (_ error:Error?)->()) {
+        _REF_USERS.child(uid).setValue(userData) {
+            (error:Error?, ref:DatabaseReference) in
+            if let error = error {
+                print("Data could not be saved: \(error).")
+                handler(error)
+            } else {
+                print("Data saved successfully!")
+                handler(nil)
+            }
+        }
+    }
     
 }

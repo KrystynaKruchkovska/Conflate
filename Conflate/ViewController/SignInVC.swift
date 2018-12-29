@@ -8,11 +8,13 @@
 
 import UIKit
 import FirebaseAuth
+import FBSDKLoginKit
 
-class SignInVC: UIViewController {
+class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
     
     var authViewModel:AuthViewModel!
     var forgotPasswordBtn = UIButton()
+    var fbLoginButton = FBSDKLoginButton()
     
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
@@ -23,18 +25,22 @@ class SignInVC: UIViewController {
         self.hideKeyboardWhenTappedAround()
         self.hideSpinnerAndControlOn(spinner: spinner)
         configureForgotPasswordButton(button: forgotPasswordBtn)
-        passwordTxtField.addButton(forgotPasswordBtn)
+        configureFBLogin()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is SignUpVC {
             let vc = segue.destination as? SignUpVC
             
-           if vc?.authViewModel !== self.authViewModel {
+            if vc?.authViewModel !== self.authViewModel {
                 vc?.authViewModel = self.authViewModel
             }
-        
+            
         }
+    }
+    
+    func configureFBLogin() {
+        self.fbLoginButton.delegate = self
     }
     
     func configureForgotPasswordButton(button:UIButton){
@@ -43,6 +49,8 @@ class SignInVC: UIViewController {
         button.setTitleColor(#colorLiteral(red: 0.5019607843, green: 0.4, blue: 0.768627451, alpha: 1), for: .normal)
         button.setTitle(Constants.Strings.forgot, for: .normal)
         button.addTarget(self, action: #selector(forgotPasswordButtonAction), for: .touchUpInside)
+        
+        passwordTxtField.addButton(forgotPasswordBtn)
     }
     
     @objc func forgotPasswordButtonAction(sender: UIButton!) {
@@ -54,7 +62,7 @@ class SignInVC: UIViewController {
         present(forgotPasswordVC, animated: true, completion: nil)
     }
     
-
+    
     @IBAction func LoginBtnWasPressed(_ sender: UIButton) {
         guard let useremail = emailTxtField.text else { return}
         guard let userpassword = passwordTxtField.text else { return}
@@ -85,7 +93,7 @@ class SignInVC: UIViewController {
     
     func checkIfVerified(user:User) {
         if user.isEmailVerified {
-            showTabBarVC()
+            hideLoginVC()
         } else {
             let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : Constants.Strings.verification_invalid])
             
@@ -108,12 +116,44 @@ class SignInVC: UIViewController {
         }
     }
     
-    func showTabBarVC() {
+    func hideLoginVC() {
         self.dismiss(animated: true, completion: nil)
     }
-        
+    
     @IBAction func loginWithFBWasPressed(_ sender: UIButton) {
+        self.showSpinnerAndControlOff(spinner: self.spinner)
+        self.fbLoginButton.sendActions(for:.touchUpInside)
     }
-
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        
+        if let error = error {
+            self.showAlertWithError(error, secondAlertAction: nil)
+            self.hideSpinnerAndControlOn(spinner: self.spinner)
+            return
+        }
+        
+        print("login button with facebook did complete with no error")
+        
+        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        
+        self.authViewModel.loginWithFacebook(credential) { [weak self] (error) in
+            if let error = error {
+                print("login button with facebook fir complete with error:\(error)")
+                self?.showAlertWithError(error, secondAlertAction: nil)
+                self?.hideSpinnerAndControlOn(spinner: self?.spinner)
+                return
+            }
+            
+            print("logged in succesfully with facebook")
+            self?.hideSpinnerAndControlOn(spinner: self?.spinner)
+            self?.hideLoginVC()
+        }
+        
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        self.hideSpinnerAndControlOn(spinner: self.spinner)
+    }
 }
 

@@ -8,6 +8,8 @@
 
 import Foundation
 
-protocol UserServise{
+protocol UserServise {
+    
+    func addUser (uid:String,userData: Dictionary<String,AnyObject>, handler:@escaping (_ error:Error?)->())
     
 }

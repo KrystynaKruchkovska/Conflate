@@ -30,9 +30,10 @@ class SignUpVC: UIViewController {
     
     
     @IBAction func createUserBtnWasPressed(_ sender: UIButton) {
-        guard let useremail = emailTxtField.text else { return}
-        guard let userpassword = passwordTxtField.text else { return}
-        guard let confirmuserpassword = confirmPasswordTxtField.text else { return}
+        guard let useremail = emailTxtField.text else { return }
+        guard let userpassword = passwordTxtField.text else { return }
+        guard let confirmuserpassword = confirmPasswordTxtField.text else { return }
+        guard let userNickName = nicknameTxtField.text else { return }
         
         if userpassword != confirmuserpassword {
             self.confirmPasswordTxtField.makeWarningError()
@@ -42,7 +43,7 @@ class SignUpVC: UIViewController {
         
         showSpinnerAndControlOff(spinner: spinner)
         
-        self.authViewModel.createUser(email: useremail, password: userpassword) { [weak self](error, user) in
+        self.authViewModel.createUser(userNickName:userNickName,email: useremail, password: userpassword) { [weak self](error, user) in
             
             if error != nil {
                 print("user create failed")
@@ -55,16 +56,23 @@ class SignUpVC: UIViewController {
                 }
                 
                 self?.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
-                    self?.hideSpinnerAndControlOn(spinner: self?.spinner)
                     if let error = error {
                         self?.showAlertWithError(error)
                     }else{
                         
-                        
-                        self?.showAlert(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler: { (alertAction) in
-                            self?.showSignInVC()
+                        let userData = ["provider": user.providerID, "email": user.email, "username": userNickName]
+                        self?.authViewModel.addUser(uid: user.uid, userData: userData as Dictionary<String, AnyObject>,handler: { (error) in
+                            self?.hideSpinnerAndControlOn(spinner: self?.spinner)
+                            if let error = error {
+                                self?.showAlertWithError(error)
+                            }
+                            
+                            self?.showAlert(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler: { (alertAction) in
+                                self?.showSignInVC()
+                            })
+                            
                         })
-                        
+                  
                     }
                     
                 })
