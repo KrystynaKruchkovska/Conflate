@@ -60,6 +60,7 @@ class SignUpVC: UIViewController {
                         self?.showAlertWithError(error)
                     }else{
                         
+                        
                         self?.showAlert(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler: { (alertAction) in
                             self?.showSignInVC()
                         })
