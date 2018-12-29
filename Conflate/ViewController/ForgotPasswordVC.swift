@@ -33,7 +33,9 @@ class ForgotPasswordVC: UIViewController {
             if error != nil{
                 self?.showAlertWithError(error)
             } else {
-                self?.showAlert(Constants.Strings.password_reset, title: Constants.Alerts.successAlertTitle, handler:nil)
+                self?.showAlert(Constants.Strings.password_reset, title: Constants.Alerts.successAlertTitle, handler: { (alertAction) in
+                    self?.dismiss(animated: true, completion: nil)
+                })
             }
         }
     }
