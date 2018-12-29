@@ -139,6 +139,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         
         self.authViewModel.loginWithFacebook(credential) { [weak self] (error) in
             if let error = error {
+                print("login button with facebook fir complete with error:\(error)")
                 self?.showAlertWithError(error, secondAlertAction: nil)
                 self?.hideSpinnerAndControlOn(spinner: self?.spinner)
                 return
