@@ -57,7 +57,7 @@ class FirebaseAuthService: AuthService {
         })
     }
     
-    func signInUser(email:String,password:String, handler:@escaping (_ error:Error?, _ user:User?) -> ()){
+    func signInUser(email:String,password:String, handler:@escaping (_ error:Error?, _ user:User?) -> ()) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             
             if let error = error {

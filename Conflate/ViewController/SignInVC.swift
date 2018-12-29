@@ -82,7 +82,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
                 print("user signed succesfully")
                 
                 guard let user = user else {
-                    self?.showAlert(Constants.Strings.internal_error, title: Constants.Alerts.errorAlertTitle)
+                    self?.showAlert(Constants.Strings.internal_error, title: Constants.Alerts.errorAlertTitle, handler:nil)
                     return
                 }
                 
@@ -106,7 +106,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
                     if let error = error {
                         self?.showAlertWithError(error)
                     } else {
-                        self?.showAlert(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle)
+                        self?.showAlert(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler:nil)
                     }
                     
                 })
