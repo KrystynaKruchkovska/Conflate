@@ -15,24 +15,27 @@ extension UIViewController {
         let errorTitle = Constants.Alerts.errorAlertTitle
         
         guard let message = error?.localizedDescription  else {
-            self.showAlert(Constants.Strings.internal_error, title: errorTitle, secondAlertAction: secondAlertAction)
+            self.showAlert(Constants.Strings.internal_error, title: errorTitle, handler: nil, secondAlertAction: secondAlertAction)
             return
         }
         
-        showAlert(message, title: errorTitle, secondAlertAction: nil)
+        showAlert(message, title: errorTitle, handler: nil)
     }
     
-    func showAlert(_ message:String, title:String, secondAlertAction:UIAlertAction? = nil) {
+    
+    func showAlert(_ message:String, title:String, handler:((_
+        action:UIAlertAction?)->())?, secondAlertAction:UIAlertAction? = nil){
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
+    
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default,  handler: handler))
+       
         if let secondAction = secondAlertAction {
             alert.addAction(secondAction)
         }
         
         self.present(alert, animated: true, completion: nil)
+        
     }
     
 }
