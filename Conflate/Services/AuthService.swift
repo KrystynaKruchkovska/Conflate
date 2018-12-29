@@ -7,7 +7,8 @@
 //
 
 import Firebase
-// we're still dependant on firebase because handler returns firebase user!!
+// we're still dependant on firebase because handler returns firebase user
+// and facebook credentials are passed uisng Firebase object
 
 protocol AuthService {
     
@@ -18,6 +19,8 @@ protocol AuthService {
     func signInUser(email:String,password:String, handler:@escaping (_ error:Error?, _ user:User?) -> ())
     
     func resetPassword(email:String, handler:@escaping (_ error:Error?) -> ())
+    
+    func loginWithFacebook(_ credentials:AuthCredential, handler:@escaping (_ error:Error?) -> ())
     
 }
 

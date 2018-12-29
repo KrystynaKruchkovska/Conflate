@@ -93,7 +93,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
     
     func checkIfVerified(user:User) {
         if user.isEmailVerified {
-            showTabBarVC()
+            hideLoginVC()
         } else {
             let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : Constants.Strings.verification_invalid])
             
@@ -116,30 +116,43 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
     
-    func showTabBarVC() {
+    func hideLoginVC() {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func loginWithFBWasPressed(_ sender: UIButton) {
+        self.showSpinnerAndControlOff(spinner: self.spinner)
         self.fbLoginButton.sendActions(for:.touchUpInside)
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print("login button did complete with result")
+        
+        if let error = error {
+            self.showAlertWithError(error, secondAlertAction: nil)
+            self.hideSpinnerAndControlOn(spinner: self.spinner)
+            return
+        }
+        
+        print("login button with facebook did complete with no error")
         
         let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         
-        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+        self.authViewModel.loginWithFacebook(credential) { [weak self] (error) in
             if let error = error {
-                print(error)
+                self?.showAlertWithError(error, secondAlertAction: nil)
+                self?.hideSpinnerAndControlOn(spinner: self?.spinner)
                 return
             }
-            print("user is signed in with facebook")
+            
+            print("logged in succesfully with facebook")
+            self?.hideSpinnerAndControlOn(spinner: self?.spinner)
+            self?.hideLoginVC()
         }
+        
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        
+        self.hideSpinnerAndControlOn(spinner: self.spinner)
     }
 }
 

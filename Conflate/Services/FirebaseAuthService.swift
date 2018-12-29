@@ -11,6 +11,22 @@ import Firebase
 
 class FirebaseAuthService: AuthService {
     
+    func loginWithFacebook(_ credentials: AuthCredential, handler: @escaping (Error?) -> ()) {
+        
+        Auth.auth().signInAndRetrieveData(with: credentials) { (authResult, error) in
+            if let error = error {
+                print(error)
+                handler(error)
+                return
+            }
+            
+            print("user is signed in with facebook")
+            handler(nil)
+        }
+        
+    }
+    
+    
     func resetPassword(email: String, handler: @escaping (_ error:Error?) -> ()) {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if error != nil{
@@ -75,5 +91,7 @@ class FirebaseAuthService: AuthService {
             handler(nil, user)
         }
     }
+    
+   
     
 }
