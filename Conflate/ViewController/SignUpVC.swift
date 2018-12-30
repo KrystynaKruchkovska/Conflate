@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpVC: UIViewController {
     
@@ -40,10 +41,13 @@ class SignUpVC: UIViewController {
             showAlert(Constants.Strings.different_passwords, title: Constants.Alerts.errorAlertTitle, handler:nil)
             return
         }
-        
         showSpinnerAndControlOff(spinner: spinner)
-        
-        self.authViewModel.createUser(userNickName:userNickName,email: useremail, password: userpassword) { [weak self](error, user) in
+        self.createUser(userNickName: userNickName, email: useremail, password: userpassword)
+
+    }
+    
+    func createUser(userNickName:String,email: String, password: String){
+        self.authViewModel.createUser(userNickName:userNickName,email: email, password: password) { [weak self](error, user) in
             
             if error != nil {
                 print("user create failed")
@@ -55,31 +59,36 @@ class SignUpVC: UIViewController {
                     return
                 }
                 
-                self?.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
-                    if let error = error {
-                        self?.showAlertWithError(error)
-                    }else{
-                        
-                        let userData = ["provider": user.providerID, "email": user.email, "username": userNickName]
-                        self?.authViewModel.addUser(uid: user.uid, userData: userData as Dictionary<String, AnyObject>,handler: { (error) in
-                            self?.hideSpinnerAndControlOn(spinner: self?.spinner)
-                            if let error = error {
-                                self?.showAlertWithError(error)
-                            }
-                            
-                            self?.showAlert(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler: { (alertAction) in
-                                self?.showSignInVC()
-                            })
-                            
-                        })
-                  
-                    }
-                    
-                })
-                
+                self?.sendVertificationEmail(user: user, userNickName: userNickName)
                 print("user create succesfully")
             }
         }
+    }
+    
+    func sendVertificationEmail(user:User,userNickName:String){
+        self.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
+            if let error = error {
+                self?.showAlertWithError(error)
+            }else{
+                let userData = ["provider": user.providerID, "email": user.email, "username": userNickName]
+                self?.addUser(user: user, userData: userData as Dictionary<String, AnyObject>)
+            }
+            
+        })
+    }
+    
+    func addUser(user:User, userData: Dictionary<String, AnyObject>){
+        self.authViewModel.addUser(uid: user.uid, userData: userData as Dictionary<String, AnyObject>,handler: { (error) in
+            self.hideSpinnerAndControlOn(spinner: self.spinner)
+            if let error = error {
+                self.showAlertWithError(error)
+            }
+            
+            self.showAlert(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler: { (alertAction) in
+                self.showSignInVC()
+            })
+            
+        })
     }
     
     func showSignInVC() {

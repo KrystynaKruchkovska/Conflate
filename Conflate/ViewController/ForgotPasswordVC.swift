@@ -28,6 +28,13 @@ class ForgotPasswordVC: UIViewController {
             return
         }
         
+        self.resetPassword(email: email)
+    }
+    
+    @IBAction func backButtonWasPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    func resetPassword(email:String){
         self.authViewModel.resetPassword(email: email) { [weak self](error) in
             self?.hideSpinnerAndControlOn(spinner: self?.spinner)
             if error != nil{
@@ -38,10 +45,6 @@ class ForgotPasswordVC: UIViewController {
                 })
             }
         }
-    }
-    
-    @IBAction func backButtonWasPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
     }
     
 }

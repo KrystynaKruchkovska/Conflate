@@ -62,6 +62,10 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         present(forgotPasswordVC, animated: true, completion: nil)
     }
     
+    @IBAction func loginWithFBWasPressed(_ sender: UIButton) {
+        self.showSpinnerAndControlOff(spinner: self.spinner)
+        self.fbLoginButton.sendActions(for:.touchUpInside)
+    }
     
     @IBAction func LoginBtnWasPressed(_ sender: UIButton) {
         guard let useremail = emailTxtField.text else { return}
@@ -100,29 +104,27 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
             let secondAction = UIAlertAction(title: Constants.Alerts.resend, style: UIAlertAction.Style.default) { [weak self] (action)  in
                 self?.showSpinnerAndControlOff(spinner: self?.spinner)
                 
-                self?.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
-                    self?.hideSpinnerAndControlOn(spinner: self?.spinner)
-                    
-                    if let error = error {
-                        self?.showAlertWithError(error)
-                    } else {
-                        self?.showAlert(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler:nil)
-                    }
-                    
-                })
+                self?.sendVarificationEmail(user: user)
             }
             
             self.showAlertWithError(error, secondAlertAction: secondAction)
         }
     }
     
-    func hideLoginVC() {
-        self.dismiss(animated: true, completion: nil)
+    func sendVarificationEmail(user:User){
+        self.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
+            self?.hideSpinnerAndControlOn(spinner: self?.spinner)
+            
+            if let error = error {
+                self?.showAlertWithError(error)
+            } else {
+                self?.showAlert(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler:nil)
+            }
+       })
     }
     
-    @IBAction func loginWithFBWasPressed(_ sender: UIButton) {
-        self.showSpinnerAndControlOff(spinner: self.spinner)
-        self.fbLoginButton.sendActions(for:.touchUpInside)
+    func hideLoginVC() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
