@@ -15,11 +15,11 @@ extension UIViewController {
         let errorTitle = Constants.Alerts.errorAlertTitle
         
         guard let message = error?.localizedDescription  else {
-            self.showAlert(Constants.Strings.internal_error, title: errorTitle, handler: nil, secondAlertAction: secondAlertAction)
+            self.showAlert(Constants.Strings.internal_error, title: errorTitle, handler: nil)
             return
         }
         
-        showAlert(message, title: errorTitle, handler: nil)
+        showAlert(message, title: errorTitle, handler: nil,secondAlertAction: secondAlertAction)
     }
     
     
