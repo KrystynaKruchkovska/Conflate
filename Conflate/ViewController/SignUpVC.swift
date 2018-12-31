@@ -29,7 +29,6 @@ class SignUpVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
     @IBAction func createUserBtnWasPressed(_ sender: UIButton) {
         guard let useremail = emailTxtField.text else { return }
         guard let userpassword = passwordTxtField.text else { return }
@@ -65,11 +64,11 @@ class SignUpVC: UIViewController {
         }
     }
     
-    func sendVertificationEmail(user:User,userNickName:String){
+    func sendVertificationEmail(user:User,userNickName:String) {
         self.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
             if let error = error {
                 self?.showAlertWithError(error)
-            }else{
+            } else {
                 let userData = ["provider": user.providerID, "email": user.email, "username": userNickName]
                 self?.addUser(user: user, userData: userData as Dictionary<String, AnyObject>)
             }
@@ -77,7 +76,7 @@ class SignUpVC: UIViewController {
         })
     }
     
-    func addUser(user:User, userData: Dictionary<String, AnyObject>){
+    func addUser(user:User, userData: Dictionary<String, AnyObject>) {
         self.authViewModel.addUser(uid: user.uid, userData: userData as Dictionary<String, AnyObject>,handler: { (error) in
             self.hideSpinnerAndControlOn(spinner: self.spinner)
             if let error = error {

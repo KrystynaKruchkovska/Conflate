@@ -20,7 +20,7 @@ protocol AuthService {
     
     func resetPassword(email:String, handler:@escaping (_ error:Error?) -> ())
     
-    func loginWithFacebook(_ credentials:AuthCredential, handler:@escaping (_ error:Error?) -> ())
+    func loginWithFacebook(_ credentials:AuthCredential, handler:@escaping (_ error:Error?,_ user:User?) -> ())
     
 }
 

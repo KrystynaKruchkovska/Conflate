@@ -41,6 +41,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
     
     func configureFBLogin() {
         self.fbLoginButton.delegate = self
+        self.fbLoginButton.readPermissions = ["email", "public_profile"]
     }
     
     func configureForgotPasswordButton(button:UIButton){
@@ -139,7 +140,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         
         let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         
-        self.authViewModel.loginWithFacebook(credential) { [weak self] (error) in
+        self.authViewModel.loginWithFacebook(credential) { [weak self] (error, user) in
             if let error = error {
                 print("login button with facebook fir complete with error:\(error)")
                 self?.showAlertWithError(error, secondAlertAction: nil)
@@ -148,10 +149,32 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
             }
             
             print("logged in succesfully with facebook")
+            
+            guard let user = user else {
+                self?.showAlert(Constants.Strings.internal_error, title: Constants.Alerts.errorAlertTitle, handler:nil)
+                return
+            }
+            
+            //TODO: unwrapping email!? TODO: add constants
+            let userData:Dictionary<String, String> = ["provider": user.providerID, "email": user.email!, "username": user.displayName!]
+            //TODO: Move data work to VieModel
+            self?.addUser(user:user, userData: userData as Dictionary<String, AnyObject>)
+            
             self?.hideSpinnerAndControlOn(spinner: self?.spinner)
             self?.hideLoginVC()
         }
         
+    }
+    
+    func addUser(user:User, userData: Dictionary<String, AnyObject>) {
+        self.authViewModel.addUser(uid: user.uid, userData: userData as Dictionary<String, AnyObject>,handler: { (error) in
+            self.hideSpinnerAndControlOn(spinner: self.spinner)
+            if let error = error {
+                self.showAlertWithError(error)
+            }
+            
+            self.hideLoginVC()
+        })
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {

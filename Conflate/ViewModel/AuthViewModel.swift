@@ -35,7 +35,7 @@ class AuthViewModel {
         self.authService.resetPassword(email: email, handler: handler)
     }
     
-    func loginWithFacebook(_ credentials:AuthCredential, handler:@escaping (_ error:Error?) -> ()) {
+    func loginWithFacebook(_ credentials:AuthCredential, handler:@escaping (_ error:Error?, _ user:User?) -> ()) {
         self.authService.loginWithFacebook(credentials, handler: handler)
     }
     

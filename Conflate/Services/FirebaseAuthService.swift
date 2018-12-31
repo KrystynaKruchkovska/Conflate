@@ -13,17 +13,23 @@ class FirebaseAuthService: AuthService {
     
     var firebaseUserService:FirebaseUserService!
     
-    func loginWithFacebook(_ credentials: AuthCredential, handler: @escaping (Error?) -> ()) {
+    func loginWithFacebook(_ credentials: AuthCredential, handler: @escaping (Error?, User?) -> ()) {
         
         Auth.auth().signInAndRetrieveData(with: credentials) { (authResult, error) in
             if let error = error {
                 print(error)
-                handler(error)
+                handler(error, nil)
                 return
             }
             
+            guard let user = authResult?.user else {
+                return
+            }
+            
+            print("User signed in with facebook:\(user.email) \(user.displayName)")
+            
             print("user is signed in with facebook")
-            handler(nil)
+            handler(nil, user)
         }
         
     }
