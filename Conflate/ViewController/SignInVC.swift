@@ -67,48 +67,50 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         self.fbLoginButton.sendActions(for:.touchUpInside)
     }
     
-    @IBAction func LoginBtnWasPressed(_ sender: UIButton) {
+    @IBAction func loginBtnWasPressed(_ sender: UIButton) {
         guard let useremail = emailTxtField.text else { return}
         guard let userpassword = passwordTxtField.text else { return}
         
         showSpinnerAndControlOff(spinner: spinner)
-        
+        signInWithEmail(useremail: useremail, userpassword: userpassword)
+    }
+    
+    func signInWithEmail(useremail:String, userpassword:String) {
         self.authViewModel.signIn(email: useremail, password: userpassword) { [weak self](error, user) in
             self?.hideSpinnerAndControlOn(spinner: self?.spinner)
             
             if let error = error {
-                
                 print("user sign in failed")
                 self?.showAlertWithError(error, secondAlertAction: nil)
                 return
-                
-            } else {
-                print("user signed succesfully")
-                
-                guard let user = user else {
-                    self?.showAlert(Constants.Strings.internal_error, title: Constants.Alerts.errorAlertTitle, handler:nil)
-                    return
-                }
-                
-                self?.checkIfVerified(user:user)
             }
+            
+            guard let user = user else {
+                self?.showAlert(Constants.Strings.internal_error, title: Constants.Alerts.errorAlertTitle, handler:nil)
+                return
+            }
+            
+            print("user signed in succesfully")
+            
+            if user.isEmailVerified {
+                self?.hideLoginVC()
+            } else {
+                self?.showResendVerificationAlert(user:user)
+            }
+            
         }
     }
     
-    func checkIfVerified(user:User) {
-        if user.isEmailVerified {
-            hideLoginVC()
-        } else {
-            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : Constants.Strings.verification_invalid])
+    func showResendVerificationAlert(user:User) {
+        let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : Constants.Strings.verification_invalid])
+        
+        let secondAction = UIAlertAction(title: Constants.Alerts.resend, style: UIAlertAction.Style.default) { [weak self] (action)  in
+            self?.showSpinnerAndControlOff(spinner: self?.spinner)
             
-            let secondAction = UIAlertAction(title: Constants.Alerts.resend, style: UIAlertAction.Style.default) { [weak self] (action)  in
-                self?.showSpinnerAndControlOff(spinner: self?.spinner)
-                
-                self?.sendVarificationEmail(user: user)
-            }
-            
-            self.showAlertWithError(error, secondAlertAction: secondAction)
+            self?.sendVarificationEmail(user: user)
         }
+        
+        self.showAlertWithError(error, secondAlertAction: secondAction)
     }
     
     func sendVarificationEmail(user:User){
@@ -120,7 +122,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
             } else {
                 self?.showAlert(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler:nil)
             }
-       })
+        })
     }
     
     func hideLoginVC() {
