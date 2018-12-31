@@ -39,8 +39,9 @@ class AuthViewModel {
         self.authService.loginWithFacebook(credentials, handler: handler)
     }
     
-    func addUser(uid: String, userData: Dictionary<String, AnyObject>, handler:@escaping (_ error:Error?)->()){
-        self.userService.addUser(uid: uid, userData: userData, handler: handler)
+    func addUser(user: User, handler:@escaping (_ error:Error?)->()){
+        let userData:Dictionary<String, String> = [Constants.UserData.provider: user.providerID, Constants.UserData.email: user.email!, Constants.UserData.username: user.displayName!]
+        self.userService.addUser(uid: user.uid, userData: userData as Dictionary<String, AnyObject>, handler: handler)
     }
 
 }

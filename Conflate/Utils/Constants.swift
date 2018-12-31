@@ -31,4 +31,10 @@ struct Constants {
         static let verification_invalid = "Your account is not verified. Click \"Resend\" if you want us to resend activation email"
     }
     
+    struct  UserData {
+        static let provider = "provider"
+        static let email = "email"
+        static let username = "username"
+    }
+    
 }

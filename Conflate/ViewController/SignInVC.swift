@@ -156,11 +156,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
                 self?.showAlert(Constants.Strings.internal_error, title: Constants.Alerts.errorAlertTitle, handler:nil)
                 return
             }
-            
-            //TODO: unwrapping email!? TODO: add constants
-            let userData:Dictionary<String, String> = ["provider": user.providerID, "email": user.email!, "username": user.displayName!]
-            //TODO: Move data work to VieModel
-            self?.addUser(user:user, userData: userData as Dictionary<String, AnyObject>)
+            self?.addUser(user:user)
             
             self?.hideSpinnerAndControlOn(spinner: self?.spinner)
             self?.hideLoginVC()
@@ -168,8 +164,8 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     
-    func addUser(user:User, userData: Dictionary<String, AnyObject>) {
-        self.authViewModel.addUser(uid: user.uid, userData: userData as Dictionary<String, AnyObject>,handler: { (error) in
+    func addUser(user:User) {
+        self.authViewModel.addUser(user:user, handler: { (error) in
             self.hideSpinnerAndControlOn(spinner: self.spinner)
             if let error = error {
                 self.showAlertWithError(error)

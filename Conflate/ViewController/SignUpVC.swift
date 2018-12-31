@@ -42,7 +42,7 @@ class SignUpVC: UIViewController {
         }
         showSpinnerAndControlOff(spinner: spinner)
         self.createUser(userNickName: userNickName, email: useremail, password: userpassword)
-
+        
     }
     
     func createUser(userNickName:String,email: String, password: String){
@@ -64,20 +64,21 @@ class SignUpVC: UIViewController {
         }
     }
     
-    func sendVertificationEmail(user:User,userNickName:String) {
+    func sendVertificationEmail(user:User, userNickName:String) {
+        user.setValue(userNickName, forKey: "displayName")
+        
         self.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
             if let error = error {
                 self?.showAlertWithError(error)
             } else {
-                let userData = ["provider": user.providerID, "email": user.email, "username": userNickName]
-                self?.addUser(user: user, userData: userData as Dictionary<String, AnyObject>)
+                self?.addUser(user: user)
             }
             
         })
     }
     
-    func addUser(user:User, userData: Dictionary<String, AnyObject>) {
-        self.authViewModel.addUser(uid: user.uid, userData: userData as Dictionary<String, AnyObject>,handler: { (error) in
+    func addUser(user:User) {
+        self.authViewModel.addUser(user:user, handler: { (error) in
             self.hideSpinnerAndControlOn(spinner: self.spinner)
             if let error = error {
                 self.showAlertWithError(error)
