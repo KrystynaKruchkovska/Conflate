@@ -29,6 +29,8 @@
 		04F9C34821D10D5700CCFB00 /* UIViewController+hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9C34721D10D5700CCFB00 /* UIViewController+hideKeyboard.swift */; };
 		11FF1D3E2504BBC1F2A6F7A1 /* Pods_Conflate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE278C4DAFD7F85B0A2CBB2 /* Pods_Conflate.framework */; };
 		7F3C638E2526D0D2A061DA0D /* Pods_ConflateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069A02F18CCAC6B9CC5C6429 /* Pods_ConflateTests.framework */; };
+		E551ACFE21DB90730055D494 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551ACFD21DB90730055D494 /* User.swift */; };
+		E551AD0021DB90850055D494 /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551ACFF21DB90850055D494 /* FirebaseUser.swift */; };
 		E585015121D2AD9C00FCEFBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E585015021D2AD9C00FCEFBB /* Main.storyboard */; };
 		E5FD211B21D16CFC003A9E4A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FD211A21D16CFC003A9E4A /* Constants.swift */; };
 		E5FD211D21D16E0F003A9E4A /* UITextField+ErrorBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FD211C21D16E0F003A9E4A /* UITextField+ErrorBorder.swift */; };
@@ -74,6 +76,8 @@
 		244088A1F0E14B3B213E8D84 /* Pods-Conflate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conflate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Conflate/Pods-Conflate.debug.xcconfig"; sourceTree = "<group>"; };
 		8A9BBE3E0F9D346A998FC40F /* Pods-ConflateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConflateTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConflateTests/Pods-ConflateTests.release.xcconfig"; sourceTree = "<group>"; };
 		DE5E9939DFBC3F0DFB937B97 /* Pods-Conflate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Conflate.release.xcconfig"; path = "Pods/Target Support Files/Pods-Conflate/Pods-Conflate.release.xcconfig"; sourceTree = "<group>"; };
+		E551ACFD21DB90730055D494 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E551ACFF21DB90850055D494 /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		E585015021D2AD9C00FCEFBB /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E5FD211A21D16CFC003A9E4A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E5FD211C21D16E0F003A9E4A /* UITextField+ErrorBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+ErrorBorder.swift"; sourceTree = "<group>"; };
@@ -136,7 +140,7 @@
 			children = (
 				04763B3D21D0E59A00421DA0 /* Services */,
 				04B3768221CE57F800784506 /* ViewModel */,
-				04B3768121CE57C100784506 /* Model */,
+				E551ACFC21DB90520055D494 /* Model */,
 				04B3767F21CE577D00784506 /* View */,
 				04B3768021CE578E00784506 /* ViewController */,
 				E5FD211921D16CCA003A9E4A /* Utils */,
@@ -177,13 +181,6 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		04B3768121CE57C100784506 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		04B3768221CE57F800784506 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +207,15 @@
 				069A02F18CCAC6B9CC5C6429 /* Pods_ConflateTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E551ACFC21DB90520055D494 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E551ACFD21DB90730055D494 /* User.swift */,
+				E551ACFF21DB90850055D494 /* FirebaseUser.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E585014F21D2AD7B00FCEFBB /* Storyboards */ = {
@@ -471,7 +477,9 @@
 				0424B22B21D679440005E3C3 /* ForgotPasswordVC.swift in Sources */,
 				04763B3F21D0E60400421DA0 /* FirebaseAuthService.swift in Sources */,
 				044556CA21D7B52000C474C1 /* UserService.swift in Sources */,
+				E551ACFE21DB90730055D494 /* User.swift in Sources */,
 				0424B22121D5609E0005E3C3 /* AuthService.swift in Sources */,
+				E551AD0021DB90850055D494 /* FirebaseUser.swift in Sources */,
 				04F9C34621D0F9E200CCFB00 /* AuthViewModel.swift in Sources */,
 				E5FD211B21D16CFC003A9E4A /* Constants.swift in Sources */,
 			);

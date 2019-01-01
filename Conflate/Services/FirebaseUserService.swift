@@ -14,7 +14,7 @@ class FirebaseUserService:UserServise{
 
     static let DB_BASE = Database.database().reference()
     
-    public private (set) var  _REF_BASE = DB_BASE
+    public private (set)  var _REF_BASE = DB_BASE
     public private (set)  var _REF_USERS = DB_BASE.child("users")
     
     func addUser(uid: String, userData: Dictionary<String, AnyObject>,handler:@escaping (_ error:Error?)->()) {

@@ -102,7 +102,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
     
-    func showResendVerificationAlert(user:User) {
+    func showResendVerificationAlert(user:CUser) {
         let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : Constants.Strings.verification_invalid])
         
         let secondAction = UIAlertAction(title: Constants.Alerts.resend, style: UIAlertAction.Style.default) { [weak self] (action)  in
@@ -114,7 +114,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         self.showAlertWithError(error, secondAlertAction: secondAction)
     }
     
-    func sendVarificationEmail(user:User){
+    func sendVarificationEmail(user:CUser){
         self.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
             self?.hideSpinnerAndControlOn(spinner: self?.spinner)
             
@@ -156,22 +156,20 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
                 self?.showAlert(Constants.Strings.internal_error, title: Constants.Alerts.errorAlertTitle, handler:nil)
                 return
             }
-            self?.addUser(user:user)
             
-            self?.hideSpinnerAndControlOn(spinner: self?.spinner)
-            self?.hideLoginVC()
+            self?.addUser(user:user)
         }
         
     }
     
-    func addUser(user:User) {
-        self.authViewModel.addUser(user:user, handler: { (error) in
-            self.hideSpinnerAndControlOn(spinner: self.spinner)
+    func addUser(user:CUser) {
+        self.authViewModel.addUser(user:user, handler: { [weak self] (error) in
+            self?.hideSpinnerAndControlOn(spinner: self?.spinner)
             if let error = error {
-                self.showAlertWithError(error)
+                self?.showAlertWithError(error)
             }
-            
-            self.hideLoginVC()
+        
+            self?.hideLoginVC()
         })
     }
     

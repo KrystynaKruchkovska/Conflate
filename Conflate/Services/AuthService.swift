@@ -7,20 +7,19 @@
 //
 
 import Firebase
-// we're still dependant on firebase because handler returns firebase user
-// and facebook credentials are passed uisng Firebase object
+// Facebook credentials are passed uisng Firebase object so we're dependant on firebase
 
 protocol AuthService {
     
-    func createUser(userNickName:String,email:String, password:String, handler:@escaping (_ error:Error?,_ user:User?) -> ())
+    func createUser(nickname:String,email:String, password:String, handler:@escaping (_ error:Error?,_ user:CUser?) -> ())
     
-    func sendVerificationEmail(user:User, handler:@escaping (_ error:Error?)->())
+    func sendVerificationEmail(user:CUser, handler:@escaping (_ error:Error?)->())
     
-    func signInUser(email:String,password:String, handler:@escaping (_ error:Error?, _ user:User?) -> ())
+    func signInUser(email:String,password:String, handler:@escaping (_ error:Error?,_ user:CUser?) -> ())
     
     func resetPassword(email:String, handler:@escaping (_ error:Error?) -> ())
     
-    func loginWithFacebook(_ credentials:AuthCredential, handler:@escaping (_ error:Error?,_ user:User?) -> ())
+    func loginWithFacebook(_ credentials:AuthCredential, handler:@escaping (_ error:Error?,_ user:CUser?) -> ())
     
 }
 

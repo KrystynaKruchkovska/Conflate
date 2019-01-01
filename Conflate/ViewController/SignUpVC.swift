@@ -33,7 +33,7 @@ class SignUpVC: UIViewController {
         guard let useremail = emailTxtField.text else { return }
         guard let userpassword = passwordTxtField.text else { return }
         guard let confirmuserpassword = confirmPasswordTxtField.text else { return }
-        guard let userNickName = nicknameTxtField.text else { return }
+        guard let nickname = nicknameTxtField.text else { return }
         
         if userpassword != confirmuserpassword {
             self.confirmPasswordTxtField.makeWarningError()
@@ -41,12 +41,12 @@ class SignUpVC: UIViewController {
             return
         }
         showSpinnerAndControlOff(spinner: spinner)
-        self.createUser(userNickName: userNickName, email: useremail, password: userpassword)
+        self.createUser(nickname: nickname, email: useremail, password: userpassword)
         
     }
     
-    func createUser(userNickName:String,email: String, password: String){
-        self.authViewModel.createUser(userNickName:userNickName,email: email, password: password) { [weak self](error, user) in
+    func createUser(nickname:String,email: String, password: String){
+        self.authViewModel.createUser(nickname:nickname,email: email, password: password) { [weak self] (error, user) in
             
             if error != nil {
                 print("user create failed")
@@ -58,15 +58,14 @@ class SignUpVC: UIViewController {
                     return
                 }
                 
-                self?.sendVertificationEmail(user: user, userNickName: userNickName)
+                self?.sendVertificationEmail(user: user)
                 print("user create succesfully")
             }
         }
     }
     
-    func sendVertificationEmail(user:User, userNickName:String) {
-        user.setValue(userNickName, forKey: "displayName")
-        
+    func sendVertificationEmail(user:CUser) {
+
         self.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
             if let error = error {
                 self?.showAlertWithError(error)
@@ -77,7 +76,7 @@ class SignUpVC: UIViewController {
         })
     }
     
-    func addUser(user:User) {
+    func addUser(user:CUser) {
         self.authViewModel.addUser(user:user, handler: { (error) in
             self.hideSpinnerAndControlOn(spinner: self.spinner)
             if let error = error {
