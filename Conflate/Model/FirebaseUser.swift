@@ -39,9 +39,6 @@ class FirebaseUser : CUser {
                 return self.user.displayName ?? ""
             }
         }
-        set {
-            self._nickname = newValue
-        }
     }
     
     var isEmailVerified: Bool  {

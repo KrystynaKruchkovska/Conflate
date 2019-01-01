@@ -10,7 +10,7 @@ import Foundation
 
 protocol CUser {
     var email: String { get }
-    var nickname: String { set get }
+    var nickname: String { get }
     var uid: String { get }
     var providerID: String { get }
     var isEmailVerified: Bool { get }
