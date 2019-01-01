@@ -14,6 +14,23 @@ class ConflateTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let mapVC:MapVC = self.getTabVC() {
+            mapVC.authViewModel = self.authViewModel
+            
+        }
+    }
+    
+
+    private func getTabVC<T:UIViewController>() -> T? {
+        
+        for controller in self.viewControllers! {
+            if let vc = controller as? T {
+                return vc
+            }
+        }
+        
+        return nil
     }
     
 }

@@ -41,7 +41,7 @@ struct Constants {
         static let category = "category"
         static let date = "date"
         static let title = "title"
-        static let participents = "participents"
+        static let participants = "participents"
         static let description = "description"
     }
     
