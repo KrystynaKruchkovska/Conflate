@@ -16,8 +16,16 @@ class MapVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    @IBAction func addBtnWasPressed(_ sender: UIButton) {
-        
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is PostVC {
+            let vc = segue.destination as? PostVC
+            
+            if vc?.authViewModel !== self.authViewModel {
+                vc?.authViewModel = self.authViewModel
+            }
+            
+        }
     }
     
 }

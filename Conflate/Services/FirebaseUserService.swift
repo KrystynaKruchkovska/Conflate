@@ -12,11 +12,11 @@ import FirebaseStorage
 
 class FirebaseUserService:UserServise{
 
-    static let DB_BASE = Database.database().reference()
+    private static let DB_BASE = Database.database().reference()
     
-    public private (set)  var _REF_BASE = DB_BASE
-    public private (set)  var _REF_USERS = DB_BASE.child("users")
-    public private (set) var _REF_POSTS = DB_BASE.child("posts")
+    private var _REF_BASE = DB_BASE
+    private var _REF_USERS = DB_BASE.child("users") // TODO: move to constants
+    private var _REF_POSTS = DB_BASE.child("posts") // TODO: move to constants
     
     func addUser(uid: String, userData: Dictionary<String, AnyObject>,handler:@escaping (_ error:Error?)->()) {
         _REF_USERS.child(uid).setValue(userData) {

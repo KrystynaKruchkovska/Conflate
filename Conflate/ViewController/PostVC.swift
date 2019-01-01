@@ -24,7 +24,7 @@ class PostVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideSpinnerAndControlOn(spinner: self.spinner)
     }
     
     @IBAction func locationBtnWasPressed(_ sender: Any) {
@@ -33,9 +33,8 @@ class PostVC: UIViewController {
     @IBAction func categoryBtnWasPressed(_ sender: Any) {
     }
     
-    @IBAction func addBynWasPressed(_ sender: UIButton) {
+    @IBAction func addBtnWasPressed(_ sender: UIButton) {
         addPost()
-        dismiss(animated: true, completion: nil)
     }
     
     func addPost() {
