@@ -36,5 +36,13 @@ struct Constants {
         static let email = "email"
         static let username = "username"
     }
+    struct  PostData {
+        static let location = "location"
+        static let category = "category"
+        static let date = "date"
+        static let title = "title"
+        static let participents = "participents"
+        static let description = "description"
+    }
     
 }

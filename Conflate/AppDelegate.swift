@@ -14,15 +14,20 @@ import FBSDKCoreKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var authViewModel:AuthViewModel!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
         FirebaseApp.configure()
         
         FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        self.showSignInVC()
+        self.setupViewModels()
+        self.setupConflateTabBarController()
+        
+        if Auth.auth().currentUser == nil {
+            self.showSignInVC()
+        }
         
         return true
     }
@@ -39,18 +44,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    func setupViewModels() {
+        let authService = FirebaseAuthService()
+        let userService = FirebaseUserService()
+        
+        self.authViewModel = AuthViewModel(authService: authService, userService: userService)
+    }
+    
+    func setupConflateTabBarController() {
+        if let conflateTabBar = self.window?.rootViewController as? ConflateTabBarController {
+            conflateTabBar.authViewModel = self.authViewModel
+        }
+    }
     
     func showSignInVC(){
         
         let storyboard = UIStoryboard(name: Constants.Storyboard.authSB, bundle: Bundle.main)
         let signInVC = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.signInVC)
         
-        let authService = FirebaseAuthService()
-        let userService = FirebaseUserService()
-        let authViewModel = AuthViewModel(authService: authService,userService: userService)
-        
         if let signInVC = signInVC as? SignInVC {
-            signInVC.authViewModel = authViewModel
+            signInVC.authViewModel = self.authViewModel
         }
         
         window?.makeKeyAndVisible()

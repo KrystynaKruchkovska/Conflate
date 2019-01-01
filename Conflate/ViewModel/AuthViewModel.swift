@@ -43,5 +43,21 @@ class AuthViewModel {
         let userData:Dictionary<String, String> = [Constants.UserData.provider: user.providerID, Constants.UserData.email: user.email!, Constants.UserData.username: user.displayName!]
         self.userService.addUser(uid: user.uid, userData: userData as Dictionary<String, AnyObject>, handler: handler)
     }
+    
+    func addPost(lat:String, long:String,participance:String, title:String, user: User, category:String, date:DateFormatter, description:String, handler:@escaping (_ error:Error?)->()){
+        
+        let coordinates:Dictionary<String, String> = ["lat":lat, "long":long]
+        
+        let postData:Dictionary<String, AnyObject> = [
+            Constants.PostData.location: coordinates as AnyObject,
+            Constants.PostData.title: title as AnyObject,
+            Constants.PostData.category: category as AnyObject,
+            Constants.PostData.date: date as AnyObject,
+            Constants.PostData.participents: participance as AnyObject,
+            Constants.PostData.description: description as AnyObject
+        ]
+        
+        self.userService.addPost(uid: user.uid, postData: postData, handler: handler)
+    }
 
 }
