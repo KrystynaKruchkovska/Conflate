@@ -11,7 +11,7 @@ import Firebase
 
 class FirebaseAuthService: AuthService {
     
-    var firebaseUserService:FirebaseUserService!
+    var firebaseUserService:FirebaseService!
     
     func loginWithFacebook(_ credentials: AuthCredential, handler: @escaping (Error?, CUser?) -> ()) {
         

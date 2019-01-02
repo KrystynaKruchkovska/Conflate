@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var authViewModel:AuthViewModel!
+    var postViewModel:PostViewModel!
+ 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -46,14 +48,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupViewModels() {
         let authService = FirebaseAuthService()
-        let userService = FirebaseUserService()
+        let service = FirebaseService()
         
-        self.authViewModel = AuthViewModel(authService: authService, userService: userService)
+        self.authViewModel = AuthViewModel(authService: authService, userService: service)
+        self.postViewModel = PostViewModel(postService: service)
     }
     
     func setupConflateTabBarController() {
         if let conflateTabBar = self.window?.rootViewController as? ConflateTabBarController {
-            conflateTabBar.authViewModel = self.authViewModel
+            conflateTabBar.postViewModel = postViewModel
         }
     }
     

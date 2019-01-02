@@ -11,10 +11,10 @@ import Firebase
 
 class AuthViewModel {
     
-    private let authService:AuthService
-    private let userService: UserServise
+    private let authService: AuthService
+    private let userService: UserService
     
-    init(authService:AuthService,userService: UserServise) {
+    init(authService:AuthService, userService: UserService) {
         self.authService = authService
         self.userService = userService
     }
@@ -43,21 +43,4 @@ class AuthViewModel {
         let userData:Dictionary<String, String> = [Constants.UserData.provider: user.providerID, Constants.UserData.email: user.email, Constants.UserData.username: user.nickname]
         self.userService.addUser(uid: user.uid, userData: userData as Dictionary<String, AnyObject>, handler: handler)
     }
-    
-    func addPost(lat:String, long:String, participants:String?, title:String, user: User, category:String, date:Double, description:String, handler:@escaping (_ error:Error?)->()){
-        
-        let coordinates:Dictionary<String, String> = ["lat":lat, "long":long]
-        
-        let postData:Dictionary<String, AnyObject> = [
-            Constants.PostData.location: coordinates as AnyObject,
-            Constants.PostData.title: title as AnyObject,
-            Constants.PostData.category: category as AnyObject,
-            Constants.PostData.date: date as AnyObject,
-            Constants.PostData.participants: participants as AnyObject,
-            Constants.PostData.description: description as AnyObject
-        ]
-        
-        self.userService.addPost(uid: user.uid, postData: postData, handler: handler)
-    }
-
 }

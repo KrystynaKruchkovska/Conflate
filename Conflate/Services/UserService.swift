@@ -8,7 +8,6 @@
 
 import Foundation
 
-protocol UserServise {
+protocol UserService {
     func addUser(uid:String,userData: Dictionary<String,AnyObject>, handler:@escaping (_ error:Error?)->())
-    func addPost(uid: String, postData: Dictionary<String, AnyObject>,handler:@escaping (_ error:Error?)->())
-}
+    }

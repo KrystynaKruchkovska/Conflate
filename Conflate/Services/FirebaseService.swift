@@ -10,8 +10,8 @@ import Foundation
 import Firebase
 import FirebaseStorage
 
-class FirebaseUserService:UserServise{
-
+class FirebaseService:UserService,PostService{
+    
     private static let DB_BASE = Database.database().reference()
     
     private var _REF_BASE = DB_BASE
@@ -31,9 +31,9 @@ class FirebaseUserService:UserServise{
         }
     }
     
-    func addPost(uid: String, postData: Dictionary<String, AnyObject>,handler:@escaping (_ error:Error?)->()){
-        _REF_POSTS.child(uid).setValue(postData) {
-            (error:Error?, ref:DatabaseReference) in
+    func addPost(uid: String, postData: Dictionary<String, AnyObject>,handler:@escaping (_ error:Error?)->()) {
+        
+        _REF_POSTS.childByAutoId().updateChildValues(postData){ (error:Error?, ref:DatabaseReference) in
             if let error = error{
                 print("Data could not be saved: \(error).")
                 handler(error)
@@ -41,6 +41,7 @@ class FirebaseUserService:UserServise{
                 print("Data saved successfully!")
                 handler(nil)
             }
+            
         }
     }
     
