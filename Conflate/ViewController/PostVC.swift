@@ -10,17 +10,16 @@ import UIKit
 import Firebase
 
 class PostVC: UIViewController {
+    
     var postViewModel:PostViewModel!
     var currentUser = Auth.auth().currentUser
-    
+    var location:Location!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var titleTxtField: UITextField!
     @IBOutlet weak var participanceTxtField: UITextField!
     @IBOutlet weak var descriptionTxtView: UITextView!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +39,7 @@ class PostVC: UIViewController {
     func addPost() {
         let date = self.datePicker?.date.timeIntervalSince1970
         
-        self.postViewModel.addPost(lat: "49.29899", long: "19.94885", participants: participanceTxtField.text, title: titleTxtField.text!, user: currentUser!, category: "Party", date:date!, description: descriptionTxtView.text) { (error) in
+        self.postViewModel.addPost(location: location, participants: participanceTxtField.text, title: titleTxtField.text!, user: currentUser!, category: "Party", date:date!, description: descriptionTxtView.text) { (error) in
             self.hideSpinnerAndControlOn(spinner: self.spinner)
             if let error = error {
                 self.showAlertWithError(error)

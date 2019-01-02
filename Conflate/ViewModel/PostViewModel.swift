@@ -16,12 +16,9 @@ class PostViewModel {
         self.postService = postService
     }
     
-    func addPost(lat:String, long:String, participants:String?, title:String, user: User, category:String, date:Double, description:String, handler:@escaping (_ error:Error?)->()){
-        
-        let coordinates:Dictionary<String, String> = ["lat":lat, "long":long]
-        
-        
-        let post = Post(author: user.uid, title: title, description: description, numberOfParticipants: Int(participants!)!, location:Location(lat:Double(lat)!, long:Double(long)!), date: date, category: category)
+    func addPost(location:Location, participants:String?, title:String, user: User, category:String, date:Double, description:String, handler:@escaping (_ error:Error?)->()){
+   
+        let post = Post(author: user.uid, title: title, description: description, numberOfParticipants: Int(participants!)!, location:location, date: date, category: category)
         
         self.postService.addPost(post:post, handler: handler)
     }
