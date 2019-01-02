@@ -10,13 +10,14 @@ import UIKit
 
 class ConflateTabBarController: UITabBarController {
 
-    var authViewModel:AuthViewModel!
+    var postViewModel:PostViewModel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let mapVC:MapVC = self.getTabVC() {
-            mapVC.authViewModel = self.authViewModel
+            mapVC.postViewModel = self.postViewModel
             
         }
     }

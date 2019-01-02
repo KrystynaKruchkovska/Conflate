@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class PostVC: UIViewController {
-    var authViewModel:AuthViewModel!
+    var postViewModel:PostViewModel!
     var currentUser = Auth.auth().currentUser
     
     
@@ -40,7 +40,7 @@ class PostVC: UIViewController {
     func addPost() {
         let date = self.datePicker?.date.timeIntervalSince1970
         
-        self.authViewModel.addPost(lat: "49.29899", long: "19.94885", participants: participanceTxtField.text, title: titleTxtField.text!, user: currentUser!, category: "Party", date:date!, description: descriptionTxtView.text) { (error) in
+        self.postViewModel.addPost(lat: "49.29899", long: "19.94885", participants: participanceTxtField.text, title: titleTxtField.text!, user: currentUser!, category: "Party", date:date!, description: descriptionTxtView.text) { (error) in
             self.hideSpinnerAndControlOn(spinner: self.spinner)
             if let error = error {
                 self.showAlertWithError(error)

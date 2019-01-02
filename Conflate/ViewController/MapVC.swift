@@ -9,7 +9,8 @@
 import UIKit
 
 class MapVC: UIViewController {
-    var authViewModel:AuthViewModel!
+    
+    var postViewModel:PostViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +22,8 @@ class MapVC: UIViewController {
         if segue.destination is PostVC {
             let vc = segue.destination as? PostVC
             
-            if vc?.authViewModel !== self.authViewModel {
-                vc?.authViewModel = self.authViewModel
+            if vc?.postViewModel !== self.postViewModel {
+                vc?.postViewModel = self.postViewModel
             }
             
         }

@@ -10,8 +10,7 @@ import Foundation
 import Firebase
 import FirebaseStorage
 
-class FirebaseUserService:UserServise {
-
+class FirebaseService:UserService, PostService {
     private static let DB_BASE = Database.database().reference()
     
     private var _REF_BASE = DB_BASE
@@ -41,6 +40,7 @@ class FirebaseUserService:UserServise {
                 print("Data saved successfully!")
                 handler(nil)
             }
+            
         }
     }
     
