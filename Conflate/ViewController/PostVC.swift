@@ -48,4 +48,8 @@ class PostVC: UIViewController {
         
     }
     
+    @IBAction func backButtonWasPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
