@@ -48,16 +48,10 @@ class AuthViewModel {
         
         let coordinates:Dictionary<String, String> = ["lat":lat, "long":long]
         
-        let postData:Dictionary<String, AnyObject> = [
-            Constants.PostData.location: coordinates as AnyObject,
-            Constants.PostData.title: title as AnyObject,
-            Constants.PostData.category: category as AnyObject,
-            Constants.PostData.date: date as AnyObject,
-            Constants.PostData.participants: participants as AnyObject,
-            Constants.PostData.description: description as AnyObject
-        ]
         
-        self.userService.addPost(uid: user.uid, postData: postData, handler: handler)
+        let post = Post(author: user.uid, title: title, description: description, numberOfParticipants: Int(participants!)!, location:Location(lat:Double(lat)!, long:Double(long)!), date: date, category: category)
+        
+        self.userService.addPost(post:post, handler: handler)
     }
 
 }
