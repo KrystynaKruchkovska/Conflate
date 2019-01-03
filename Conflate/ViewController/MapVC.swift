@@ -75,8 +75,8 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
             if vc?.postViewModel !== self.postViewModel {
                 vc?.postViewModel = self.postViewModel
             }
-            vc?.location = self.location
             
+            vc?.location = self.location    
         }
     }
     

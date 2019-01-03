@@ -13,7 +13,7 @@ class PostVC: UIViewController {
     
     var postViewModel:PostViewModel!
     var currentUser = Auth.auth().currentUser
-    var location:Location!
+    var location:Location?
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -33,22 +33,43 @@ class PostVC: UIViewController {
     }
     
     @IBAction func addBtnWasPressed(_ sender: UIButton) {
-        addPost()
+        self.postViewModel.validatePostData(location: self.location, title: self.titleTxtField.text, particiapntNumber: self.participanceTxtField.text, date: self.datePicker?.date, description: descriptionTxtView.text, currentUser: currentUser) { (error, post) in
+            
+            if let error = error {
+                self.showAlertWithError(error)
+                return
+            }
+            
+            guard let post = post else {
+                self.showAlertInternalError()
+                return
+            }
+            
+            self.addPost(post: post)
+        }
     }
-    
-    func addPost() {
-        let date = self.datePicker?.date.timeIntervalSince1970
         
-        self.postViewModel.addPost(location: location, participants: participanceTxtField.text, title: titleTxtField.text!, user: currentUser!, category: "Party", date:date!, description: descriptionTxtView.text) { (error) in
+    func addPost(post:Post) {
+        self.postViewModel.addPost(post) { (error) in
             self.hideSpinnerAndControlOn(spinner: self.spinner)
             if let error = error {
                 self.showAlertWithError(error)
+            } else {
+                
+                self.showAlert("Post added!", title: Constants.Alerts.successAlertTitle, handler: { (alertAction) in
+                    self.hideSelfVC()
+                })
+                
             }
         }
         
     }
     
     @IBAction func backButtonWasPressed(_ sender: Any) {
+        self.hideSelfVC()
+    }
+    
+    func hideSelfVC() {
         self.dismiss(animated: true, completion: nil)
     }
     
