@@ -15,6 +15,10 @@
 		0424B22F21D692250005E3C3 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424B22E21D692250005E3C3 /* UIViewController+Alert.swift */; };
 		042DC18921DCFD98000F7114 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DC18821DCFD98000F7114 /* PostViewModel.swift */; };
 		042DC18B21DCFE23000F7114 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DC18A21DCFE23000F7114 /* PostService.swift */; };
+		042DC19021DE74D4000F7114 /* PostInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DC18E21DE74D4000F7114 /* PostInfoVC.swift */; };
+		042DC19121DE74D4000F7114 /* PostInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042DC18F21DE74D4000F7114 /* PostInfoVC.xib */; };
+		042DC19421DE9996000F7114 /* AllPostsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DC19321DE9996000F7114 /* AllPostsVC.swift */; };
+		042DC19621DE9A8B000F7114 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DC19521DE9A8B000F7114 /* PostTableViewCell.swift */; };
 		044556CA21D7B52000C474C1 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044556C921D7B52000C474C1 /* UserService.swift */; };
 		044556CC21D7B53800C474C1 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044556CB21D7B53800C474C1 /* FirebaseService.swift */; };
 		044556D221DBA71F00C474C1 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044556D121DBA71F00C474C1 /* PostVC.swift */; };
@@ -62,6 +66,10 @@
 		0424B22E21D692250005E3C3 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		042DC18821DCFD98000F7114 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		042DC18A21DCFE23000F7114 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		042DC18E21DE74D4000F7114 /* PostInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInfoVC.swift; sourceTree = "<group>"; };
+		042DC18F21DE74D4000F7114 /* PostInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostInfoVC.xib; sourceTree = "<group>"; };
+		042DC19321DE9996000F7114 /* AllPostsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPostsVC.swift; sourceTree = "<group>"; };
+		042DC19521DE9A8B000F7114 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		044556C921D7B52000C474C1 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		044556CB21D7B53800C474C1 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		044556D121DBA71F00C474C1 /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
@@ -118,6 +126,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042DC19221DE74DF000F7114 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				042DC18F21DE74D4000F7114 /* PostInfoVC.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
 		04763B3D21D0E59A00421DA0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +174,7 @@
 				E551ACFC21DB90520055D494 /* Model */,
 				04B3767F21CE577D00784506 /* View */,
 				04B3768021CE578E00784506 /* ViewController */,
+				042DC19221DE74DF000F7114 /* XIBs */,
 				E5FD211921D16CCA003A9E4A /* Utils */,
 				E585014F21D2AD7B00FCEFBB /* Storyboards */,
 				04B3765F21CE575B00784506 /* AppDelegate.swift */,
@@ -182,6 +199,7 @@
 			children = (
 				04B3768321CE8AC300784506 /* GradientView.swift */,
 				0424B22621D66BE50005E3C3 /* CustomTextField.swift */,
+				042DC19521DE9A8B000F7114 /* PostTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,9 +210,11 @@
 				04B3766121CE575B00784506 /* SignInVC.swift */,
 				04763B4221D0ED3200421DA0 /* SignUpVC.swift */,
 				0424B22A21D679440005E3C3 /* ForgotPasswordVC.swift */,
+				04FC43BC21DBE42B002D8683 /* ConflateTabBarController.swift */,
 				044556D121DBA71F00C474C1 /* PostVC.swift */,
 				04FC43BA21DBDD44002D8683 /* MapVC.swift */,
-				04FC43BC21DBE42B002D8683 /* ConflateTabBarController.swift */,
+				042DC19321DE9996000F7114 /* AllPostsVC.swift */,
+				042DC18E21DE74D4000F7114 /* PostInfoVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -357,6 +377,7 @@
 			files = (
 				04B3766A21CE576300784506 /* LaunchScreen.storyboard in Resources */,
 				E585015121D2AD9C00FCEFBB /* Main.storyboard in Resources */,
+				042DC19121DE74D4000F7114 /* PostInfoVC.xib in Resources */,
 				04B3766721CE576300784506 /* Assets.xcassets in Resources */,
 				04B3766521CE575B00784506 /* Auth.storyboard in Resources */,
 				04B3768621CEA19500784506 /* GoogleService-Info.plist in Resources */,
@@ -486,13 +507,16 @@
 			files = (
 				E5FD211D21D16E0F003A9E4A /* UITextField+ErrorBorder.swift in Sources */,
 				0424B22721D66BE60005E3C3 /* CustomTextField.swift in Sources */,
+				042DC19021DE74D4000F7114 /* PostInfoVC.swift in Sources */,
 				044556D221DBA71F00C474C1 /* PostVC.swift in Sources */,
 				04B3766221CE575B00784506 /* SignInVC.swift in Sources */,
+				042DC19621DE9A8B000F7114 /* PostTableViewCell.swift in Sources */,
 				044556CC21D7B53800C474C1 /* FirebaseService.swift in Sources */,
 				04F9C34821D10D5700CCFB00 /* UIViewController+hideKeyboard.swift in Sources */,
 				E551AD2021DCEE610055D494 /* Post.swift in Sources */,
 				0424B22F21D692250005E3C3 /* UIViewController+Alert.swift in Sources */,
 				04B3766021CE575B00784506 /* AppDelegate.swift in Sources */,
+				042DC19421DE9996000F7114 /* AllPostsVC.swift in Sources */,
 				0424B22921D66CE00005E3C3 /* UITextField+Button.swift in Sources */,
 				0424B22D21D688CA0005E3C3 /* UIViewController+Spinner.swift in Sources */,
 				04B3768421CE8AC300784506 /* GradientView.swift in Sources */,

@@ -18,8 +18,11 @@ class ConflateTabBarController: UITabBarController {
         
         if let mapVC:MapVC = self.getTabVC() {
             mapVC.postViewModel = self.postViewModel
-            
         }
+        
+        let allPostVC:AllPostsVC? = self.getTabVC()
+        allPostVC?.postViewModel = postViewModel
+        
     }
     
 

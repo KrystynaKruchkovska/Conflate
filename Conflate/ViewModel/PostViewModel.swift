@@ -22,5 +22,9 @@ class PostViewModel {
         
         self.postService.addPost(post:post, handler: handler)
     }
+    
+    func readPosts(handler: @escaping (_ post: [Post]) -> ()){
+        self.postService.readPosts(handler:handler)
+    }
 
 }

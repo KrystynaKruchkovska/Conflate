@@ -43,5 +43,47 @@ class FirebaseService:UserService, PostService {
             
         }
     }
+
+    func readPosts(handler: @escaping (_ post: [Post]) -> ()){
+        var postArray =  [Post]()
+        
+        _REF_POSTS.observeSingleEvent(of: .value) { (postSnapshot) in
+            guard let postSnapshot = postSnapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            
+            for post in postSnapshot {
+                let post = self.createPost(post: post)
+                postArray.append(post)
+            }
+            
+            handler(postArray)
+        }
+
+    }
+    
+    func createPost(post:DataSnapshot) -> Post{
+        
+        let authorID = post.childSnapshot(forPath: "authorID").value as! String
+        let title = post.childSnapshot(forPath: "title").value as! String
+        let description = post.childSnapshot(forPath: "description").value as! String
+        let numberOfParticipants = post.childSnapshot(forPath: "numberOfParticipants").value as! Int
+        
+        let lat = post.childSnapshot(forPath: "location/lat").value as! Double
+        
+        let long = post.childSnapshot(forPath: "location/long").value as! Double
+        
+        let location = Location(lat:lat, long:long)
+        
+        let date = post.childSnapshot(forPath: "date").value as! Double
+        let category = post.childSnapshot(forPath: "category").value as! String
+        
+        let post = Post(author: authorID, title: title, description: description, numberOfParticipants: numberOfParticipants, location: location, date: date, category: category)
+        
+        
+        return post
+    }
+    
+    
     
 }

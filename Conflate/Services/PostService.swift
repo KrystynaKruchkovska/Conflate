@@ -10,4 +10,5 @@ import Foundation
 
 protocol PostService {
     func addPost(post:Post, handler:@escaping (_ error:Error?)->())
+    func readPosts(handler: @escaping (_ post: [Post]) -> ())
 }
