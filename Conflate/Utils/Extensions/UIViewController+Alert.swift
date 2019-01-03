@@ -15,7 +15,7 @@ extension UIViewController {
         let errorTitle = Constants.Alerts.errorAlertTitle
         
         guard let message = error?.localizedDescription  else {
-            self.showAlert(Constants.Strings.internal_error, title: errorTitle, handler: nil)
+            self.showAlertInternalError()
             return
         }
         
@@ -35,7 +35,18 @@ extension UIViewController {
         }
         
         self.present(alert, animated: true, completion: nil)
-        
     }
     
+    func showAlertInternalError() {
+        self.showAlert(Constants.Strings.internal_error, title: Constants.Alerts.errorAlertTitle, handler: nil)
+    }
+    
+}
+
+func createErrorWithMessage(_ message:String) -> Error {
+    return NSError(domain:"", code:-1, userInfo:[ NSLocalizedDescriptionKey: message])
+}
+
+func createInternalError() -> Error {
+    return createErrorWithMessage(Constants.Strings.internal_error)
 }
