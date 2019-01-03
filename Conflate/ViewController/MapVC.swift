@@ -14,8 +14,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     
     var postViewModel:PostViewModel!
     var locationManager = CLLocationManager()
-    var currentLocation: CLLocation!
-    var location:Location!
+    var location: Location!
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -32,8 +31,9 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
             CLLocationManager.authorizationStatus() ==  .authorizedAlways) {
             
-            currentLocation = locationManager.location
-            self.location = Location(lat:currentLocation.coordinate.latitude, long:currentLocation.coordinate.longitude)
+            if let currentLocation = locationManager.location {
+                self.location = Location(lat:currentLocation.coordinate.latitude, long:currentLocation.coordinate.longitude)
+            }
             
         }
     }
@@ -42,7 +42,6 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         
         self.getLocation()
         
-        //self.locationManager.stopUpdatingLocation()
         self.zoomMap(lat: locations[0].coordinate.latitude, lon: locations[0].coordinate.longitude)
     }
     
@@ -55,7 +54,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     }
    
     func setupLocation() {
-        if CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .denied ||  CLLocationManager.authorizationStatus() == .notDetermined {
+        if self.isLocationNotAuthorized() {
             locationManager.requestWhenInUseAuthorization()
         }
         
@@ -63,6 +62,10 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         locationManager.delegate = self
         self.mapView.showsUserLocation = true
         locationManager.startUpdatingLocation()
+    }
+    
+    func isLocationNotAuthorized() -> Bool {
+        return CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .denied ||  CLLocationManager.authorizationStatus() == .notDetermined
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
