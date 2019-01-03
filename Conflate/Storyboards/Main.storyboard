@@ -68,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="80.799999999999997" y="-18.440779610194905"/>
         </scene>
-        <!--PostVC-->
+        <!--Add PostVC-->
         <scene sceneID="rnL-C5-eTb">
             <objects>
-                <viewController id="jj8-Cq-hYl" customClass="PostVC" customModule="Conflate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jj8-Cq-hYl" customClass="AddPostVC" customModule="Conflate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="09E-m5-EsR" customClass="GradientView" customModule="Conflate" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

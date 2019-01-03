@@ -63,7 +63,7 @@ class FirebaseService:UserService, PostService {
     }
     
     func createPost(post:DataSnapshot) -> Post{
-        
+        // TODO: All strings to CONSTANTS!
         let authorID = post.childSnapshot(forPath: "authorID").value as! String
         let title = post.childSnapshot(forPath: "title").value as! String
         let description = post.childSnapshot(forPath: "description").value as! String
@@ -80,10 +80,7 @@ class FirebaseService:UserService, PostService {
         
         let post = Post(author: authorID, title: title, description: description, numberOfParticipants: numberOfParticipants, location: location, date: date, category: category)
         
-        
         return post
     }
-    
-    
     
 }

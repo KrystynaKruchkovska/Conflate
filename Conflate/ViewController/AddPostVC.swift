@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class PostVC: UIViewController {
+class AddPostVC: UIViewController {
     
     var postViewModel:PostViewModel!
     var currentUser = Auth.auth().currentUser

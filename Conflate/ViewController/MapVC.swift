@@ -69,8 +69,8 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is PostVC {
-            let vc = segue.destination as? PostVC
+        if segue.destination is AddPostVC {
+            let vc = segue.destination as? AddPostVC
             
             if vc?.postViewModel !== self.postViewModel {
                 vc?.postViewModel = self.postViewModel
