@@ -45,9 +45,10 @@ class FirebaseService:UserService, PostService {
     }
 
     func readPosts(handler: @escaping (_ post: [Post]) -> ()){
-        var postArray =  [Post]()
-        
+    
         _REF_POSTS.observeSingleEvent(of: .value) { (postSnapshot) in
+            var postArray =  [Post]()
+            
             guard let postSnapshot = postSnapshot.children.allObjects as? [DataSnapshot] else {
                 return
             }
