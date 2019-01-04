@@ -31,17 +31,19 @@ struct Constants {
         static let verification_invalid = "Your account is not verified. Click \"Resend\" if you want us to resend activation email"
     }
     
-    struct  UserData {
+    struct UserData {
         static let provider = "provider"
         static let email = "email"
         static let username = "username"
     }
-    struct  PostData {
-        static let location = "location"
+    
+    struct PostData {
+        static let locationLat = "location/lat"
+        static let locationLong = "location/long"
         static let category = "category"
         static let date = "date"
         static let title = "title"
-        static let participants = "participents"
+        static let participants = "numberOfParticipants"
         static let description = "description"
     }
     

@@ -64,20 +64,17 @@ class FirebaseService:UserService, PostService {
     }
     
     func createPost(post:DataSnapshot) -> Post{
-        // TODO: All strings to CONSTANTS!
-        let authorID = post.childSnapshot(forPath: "authorID").value as! String
-        let title = post.childSnapshot(forPath: "title").value as! String
-        let description = post.childSnapshot(forPath: "description").value as! String
-        let numberOfParticipants = post.childSnapshot(forPath: "numberOfParticipants").value as! Int
+        let authorID = post.childSnapshot(forPath: Constants.PostData.category).value as! String
+        let title = post.childSnapshot(forPath: Constants.PostData.title).value as! String
+        let description = post.childSnapshot(forPath: Constants.PostData.description).value as! String
+        let numberOfParticipants = post.childSnapshot(forPath: Constants.PostData.participants).value as! Int
+        let date = post.childSnapshot(forPath: Constants.PostData.date).value as! Double
+        let category = post.childSnapshot(forPath: Constants.PostData.category).value as! String
         
-        let lat = post.childSnapshot(forPath: "location/lat").value as! Double
-        
-        let long = post.childSnapshot(forPath: "location/long").value as! Double
+        let lat = post.childSnapshot(forPath: Constants.PostData.locationLat).value as! Double
+        let long = post.childSnapshot(forPath: Constants.PostData.locationLong).value as! Double
         
         let location = Location(lat:lat, long:long)
-        
-        let date = post.childSnapshot(forPath: "date").value as! Double
-        let category = post.childSnapshot(forPath: "category").value as! String
         
         let post = Post(author: authorID, title: title, description: description, numberOfParticipants: numberOfParticipants, location: location, date: date, category: category)
         
