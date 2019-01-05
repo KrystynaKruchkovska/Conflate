@@ -29,6 +29,7 @@ struct Constants {
         static let verification_sent = "Verification email was sent successfully, check your email"
         static let different_passwords = "Password should be the same"
         static let verification_invalid = "Your account is not verified. Click \"Resend\" if you want us to resend activation email"
+        static let location_Is_not_authorized = "Location is not authorized"
     }
     
     struct UserData {

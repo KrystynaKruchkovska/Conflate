@@ -63,5 +63,7 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>App wants to access your location</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 </dict>
 </plist>
