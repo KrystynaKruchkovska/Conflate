@@ -15,10 +15,7 @@ class AddPostVC: UIViewController {
     var currentUser = Auth.auth().currentUser
     var location:Location?
     
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    
-    
-    @IBOutlet weak var spinnerView: UIView!
+    @IBOutlet weak var spinnerView: SpinnerView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var titleTxtField: UITextField!
     @IBOutlet weak var participanceTxtField: UITextField!
@@ -26,8 +23,7 @@ class AddPostVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideSpinnerAndControlOn(spinner: self.spinner)
-        self.spinnerView.isHidden = true
+        self.spinnerView.hideSpinner()
     }
     
     @IBAction func locationBtnWasPressed(_ sender: Any) {
@@ -37,8 +33,7 @@ class AddPostVC: UIViewController {
     }
     
     @IBAction func addBtnWasPressed(_ sender: UIButton) {
-        showSpinnerAndControlOff(spinner: self.spinner)
-        self.spinnerView.isHidden = false
+        self.spinnerView.showSpinner()
         self.postViewModel.validatePostData(location: self.location, title: self.titleTxtField.text, particiapntNumber: self.participanceTxtField.text, date: self.datePicker?.date, description: descriptionTxtView.text, currentUser: currentUser) { (error, post) in
             
             if let error = error {
@@ -57,7 +52,9 @@ class AddPostVC: UIViewController {
         
     func addPost(post:Post) {
         self.postViewModel.addPost(post) { (error) in
-            self.hideSpinnerAndControlOn(spinner: self.spinner)
+            
+            self.spinnerView.hideSpinner()
+            
             if let error = error {
                 self.showAlertWithError(error)
             } else {

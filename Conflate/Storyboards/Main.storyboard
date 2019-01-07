@@ -286,19 +286,12 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9o-nL-DxU">
+                                            <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9o-nL-DxU" customClass="SpinnerView" customModule="Conflate" customModuleProvider="target">
                                                 <rect key="frame" x="293.5" y="194" width="80" height="80"/>
-                                                <subviews>
-                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="XLq-G4-G6W">
-                                                        <rect key="frame" x="21.5" y="21.5" width="37" height="37"/>
-                                                    </activityIndicatorView>
-                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="5po-IY-L55"/>
                                                     <constraint firstAttribute="height" constant="80" id="G2i-Cz-IFj"/>
-                                                    <constraint firstItem="XLq-G4-G6W" firstAttribute="centerY" secondItem="N9o-nL-DxU" secondAttribute="centerY" id="MNp-Ao-6JI"/>
-                                                    <constraint firstItem="XLq-G4-G6W" firstAttribute="centerX" secondItem="N9o-nL-DxU" secondAttribute="centerX" id="qS4-Qz-p4N"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -351,7 +344,6 @@ Give me one good reason why I should give up my limited spare time to come to yo
                         <outlet property="datePicker" destination="gbz-e1-LMp" id="jcd-Ln-l8A"/>
                         <outlet property="descriptionTxtView" destination="hde-6U-4aR" id="vfi-V0-aPw"/>
                         <outlet property="participanceTxtField" destination="EnH-tx-LUy" id="UsN-9I-Pbg"/>
-                        <outlet property="spinner" destination="XLq-G4-G6W" id="NFg-Oa-gMw"/>
                         <outlet property="spinnerView" destination="N9o-nL-DxU" id="HBV-cN-0JM"/>
                         <outlet property="titleTxtField" destination="zII-9C-5Te" id="Hwu-38-FQK"/>
                     </connections>
