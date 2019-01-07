@@ -40,14 +40,16 @@ class SpinnerView: UIView {
     
     private func setupSelf() {
         self.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        self.layer.cornerRadius = 10
     }
     
     private func setupSpinner() {
-        spinner.frame = CGRect(x: 0.0, y: 0.0, width: 50.0, height: 50.0)
-        spinner.style = UIActivityIndicatorView.Style.whiteLarge
-        spinner.center = self.center
-        spinner.color = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        self.addSubview(spinner)
+        self.spinner.style = UIActivityIndicatorView.Style.whiteLarge
+        self.spinner.center = self.center
+        self.spinner.color = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
+        self.addSubview(self.spinner)
+        self.spinner.centerInSuperview()
     }
 
 }

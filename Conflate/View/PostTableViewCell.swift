@@ -10,7 +10,6 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
   
-
     @IBOutlet weak var titleLbl: UILabel!
     
     @IBOutlet weak var infoButton: UIButton!
@@ -18,7 +17,5 @@ class PostTableViewCell: UITableViewCell {
     func configureCell(title:String) {
         self.titleLbl.text = title
     }
-    
-    
     
 }

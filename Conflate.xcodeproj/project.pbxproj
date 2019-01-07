@@ -46,6 +46,7 @@
 		E551AD2021DCEE610055D494 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551AD1F21DCEE610055D494 /* Post.swift */; };
 		E551AD2221DCEEB70055D494 /* Encodable+toDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551AD2121DCEEB70055D494 /* Encodable+toDictionary.swift */; };
 		E585015121D2AD9C00FCEFBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E585015021D2AD9C00FCEFBB /* Main.storyboard */; };
+		E59E1F1321E406CF004BC40A /* UIView+CenterInSuperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1F1221E406CF004BC40A /* UIView+CenterInSuperView.swift */; };
 		E5FD211B21D16CFC003A9E4A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FD211A21D16CFC003A9E4A /* Constants.swift */; };
 		E5FD211D21D16E0F003A9E4A /* UITextField+ErrorBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FD211C21D16E0F003A9E4A /* UITextField+ErrorBorder.swift */; };
 /* End PBXBuildFile section */
@@ -107,6 +108,7 @@
 		E551AD1F21DCEE610055D494 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E551AD2121DCEEB70055D494 /* Encodable+toDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+toDictionary.swift"; sourceTree = "<group>"; };
 		E585015021D2AD9C00FCEFBB /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E59E1F1221E406CF004BC40A /* UIView+CenterInSuperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CenterInSuperView.swift"; sourceTree = "<group>"; };
 		E5FD211A21D16CFC003A9E4A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E5FD211C21D16E0F003A9E4A /* UITextField+ErrorBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+ErrorBorder.swift"; sourceTree = "<group>"; };
 		F3208DFE4742E8CABFEEDDB2 /* Pods-ConflateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConflateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConflateTests/Pods-ConflateTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				0424B22E21D692250005E3C3 /* UIViewController+Alert.swift */,
 				E551AD2121DCEEB70055D494 /* Encodable+toDictionary.swift */,
 				049EC90421E3C9CA0061F7A1 /* TableView+GetIndexPath.swift */,
+				E59E1F1221E406CF004BC40A /* UIView+CenterInSuperView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				04FC43BD21DBE42B002D8683 /* ConflateTabBarController.swift in Sources */,
 				04F9C34621D0F9E200CCFB00 /* AuthViewModel.swift in Sources */,
 				E5FD211B21D16CFC003A9E4A /* Constants.swift in Sources */,
+				E59E1F1321E406CF004BC40A /* UIView+CenterInSuperView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
