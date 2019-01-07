@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AllPostsVC: UIViewController {
+class AllPostsVC: UIViewController{
     
     var postViewModel:PostViewModel!
     private var postArray = [Post]()
@@ -42,6 +42,19 @@ class AllPostsVC: UIViewController {
     
     @IBAction func infobtnWasPressed(_ sender: UIButton) {
         print("info button was pressed")
+        infoButtonDidSelect(sender)
+    }
+    
+    func infoButtonDidSelect(_ infoBtn: UIButton) {
+        let indexPath = tableView.getIndexPath(for: infoBtn)
+        if indexPath.indices.count < 1 {
+            print("Fatal error")
+            return
+        }
+        let presentInfo = PostInfoVC()
+        presentInfo.post = self.postArray[indexPath.row]
+        presentInfo.modalPresentationStyle = .fullScreen
+        present(presentInfo, animated: true, completion: nil)
     }
     
 }
@@ -53,8 +66,8 @@ extension AllPostsVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "postTableViewCell") as? PostTableViewCell else {
-            fatalError("The dequeued cell is not an instance of TaskTableViewCell.")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifire.postTableViewCell) as? PostTableViewCell else {
+            fatalError(Constants.Strings.fattalError)
         }
       
         let post = postArray[indexPath.row]

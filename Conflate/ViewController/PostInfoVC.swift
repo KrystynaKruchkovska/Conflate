@@ -11,6 +11,7 @@ import UIKit
 class PostInfoVC: UIViewController {
     
     @IBOutlet weak var titleLbl: UILabel!
+    var post:Post!
     
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var locationLbl: UILabel!
@@ -21,8 +22,20 @@ class PostInfoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupView()
     }
+    
+   func setupView(){
+    titleLbl.text = (titleLbl.text ?? "") + " " + post.title
+    locationLbl.text = (locationLbl.text ?? "") + " " + "lat:\(post.location.lat)" + " " + "long:\(post.location.long)"
+    descriptionLbl.text = (descriptionLbl.text ?? "") + " " + post.description
+    participantsLbl.text = (participantsLbl.text ?? "") + " " + String(post.numberOfParticipants)
+    }
+    
+    @IBAction func backBtnWasPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     @IBAction func askQuryWasPressed(_ sender: Any) {
     }

@@ -30,6 +30,7 @@ struct Constants {
         static let different_passwords = "Password should be the same"
         static let verification_invalid = "Your account is not verified. Click \"Resend\" if you want us to resend activation email"
         static let location_Is_not_authorized = "Location is not authorized"
+        static let fattalError = "The dequeued cell is not an instance of  mentioned TableViewCell."
     }
     
     struct UserData {
@@ -46,6 +47,11 @@ struct Constants {
         static let title = "title"
         static let participants = "numberOfParticipants"
         static let description = "description"
+    }
+    
+    struct CellIdentifire {
+        static let locationCell = "locationCell"
+        static let postTableViewCell = "postTableViewCell"
     }
     
 }
