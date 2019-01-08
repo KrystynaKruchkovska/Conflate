@@ -14,6 +14,7 @@ class AddPostVC: UIViewController {
     var postViewModel:PostViewModel!
     var currentUser = Auth.auth().currentUser
     var location:Location?
+    var categoryType:String?
     
     @IBOutlet weak var spinnerView: SpinnerView!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -29,12 +30,12 @@ class AddPostVC: UIViewController {
     @IBAction func locationBtnWasPressed(_ sender: Any) {
     }
     
-    @IBAction func categoryBtnWasPressed(_ sender: Any) {
-    }
+    
+    
     
     @IBAction func addBtnWasPressed(_ sender: UIButton) {
         self.spinnerView.showSpinner()
-        self.postViewModel.validatePostData(location: self.location, title: self.titleTxtField.text, particiapntNumber: self.participanceTxtField.text, date: self.datePicker?.date, description: descriptionTxtView.text, currentUser: currentUser) { (error, post) in
+        self.postViewModel.validatePostData(location: self.location, title: self.titleTxtField.text, particiapntNumber: self.participanceTxtField.text, date: self.datePicker?.date, description: descriptionTxtView.text, currentUser: currentUser, category: categoryType) { (error, post) in
             
             if let error = error {
                 self.showAlertWithError(error)

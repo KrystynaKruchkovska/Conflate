@@ -12,6 +12,7 @@ class PopUpVC: UIViewController {
     
     
     var categories: [Category] = []
+    var categotyTypeToPass:String?
 
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -20,6 +21,7 @@ class PopUpVC: UIViewController {
         super.viewDidLoad()
         setCategoryArray()
         self.tableView.dataSource = self
+        self.tableView.delegate = self
 
     }
     
@@ -33,13 +35,9 @@ class PopUpVC: UIViewController {
         self.popUpView.layer.cornerRadius = 10
         self.popUpView.layer.masksToBounds = true
     }
-    
-    @IBAction func DoneBtnWasPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
+        
 }
-extension PopUpVC : UITableViewDataSource{
+extension PopUpVC : UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
@@ -51,6 +49,21 @@ extension PopUpVC : UITableViewDataSource{
         let category = categories[indexPath.row]
         cell.configureCell(category: category)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow!
+        guard let currentCell = tableView.cellForRow(at: indexPath) as? CategoryCell else {
+            fatalError(Constants.Strings.fattalError)
+        }
+        categotyTypeToPass = currentCell.categoryTitle.text
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "passCategorySegue" {
+            let viewController = segue.destination as! AddPostVC
+            viewController.categoryType = categotyTypeToPass
+        }
     }
     
     

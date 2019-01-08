@@ -56,7 +56,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjs-U7-Iwq">
                                 <rect key="frame" x="334" y="118" width="22" height="22"/>
                                 <connections>
-                                    <segue destination="jj8-Cq-hYl" kind="presentation" id="cAW-hY-3k2"/>
+                                    <segue destination="jj8-Cq-hYl" kind="presentation" identifier="" id="cAW-hY-3k2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -186,7 +186,6 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <state key="normal" title="  Category" image="category"/>
                                                         <connections>
-                                                            <action selector="categoryBtnWasPressed:" destination="jj8-Cq-hYl" eventType="touchUpInside" id="AVT-Kp-p8O"/>
                                                             <segue destination="lNJ-Ym-6U8" kind="presentation" id="eOZ-0C-0mo"/>
                                                         </connections>
                                                     </button>
@@ -221,12 +220,22 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BY-Iz-b1A">
+                                                        <rect key="frame" x="301" y="0.0" width="65" height="70"/>
+                                                        <connections>
+                                                            <action selector="addBtnWasPressed:" destination="jj8-Cq-hYl" eventType="touchUpInside" id="vh7-Mm-uHE"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="Rve-pH-hiy" firstAttribute="centerY" secondItem="1X5-Gw-bfc" secondAttribute="centerY" id="5PM-Rh-342"/>
+                                                    <constraint firstItem="2BY-Iz-b1A" firstAttribute="width" secondItem="Rve-pH-hiy" secondAttribute="width" id="KPS-uU-Ccl"/>
+                                                    <constraint firstItem="2BY-Iz-b1A" firstAttribute="height" secondItem="Rve-pH-hiy" secondAttribute="height" id="QPG-nN-GNu"/>
                                                     <constraint firstItem="Rve-pH-hiy" firstAttribute="centerX" secondItem="1X5-Gw-bfc" secondAttribute="centerX" id="bkH-ul-hJV"/>
                                                     <constraint firstItem="Rve-pH-hiy" firstAttribute="height" secondItem="1X5-Gw-bfc" secondAttribute="height" id="cbG-zK-E6R"/>
+                                                    <constraint firstItem="2BY-Iz-b1A" firstAttribute="centerX" secondItem="Rve-pH-hiy" secondAttribute="centerX" id="kVK-yc-dzT"/>
+                                                    <constraint firstItem="2BY-Iz-b1A" firstAttribute="centerY" secondItem="Rve-pH-hiy" secondAttribute="centerY" id="yLz-qB-MPe"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="vZO-4a-VM9">
@@ -411,7 +420,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                         <rect key="frame" x="0.0" y="266.5" width="300" height="67"/>
                                         <state key="normal" title="Done"/>
                                         <connections>
-                                            <action selector="DoneBtnWasPressed:" destination="lNJ-Ym-6U8" eventType="touchUpInside" id="76w-KA-7lU"/>
+                                            <segue destination="jj8-Cq-hYl" kind="show" identifier="passCategorySegue" id="hkh-An-O0F"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -565,6 +574,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
         <image name="settings" width="43.5" height="43.5"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="cAW-hY-3k2"/>
         <segue reference="WR6-bd-dUs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
