@@ -10,7 +10,7 @@ import UIKit
 @IBDesignable
 class GradientView: UIView {
     
-    var internalLayer:CAGradientLayer?
+    var gradientLayer:CAGradientLayer?
     
     @IBInspectable var topColor: UIColor = #colorLiteral(red: 0.3411764706, green: 0.2705882353, blue: 0.5294117647, alpha: 1) {
         didSet{
@@ -26,21 +26,29 @@ class GradientView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        if let internalLayer = self.internalLayer {
+        self.insertGradientLayer()
+    }
+    
+    func insertGradientLayer() {
+        if let internalLayer = self.gradientLayer {
             internalLayer.removeFromSuperlayer()
         }
+
+        self.gradientLayer = self.createGradientLayer()
         
+        self.layer.insertSublayer(self.gradientLayer!, at: 0)
+    }
+    
+    func createGradientLayer() -> CAGradientLayer {
         let gradientLayer = CAGradientLayer()
+        
         gradientLayer.removeFromSuperlayer()
         gradientLayer.colors = [topColor.cgColor, bottomColor.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
         gradientLayer.frame = self.bounds
         
-        self.internalLayer = gradientLayer
-        
-        self.layer.insertSublayer(gradientLayer, at: 0)
+        return gradientLayer
     }
     
 }

@@ -13,12 +13,11 @@ class LocationSearchTable:UITableViewController {
     var matchingItems:[MKMapItem] = []
     var mapView:MKMapView? = nil
 }
+
 extension LocationSearchTable : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         print("updateSearchResults working")
-       
     }
-    
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         guard let mapView = mapView , let searchBarText = searchController.searchBar.text else { return }
@@ -47,6 +46,7 @@ extension LocationSearchTable {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifire.locationCell) else {
             fatalError(Constants.Strings.fattalError)
         }
+        
         let selectedItem = matchingItems[indexPath.row].placemark
         cell.textLabel?.text = selectedItem.name
         cell.detailTextLabel?.text = ""
