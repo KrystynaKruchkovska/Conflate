@@ -35,6 +35,9 @@
 		04B3767521CE576400784506 /* ConflateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3767421CE576400784506 /* ConflateTests.swift */; };
 		04B3768421CE8AC300784506 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3768321CE8AC300784506 /* GradientView.swift */; };
 		04B3768621CEA19500784506 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B3768521CEA19400784506 /* GoogleService-Info.plist */; };
+		04F6040A21E4C1910099A1B6 /* PopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6040921E4C1910099A1B6 /* PopUpVC.swift */; };
+		04F6040C21E4CEFF0099A1B6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6040B21E4CEFF0099A1B6 /* Category.swift */; };
+		04F6040E21E4DABC0099A1B6 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6040D21E4DABC0099A1B6 /* CategoryCell.swift */; };
 		04F9C34621D0F9E200CCFB00 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9C34521D0F9E200CCFB00 /* AuthViewModel.swift */; };
 		04F9C34821D10D5700CCFB00 /* UIViewController+hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9C34721D10D5700CCFB00 /* UIViewController+hideKeyboard.swift */; };
 		04FC43BB21DBDD44002D8683 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC43BA21DBDD44002D8683 /* MapVC.swift */; };
@@ -94,6 +97,9 @@
 		04B3767621CE576400784506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B3768321CE8AC300784506 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		04B3768521CEA19400784506 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04F6040921E4C1910099A1B6 /* PopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpVC.swift; sourceTree = "<group>"; };
+		04F6040B21E4CEFF0099A1B6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		04F6040D21E4DABC0099A1B6 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		04F9C34521D0F9E200CCFB00 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		04F9C34721D10D5700CCFB00 /* UIViewController+hideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+hideKeyboard.swift"; sourceTree = "<group>"; };
 		04FC43BA21DBDD44002D8683 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -209,6 +215,7 @@
 				0424B22621D66BE50005E3C3 /* CustomTextField.swift */,
 				042DC19521DE9A8B000F7114 /* PostTableViewCell.swift */,
 				049EC90821E3F25E0061F7A1 /* SpinnerView.swift */,
+				04F6040D21E4DABC0099A1B6 /* CategoryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -225,6 +232,7 @@
 				042DC19321DE9996000F7114 /* AllPostsVC.swift */,
 				042DC18E21DE74D4000F7114 /* PostInfoVC.swift */,
 				042DC19721E13A21000F7114 /* LocationSearchTable.swift */,
+				04F6040921E4C1910099A1B6 /* PopUpVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -264,6 +272,7 @@
 				E551ACFD21DB90730055D494 /* User.swift */,
 				E551ACFF21DB90850055D494 /* FirebaseUser.swift */,
 				E551AD1F21DCEE610055D494 /* Post.swift */,
+				04F6040B21E4CEFF0099A1B6 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -464,7 +473,6 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -477,7 +485,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -518,9 +525,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5FD211D21D16E0F003A9E4A /* UITextField+ErrorBorder.swift in Sources */,
+				04F6040A21E4C1910099A1B6 /* PopUpVC.swift in Sources */,
 				0424B22721D66BE60005E3C3 /* CustomTextField.swift in Sources */,
 				042DC19021DE74D4000F7114 /* PostInfoVC.swift in Sources */,
 				044556D221DBA71F00C474C1 /* AddPostVC.swift in Sources */,
+				04F6040C21E4CEFF0099A1B6 /* Category.swift in Sources */,
 				04B3766221CE575B00784506 /* SignInVC.swift in Sources */,
 				042DC19621DE9A8B000F7114 /* PostTableViewCell.swift in Sources */,
 				049EC90921E3F25E0061F7A1 /* SpinnerView.swift in Sources */,
@@ -538,6 +547,7 @@
 				04763B4321D0ED3200421DA0 /* SignUpVC.swift in Sources */,
 				0424B22B21D679440005E3C3 /* ForgotPasswordVC.swift in Sources */,
 				04763B3F21D0E60400421DA0 /* FirebaseAuthService.swift in Sources */,
+				04F6040E21E4DABC0099A1B6 /* CategoryCell.swift in Sources */,
 				E551AD2221DCEEB70055D494 /* Encodable+toDictionary.swift in Sources */,
 				044556CA21D7B52000C474C1 /* UserService.swift in Sources */,
 				042DC19821E13A22000F7114 /* LocationSearchTable.swift in Sources */,

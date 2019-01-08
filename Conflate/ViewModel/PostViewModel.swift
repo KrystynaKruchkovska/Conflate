@@ -66,6 +66,9 @@ class PostViewModel {
         
         completionHandler(nil, post)
     }
+    
+    
+
 
 }
     

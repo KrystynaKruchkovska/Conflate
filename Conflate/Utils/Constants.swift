@@ -54,4 +54,17 @@ struct Constants {
         static let postTableViewCell = "postTableViewCell"
     }
     
+    struct Image {
+        static let lostAndFound = "lostAndFound"
+        static let healthAndFitness = "healthAndFitness"
+        static let party = "party"
+    }
+    
+    
+    struct CategoryTitle {
+        static let lostAndFound = "Lost/Found Item"
+        static let healthAndFitness = "Health&Fitness"
+        static let party = "Party"
+    }
+    
 }
