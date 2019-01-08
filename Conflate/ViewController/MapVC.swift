@@ -101,6 +101,10 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        fatalError("Implement this function")
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is AddPostVC {
             let vc = segue.destination as? AddPostVC
