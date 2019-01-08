@@ -379,7 +379,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="40" id="ZzH-S6-r9C" customClass="CategoryCell" customModule="Conflate" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="300" height="40"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZzH-S6-r9C" id="DYE-Hn-bG8">
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZzH-S6-r9C" id="DYE-Hn-bG8">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="39.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
@@ -391,7 +391,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="50" translatesAutoresizingMaskIntoConstraints="NO" id="HoS-EG-ot8">
-                                                            <rect key="frame" x="50" y="-0.5" width="33.5" height="40.5"/>
+                                                            <rect key="frame" x="50" y="-0.5" width="172" height="40.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="172" id="QmM-YI-qj7"/>
                                                             </constraints>
@@ -420,6 +420,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                         <rect key="frame" x="0.0" y="266.5" width="300" height="67"/>
                                         <state key="normal" title="Done"/>
                                         <connections>
+                                            <action selector="doneBtnWasPressed:" destination="lNJ-Ym-6U8" eventType="touchUpInside" id="1tK-eL-ut1"/>
                                             <segue destination="jj8-Cq-hYl" kind="show" identifier="passCategorySegue" id="hkh-An-O0F"/>
                                         </connections>
                                     </button>
@@ -574,7 +575,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
         <image name="settings" width="43.5" height="43.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cAW-hY-3k2"/>
+        <segue reference="hkh-An-O0F"/>
         <segue reference="WR6-bd-dUs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

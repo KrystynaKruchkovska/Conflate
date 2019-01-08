@@ -24,6 +24,12 @@ class PopUpVC: UIViewController {
         self.tableView.delegate = self
 
     }
+    @IBAction func doneBtnWasPressed(_ sender: UIButton) {
+        if let presenter = presentingViewController as? AddPostVC {
+            presenter.categoryType = categotyTypeToPass
+        }
+        dismiss(animated: true, completion: nil)
+    }
     
     
     func setCategoryArray(){
@@ -58,13 +64,7 @@ extension PopUpVC : UITableViewDataSource,UITableViewDelegate{
         }
         categotyTypeToPass = currentCell.categoryTitle.text
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "passCategorySegue" {
-            let viewController = segue.destination as! AddPostVC
-            viewController.categoryType = categotyTypeToPass
-        }
-    }
+   
     
     
 }

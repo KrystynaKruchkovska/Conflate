@@ -102,7 +102,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        fatalError("Implement this function")
+        //fatalError("Implement this function")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
