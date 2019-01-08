@@ -11,7 +11,7 @@ import UIKit
 class AllPostsVC: UIViewController{
     
     var postViewModel:PostViewModel!
-    var spinner = UIActivityIndicatorView()
+    var spinnerView = SpinnerView()
     private var postArray = [Post]()
 
     @IBOutlet weak var tableView: UITableView!
@@ -19,32 +19,35 @@ class AllPostsVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
-        self.setupSpinner()
+        setupSpinnerView()
+   
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        showSpinnerAndControlOff(spinner: spinner)
+        self.view.addSubview(spinnerView)
+        self.spinnerView.showSpinner()
+
         
         self.postViewModel.readPosts { (posts) in
             self.postArray = posts
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                self.hideSpinnerAndControlOn(spinner: self.spinner)
+                self.spinnerView.hideSpinner()
             }
            
         }
     }
     
-    
-    func setupSpinner() {
-        spinner.frame = CGRect(x: 0.0, y: 0.0, width: 50.0, height: 50.0)
-        spinner.style = UIActivityIndicatorView.Style.gray
-        spinner.center = self.view.center
-        spinner.color = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        self.view.addSubview(spinner)
+    func setupSpinnerView(){
+        self.spinnerView.frame.size.height = 80
+        self.spinnerView.frame.size.width = 80
+        self.spinnerView.center = CGPoint(x: self.view.frame.size.width  / 2,
+                                          y: self.view.frame.size.height / 2)
+        self.spinnerView.isHidden = true
+        
+      
     }
     
     func setupTableView() {

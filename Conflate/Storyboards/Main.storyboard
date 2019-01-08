@@ -294,7 +294,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9o-nL-DxU" customClass="SpinnerView" customModule="Conflate" customModuleProvider="target">
+                                            <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9o-nL-DxU" customClass="SpinnerView" customModule="Conflate" customModuleProvider="target">
                                                 <rect key="frame" x="293.5" y="194" width="80" height="80"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -575,6 +575,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
         <image name="settings" width="43.5" height="43.5"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="eOZ-0C-0mo"/>
         <segue reference="hkh-An-O0F"/>
         <segue reference="WR6-bd-dUs"/>
     </inferredMetricsTieBreakers>

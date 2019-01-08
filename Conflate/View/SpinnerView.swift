@@ -45,7 +45,6 @@ class SpinnerView: UIView {
     
     private func setupSpinner() {
         self.spinner.style = UIActivityIndicatorView.Style.whiteLarge
-        self.spinner.center = self.center
         self.spinner.color = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         self.addSubview(self.spinner)
