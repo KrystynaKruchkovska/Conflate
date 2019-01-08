@@ -20,15 +20,16 @@ class AllPostsVC: UIViewController{
         super.viewDidLoad()
         self.setupTableView()
         setupSpinnerView()
-   
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.view.addSubview(spinnerView)
         self.spinnerView.showSpinner()
-
-        
+        self.readPost()
+    }
+    
+    func readPost() {
         self.postViewModel.readPosts { (posts) in
             self.postArray = posts
             
@@ -36,7 +37,7 @@ class AllPostsVC: UIViewController{
                 self.tableView.reloadData()
                 self.spinnerView.hideSpinner()
             }
-           
+            
         }
     }
     
@@ -46,8 +47,6 @@ class AllPostsVC: UIViewController{
         self.spinnerView.center = CGPoint(x: self.view.frame.size.width  / 2,
                                           y: self.view.frame.size.height / 2)
         self.spinnerView.isHidden = true
-        
-      
     }
     
     func setupTableView() {
@@ -65,6 +64,7 @@ class AllPostsVC: UIViewController{
             print("Fatal error")
             return
         }
+        
         let presentInfo = PostInfoVC()
         presentInfo.post = self.postArray[indexPath.row]
         presentInfo.modalPresentationStyle = .fullScreen

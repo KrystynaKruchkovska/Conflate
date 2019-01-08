@@ -96,7 +96,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if isLocationNotAuthorized() {
             showAlert(Constants.Strings.location_Is_not_authorized, title: Constants.Alerts.errorAlertTitle, handler: nil)
-        }else {
+        } else {
             locationManager.requestLocation()
         }
     }

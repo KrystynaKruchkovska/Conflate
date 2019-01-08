@@ -33,7 +33,7 @@ class FirebaseService:UserService, PostService {
     func addPost(post:Post, handler:@escaping (_ error:Error?)->()){
         _REF_POSTS.childByAutoId().updateChildValues(post.dictionary) {
             (error:Error?, ref:DatabaseReference) in
-            if let error = error{
+            if let error = error {
                 print("Data could not be saved: \(error).")
                 handler(error)
             }else{
