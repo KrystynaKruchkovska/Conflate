@@ -24,7 +24,7 @@ class PostViewModel {
         self.postService.readPosts(handler:handler)
     }
     
-    func validatePostData(location:Location?, title:String?, particiapntNumber:String?, date:Date?, description:String?, currentUser:User?, category:String?, completionHandler:(_ error:Error?, _ post:Post?)->()) {
+    func validatePostData(location:Location?, title:String?, particiapntNumber:String?, date:String?, description:String?, currentUser:User?, category:String?, completionHandler:(_ error:Error?, _ post:Post?)->()) {
         
         guard let location = location else {
             let error = createErrorWithMessage("Location not determined yet. Wait or request location.")
@@ -44,7 +44,7 @@ class PostViewModel {
             return
         }
         
-        guard let date = date?.timeIntervalSince1970 else {
+        guard let date = date else {
             let error = createInternalError()
             completionHandler(error, nil)
             return

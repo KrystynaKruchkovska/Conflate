@@ -12,8 +12,9 @@ class PopUpVC: UIViewController {
     
     
     var categories: [Category] = []
-    var categotyTypeToPass:String?
-
+    var categoryTypeToPass:String?
+    var closure: (() -> Void)!
+    
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,26 +23,25 @@ class PopUpVC: UIViewController {
         setCategoryArray()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-
+        
     }
     @IBAction func doneBtnWasPressed(_ sender: UIButton) {
-        if let presenter = presentingViewController as? AddPostVC {
-            presenter.categoryType = categotyTypeToPass
-        }
-        dismiss(animated: true, completion: nil)
-    }
     
+            if let presenter = self.presentingViewController as? AddPostVC {
+                presenter.categoryType = self.categoryTypeToPass
+            }
+            self.dismiss(animated: true, completion: nil)
+    }
     
     func setCategoryArray(){
         categories = [Category(image: Constants.Image.lostAndFound, title: Constants.CategoryTitle.lostAndFound),Category(image: Constants.Image.healthAndFitness, title: Constants.CategoryTitle.healthAndFitness),Category(image: Constants.Image.party, title: Constants.CategoryTitle.party)]
     }
     
-    
     func setUpPopView(){
         self.popUpView.layer.cornerRadius = 10
         self.popUpView.layer.masksToBounds = true
     }
-        
+    
 }
 extension PopUpVC : UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,9 +62,9 @@ extension PopUpVC : UITableViewDataSource,UITableViewDelegate{
         guard let currentCell = tableView.cellForRow(at: indexPath) as? CategoryCell else {
             fatalError(Constants.Strings.fattalError)
         }
-        categotyTypeToPass = currentCell.categoryTitle.text
+        categoryTypeToPass = currentCell.categoryTitle.text
     }
-   
+    
     
     
 }

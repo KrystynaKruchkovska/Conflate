@@ -14,10 +14,10 @@ struct Post : Encodable {
     var description:String
     var numberOfParticipants:Int
     var location:Location
-    var date:TimeInterval
+    var date:String
     var category:String
     
-    init(author:String, title:String, description:String, numberOfParticipants:Int, location:Location, date:TimeInterval, category:String) {
+    init(author:String, title:String, description:String, numberOfParticipants:Int, location:Location, date:String, category:String) {
         self.authorID = author
         self.title = title
         self.description = description

@@ -18,7 +18,7 @@ class PostInfoVC: UIViewController {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var participantsLbl: UILabel!
     @IBOutlet weak var peopleGoingLbl: UILabel!
-    
+    @IBOutlet weak var category: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +26,12 @@ class PostInfoVC: UIViewController {
     }
     
    func setupView(){
+    dateLbl.text = (dateLbl.text ?? "") + " " + post.date
     titleLbl.text = (titleLbl.text ?? "") + " " + post.title
     locationLbl.text = (locationLbl.text ?? "") + " " + "lat:\(post.location.lat)" + " " + "long:\(post.location.long)"
     descriptionLbl.text = (descriptionLbl.text ?? "") + " " + post.description
     participantsLbl.text = (participantsLbl.text ?? "") + " " + String(post.numberOfParticipants)
+    category.text = (category.text ?? "") + " " + String(post.category)
     }
     
     @IBAction func backBtnWasPressed(_ sender: Any) {

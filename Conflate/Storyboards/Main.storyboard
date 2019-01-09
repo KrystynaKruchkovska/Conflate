@@ -176,7 +176,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rG6-X8-02q">
                                                         <rect key="frame" x="0.0" y="0.0" width="252" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                        <state key="normal" title="  Location" image="location"/>
+                                                        <state key="normal" title="  Location" image="location">
+                                                            <color key="titleColor" red="0.90588235289999997" green="0.89019607840000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="locationBtnWasPressed:" destination="jj8-Cq-hYl" eventType="touchUpInside" id="hDJ-c7-jfb"/>
                                                         </connections>
@@ -184,7 +186,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tub-yh-mCX">
                                                         <rect key="frame" x="282" y="0.0" width="252" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                        <state key="normal" title="  Category" image="category"/>
+                                                        <state key="normal" title="  Category" image="category">
+                                                            <color key="titleColor" red="0.90588235289999997" green="0.89019607840000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
                                                         <connections>
                                                             <segue destination="lNJ-Ym-6U8" kind="presentation" id="eOZ-0C-0mo"/>
                                                         </connections>
@@ -196,6 +200,7 @@
                                             </stackView>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="gbz-e1-LMp">
                                                 <rect key="frame" x="66.5" y="120" width="534" height="45"/>
+                                                <color key="tintColor" red="0.13725490200000001" green="0.10980392160000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="PBW-hm-lld"/>
                                                 </constraints>
@@ -222,6 +227,9 @@
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BY-Iz-b1A">
                                                         <rect key="frame" x="301" y="0.0" width="65" height="70"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" red="0.13725490200000001" green="0.10980392160000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="addBtnWasPressed:" destination="jj8-Cq-hYl" eventType="touchUpInside" id="vh7-Mm-uHE"/>
                                                         </connections>
@@ -252,7 +260,7 @@
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ko-Zw-pRg">
                                                         <rect key="frame" x="0.0" y="39" width="534" height="5"/>
-                                                        <color key="backgroundColor" red="0.50196078430000002" green="0.40000000000000002" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.27450980392156865" green="0.2196078431372549" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="5" id="6wG-L9-Jn9"/>
                                                         </constraints>
@@ -268,7 +276,7 @@
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zB-QN-DEv">
                                                         <rect key="frame" x="0.0" y="92" width="534" height="5"/>
-                                                        <color key="backgroundColor" red="0.50196078430000002" green="0.40000000000000002" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.27450980392156865" green="0.2196078431372549" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="5" id="9MR-k5-dqQ"/>
                                                         </constraints>
@@ -286,7 +294,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                                     </textView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILs-aK-B1X">
                                                         <rect key="frame" x="0.0" y="195" width="534" height="5"/>
-                                                        <color key="backgroundColor" red="0.50196078430000002" green="0.40000000000000002" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.27450980392156865" green="0.2196078431372549" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="5" id="Dyq-6O-omT"/>
                                                             <constraint firstAttribute="height" constant="5" id="sFg-LW-QFp"/>
@@ -374,7 +382,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mFJ-yn-DSz">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="266.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.90588235289999997" green="0.89019607840000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="40" id="ZzH-S6-r9C" customClass="CategoryCell" customModule="Conflate" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="300" height="40"/>
@@ -390,13 +398,14 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                                                 <constraint firstAttribute="width" constant="40" id="iiz-WU-pwu"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="50" translatesAutoresizingMaskIntoConstraints="NO" id="HoS-EG-ot8">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="50" translatesAutoresizingMaskIntoConstraints="NO" id="HoS-EG-ot8">
                                                             <rect key="frame" x="50" y="-0.5" width="172" height="40.5"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="172" id="QmM-YI-qj7"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" red="0.13725490196078433" green="0.10980392156862745" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -409,6 +418,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                                         <constraint firstItem="HoS-EG-ot8" firstAttribute="leading" secondItem="BRt-bq-DQG" secondAttribute="trailing" constant="10" id="jBL-Sd-GMy"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" red="0.90588235294117647" green="0.8901960784313725" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <outlet property="categoryImg" destination="BRt-bq-DQG" id="ygl-bN-sOG"/>
                                                     <outlet property="categoryTitle" destination="HoS-EG-ot8" id="xX8-UL-rJq"/>
@@ -580,7 +590,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
         <image name="settings" width="43.5" height="43.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hkh-An-O0F"/>
+        <segue reference="cAW-hY-3k2"/>
         <segue reference="WR6-bd-dUs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

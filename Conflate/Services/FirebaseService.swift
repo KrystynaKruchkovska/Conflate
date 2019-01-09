@@ -68,7 +68,7 @@ class FirebaseService:UserService, PostService {
         let title = post.childSnapshot(forPath: Constants.PostData.title).value as! String
         let description = post.childSnapshot(forPath: Constants.PostData.description).value as! String
         let numberOfParticipants = post.childSnapshot(forPath: Constants.PostData.participants).value as! Int
-        let date = post.childSnapshot(forPath: Constants.PostData.date).value as! Double
+        let date = post.childSnapshot(forPath: Constants.PostData.date).value as! String
         let category = post.childSnapshot(forPath: Constants.PostData.category).value as! String
         
         let lat = post.childSnapshot(forPath: Constants.PostData.locationLat).value as! Double

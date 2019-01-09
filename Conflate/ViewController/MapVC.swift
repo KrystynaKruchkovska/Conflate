@@ -15,6 +15,11 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     var postViewModel:PostViewModel!
     var locationManager = CLLocationManager()
     var location: Location!
+    var postArray:[Post] = []
+    var arrAnnotation:[DroppablePin] = []
+    let annotation = MKPointAnnotation()
+    
+
     
     var resultSearchController = UISearchController()
     
@@ -22,12 +27,11 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupSearchResultsTable()
-        configureSearchBar()
-        configureSearchController()
-        
-        
+        self.mapView.delegate = self
+        let location = CLLocationCoordinate2D(latitude:49.8397, longitude:24.0297)
+        //let pin = DroppablePin(coordinate: location, title: "Lwow")
+        //mapView.addAnnotation(pin)
+//        mapView.showAnnotations(arrAnnotation, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -35,24 +39,17 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         setupLocation()
     }
     
-    func  setupSearchResultsTable(){
-        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
-        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
-        resultSearchController.searchResultsUpdater = locationSearchTable
-        locationSearchTable.mapView = mapView
-    }
-    
-    func configureSearchBar(){
-        let searchBar = resultSearchController.searchBar
-        searchBar.sizeToFit()
-        searchBar.placeholder = "Search for places"
-        navigationItem.titleView = resultSearchController.searchBar
-        
-    }
-    func configureSearchController(){
-        resultSearchController.hidesNavigationBarDuringPresentation = false
-        resultSearchController.dimsBackgroundDuringPresentation = true
-        definesPresentationContext = true
+    func readPost() {
+        self.postViewModel.readPosts { (posts) in
+            self.postArray = posts
+            
+            let annotatitons = self.postArray.map({ [$0.title, $0.location] })
+            
+            DispatchQueue.main.async {
+             
+            }
+            
+        }
     }
     
     func getLocation() {
@@ -67,10 +64,10 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     }
     
     func zoomMap(lat:Double, lon:Double) {
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: lon), span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002))
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: lon), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
         self.mapView.setRegion(region, animated: true)
     }
-   
+    
     func setupLocation() {
         if self.isLocationNotAuthorized() {
             locationManager.requestWhenInUseAuthorization()
@@ -117,4 +114,18 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         }
     }
     
+}
+extension MapVC:MKMapViewDelegate{
+   
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let pinAnnotation = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "droppablePin")
+        pinAnnotation.pinTintColor = #colorLiteral(red: 0.2745098039, green: 0.2196078431, blue: 0.4196078431, alpha: 1)
+        pinAnnotation.canShowCallout = true
+        pinAnnotation.animatesDrop = true
+        return pinAnnotation
+    }
 }
