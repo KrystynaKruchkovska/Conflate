@@ -33,16 +33,9 @@ class AddPostVC: UIViewController {
     }
     
     @objc func dataPickerChanged(_ sender: UIDatePicker) {
-    
-            print("print \(sender.date)")
-            
         let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = " YYYY-MM-dd HH:mm"
-   
-        let dateString = dateFormatter.string(from: sender.date)
-        self.date = dateString
-            print(dateString)  // "somedateString" is your string date
-        
+        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm"
+        self.date = dateFormatter.string(from: sender.date)
     }
     
     @IBAction func addBtnWasPressed(_ sender: UIButton) {
@@ -63,7 +56,7 @@ class AddPostVC: UIViewController {
             self?.addPost(post: post)
         }
     }
-        
+    
     func addPost(post:Post) {
         self.postViewModel.addPost(post) { [weak self] (error) in
             

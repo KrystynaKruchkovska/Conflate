@@ -10,10 +10,8 @@ import UIKit
 
 class PopUpVC: UIViewController {
     
-    
     var categories: [Category] = []
     var categoryTypeToPass:String?
-    var closure: (() -> Void)!
     
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -25,11 +23,13 @@ class PopUpVC: UIViewController {
         self.tableView.delegate = self
         
     }
+    
     @IBAction func doneBtnWasPressed(_ sender: UIButton) {
     
             if let presenter = self.presentingViewController as? AddPostVC {
                 presenter.categoryType = self.categoryTypeToPass
             }
+    
             self.dismiss(animated: true, completion: nil)
     }
     

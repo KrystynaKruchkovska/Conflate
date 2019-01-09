@@ -387,7 +387,6 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                         <state key="normal" title="Done"/>
                                         <connections>
                                             <action selector="doneBtnWasPressed:" destination="lNJ-Ym-6U8" eventType="touchUpInside" id="1tK-eL-ut1"/>
-                                            <segue destination="jj8-Cq-hYl" kind="show" identifier="passCategorySegue" id="hkh-An-O0F"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -557,7 +556,6 @@ Give me one good reason why I should give up my limited spare time to come to yo
         <image name="settings" width="43.5" height="43.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cAW-hY-3k2"/>
         <segue reference="WR6-bd-dUs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
