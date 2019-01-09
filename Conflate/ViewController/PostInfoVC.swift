@@ -10,9 +10,9 @@ import UIKit
 
 class PostInfoVC: UIViewController {
     
-    @IBOutlet weak var titleLbl: UILabel!
     var post:Post!
     
+    @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var locationLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
@@ -37,7 +37,6 @@ class PostInfoVC: UIViewController {
     @IBAction func backBtnWasPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
     
     @IBAction func askQuryWasPressed(_ sender: Any) {
     }

@@ -30,12 +30,12 @@
                 <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="orc-kh-8ro" customClass="GradientView" customModule="Conflate" customModuleProvider="target">
                     <rect key="frame" x="16" y="82" width="343" height="569"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="q2N-b6-MBq">
-                            <rect key="frame" x="50.5" y="426" width="242" height="43"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="69" translatesAutoresizingMaskIntoConstraints="NO" id="q2N-b6-MBq">
+                            <rect key="frame" x="50.5" y="468" width="242" height="43"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vN-oK-fXn">
-                                    <rect key="frame" x="0.0" y="0.0" width="59" height="43"/>
-                                    <state key="normal" title="AskQury">
+                                    <rect key="frame" x="0.0" y="0.0" width="130" height="43"/>
+                                    <state key="normal" title="I want to go too!">
                                         <color key="titleColor" red="0.13725490200000001" green="0.10980392160000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
@@ -101,7 +101,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max participence :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4S-JQ-c7N">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max participants:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4S-JQ-c7N">
                                     <rect key="frame" x="0.0" y="315" width="333" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="64u-lh-Aiq"/>
@@ -129,7 +129,7 @@
                         <constraint firstItem="q2N-b6-MBq" firstAttribute="leading" secondItem="orc-kh-8ro" secondAttribute="leading" constant="50.5" id="g4P-Ce-xR4"/>
                         <constraint firstItem="BER-XO-PY3" firstAttribute="centerX" secondItem="q2N-b6-MBq" secondAttribute="centerX" id="iN5-h1-kWW"/>
                         <constraint firstItem="BER-XO-PY3" firstAttribute="top" secondItem="orc-kh-8ro" secondAttribute="top" id="iy8-YA-rqK"/>
-                        <constraint firstAttribute="bottom" secondItem="q2N-b6-MBq" secondAttribute="bottom" constant="100" id="m33-PK-BFp"/>
+                        <constraint firstAttribute="bottom" secondItem="q2N-b6-MBq" secondAttribute="bottom" constant="58" id="m33-PK-BFp"/>
                         <constraint firstAttribute="trailing" secondItem="q2N-b6-MBq" secondAttribute="trailing" constant="50.5" id="vag-k5-6qj"/>
                     </constraints>
                 </view>
