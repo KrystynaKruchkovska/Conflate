@@ -21,11 +21,9 @@ class PopUpVC: UIViewController {
         setCategoryArray()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
     }
     
     @IBAction func doneBtnWasPressed(_ sender: UIButton) {
-    
             if let presenter = self.presentingViewController as? AddPostVC {
                 presenter.categoryType = self.categoryTypeToPass
             }
@@ -34,7 +32,9 @@ class PopUpVC: UIViewController {
     }
     
     func setCategoryArray(){
-        categories = [Category(image: Constants.Image.lostAndFound, title: Constants.CategoryTitle.lostAndFound),Category(image: Constants.Image.healthAndFitness, title: Constants.CategoryTitle.healthAndFitness),Category(image: Constants.Image.party, title: Constants.CategoryTitle.party)]
+        categories = [Category(image: Constants.Image.lostAndFound, title: Constants.CategoryTitle.lostAndFound),
+                      Category(image: Constants.Image.healthAndFitness, title: Constants.CategoryTitle.healthAndFitness),
+                      Category(image: Constants.Image.party, title: Constants.CategoryTitle.party)]
     }
     
     func setUpPopView(){
@@ -43,14 +43,16 @@ class PopUpVC: UIViewController {
     }
     
 }
-extension PopUpVC : UITableViewDataSource,UITableViewDelegate{
+
+extension PopUpVC : UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //TODO: CategoryCell to constant!!!!!!!!!
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell") as? CategoryCell else {
-            fatalError(Constants.Strings.fattalError)
+            fatalError(Constants.Strings.fatalError)
         }
         let category = categories[indexPath.row]
         cell.configureCell(category: category)
@@ -58,13 +60,15 @@ extension PopUpVC : UITableViewDataSource,UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let indexPath = tableView.indexPathForSelectedRow!
+        
+        guard let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError(Constants.Strings.fatalError)
+        }
+        
         guard let currentCell = tableView.cellForRow(at: indexPath) as? CategoryCell else {
-            fatalError(Constants.Strings.fattalError)
+            fatalError(Constants.Strings.fatalError)
         }
         categoryTypeToPass = currentCell.categoryTitle.text
     }
-    
-    
     
 }
