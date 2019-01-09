@@ -18,9 +18,8 @@ class PopUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCategoryArray()
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        self.setCategoryArray()
+        self.setupTableView()
     }
     
     @IBAction func doneBtnWasPressed(_ sender: UIButton) {
@@ -32,9 +31,14 @@ class PopUpVC: UIViewController {
     }
     
     func setCategoryArray(){
-        categories = [Category(image: Constants.Image.lostAndFound, title: Constants.CategoryTitle.lostAndFound),
-                      Category(image: Constants.Image.healthAndFitness, title: Constants.CategoryTitle.healthAndFitness),
-                      Category(image: Constants.Image.party, title: Constants.CategoryTitle.party)]
+        categories = [Category(image: Constants.CategoryImage.lostAndFound, title: Constants.CategoryTitle.lostAndFound),
+                      Category(image: Constants.CategoryImage.healthAndFitness, title: Constants.CategoryTitle.healthAndFitness),
+                      Category(image: Constants.CategoryImage.party, title: Constants.CategoryTitle.party)]
+    }
+    
+    func setupTableView() {
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
     }
     
     func setUpPopView(){
@@ -50,8 +54,7 @@ extension PopUpVC : UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //TODO: CategoryCell to constant!!!!!!!!!
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell") as? CategoryCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifier.categoryPopVCViewCell) as? CategoryCell else {
             fatalError(Constants.Strings.fatalError)
         }
         let category = categories[indexPath.row]

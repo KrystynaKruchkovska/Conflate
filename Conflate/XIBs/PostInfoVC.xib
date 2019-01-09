@@ -38,9 +38,6 @@
                                     <state key="normal" title="I want to go too!">
                                         <color key="titleColor" red="0.13725490200000001" green="0.10980392160000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
-                                    <connections>
-                                        <action selector="askQuryWasPressed:" destination="-1" eventType="touchUpInside" id="wrd-wR-QsK"/>
-                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHY-bN-RUK">
                                     <rect key="frame" x="199" y="0.0" width="43" height="43"/>

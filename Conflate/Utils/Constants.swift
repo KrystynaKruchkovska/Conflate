@@ -50,17 +50,16 @@ struct Constants {
         static let description = "description"
     }
     
-    struct CellIdentifire {
-        static let locationCell = "locationCell"
+    struct CellIdentifier {
         static let postTableViewCell = "postTableViewCell"
+        static let categoryPopVCViewCell = "CategoryCell"
     }
     
-    struct Image {
+    struct CategoryImage {
         static let lostAndFound = "lostAndFound"
         static let healthAndFitness = "healthAndFitness"
         static let party = "party"
     }
-    
     
     struct CategoryTitle {
         static let lostAndFound = "Lost/Found Item"
