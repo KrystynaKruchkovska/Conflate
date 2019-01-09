@@ -66,7 +66,7 @@ class AddPostVC: UIViewController {
                 self?.showAlertWithError(error)
             } else {
                 
-                self?.showAlert("Post added!", title: Constants.Alerts.successAlertTitle, handler: { (alertAction) in
+                self?.showAlertWithMessage("Post added!", title: Constants.Alerts.successAlertTitle, handler: { (alertAction) in
                     self?.hideSelfVC()
                 })
                 

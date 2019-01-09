@@ -19,11 +19,11 @@ extension UIViewController {
             return
         }
         
-        showAlert(message, title: errorTitle, handler: nil,secondAlertAction: secondAlertAction)
+        showAlertWithMessage(message, title: errorTitle, handler: nil, secondAlertAction: secondAlertAction)
     }
     
     
-    func showAlert(_ message:String, title:String, handler:((_
+    func showAlertWithMessage(_ message:String, title:String, handler:((_
         action:UIAlertAction?)->())?, secondAlertAction:UIAlertAction? = nil){
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
@@ -36,9 +36,9 @@ extension UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
-    
+        
     func showAlertInternalError() {
-        self.showAlert(Constants.Strings.internal_error, title: Constants.Alerts.errorAlertTitle, handler: nil)
+        self.showAlertWithMessage(Constants.Strings.internal_error, title: Constants.Alerts.errorAlertTitle, handler: nil)
     }
     
 }

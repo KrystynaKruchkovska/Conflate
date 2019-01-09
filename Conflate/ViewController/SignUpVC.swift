@@ -37,7 +37,7 @@ class SignUpVC: UIViewController {
         
         if userpassword != confirmuserpassword {
             self.confirmPasswordTxtField.makeWarningError()
-            showAlert(Constants.Strings.different_passwords, title: Constants.Alerts.errorAlertTitle, handler:nil)
+            showAlertWithMessage(Constants.Strings.different_passwords, title: Constants.Alerts.errorAlertTitle, handler:nil)
             return
         }
         showSpinnerAndControlOff(spinner: spinner)
@@ -83,7 +83,7 @@ class SignUpVC: UIViewController {
                 self.showAlertWithError(error)
             }
             
-            self.showAlert(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler: { (alertAction) in
+            self.showAlertWithMessage(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler: { (alertAction) in
                 self.showSignInVC()
             })
             

@@ -30,6 +30,7 @@ struct Constants {
         static let different_passwords = "Password should be the same"
         static let verification_invalid = "Your account is not verified. Click \"Resend\" if you want us to resend activation email"
         static let location_Is_not_authorized = "Location is not authorized"
+        static let facebook_login_fail = "Facebook login did not succeed"
         static let fatalError = "The dequeued cell is not an instance of  mentioned TableViewCell."
     }
     

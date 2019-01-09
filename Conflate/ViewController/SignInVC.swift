@@ -121,7 +121,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
             if let error = error {
                 self?.showAlertWithError(error)
             } else {
-                self?.showAlert(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler:nil)
+                self?.showAlertWithMessage(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler:nil)
             }
         })
     }
@@ -139,6 +139,12 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         }
         
         print("login button with facebook did complete with no error")
+        
+        if (FBSDKAccessToken.current() == nil) {
+            self.showAlertWithMessage(Constants.Strings.facebook_login_fail, title: Constants.Alerts.errorAlertTitle, handler:nil)
+            self.hideSpinnerAndControlOn(spinner: self.spinner)
+            return
+        }
         
         let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         
