@@ -26,10 +26,10 @@ class AllPostsVC: UIViewController{
         super.viewWillAppear(animated)
 
         self.spinnerView.showSpinner()
-        self.readPost()
+        self.readPosts()
     }
     
-    func readPost() {
+    func readPosts() {
         self.postViewModel.readPosts { (posts) in
             self.postArray = posts
             
@@ -41,25 +41,24 @@ class AllPostsVC: UIViewController{
         }
     }
    
-    
     func setupTableView() {
         self.tableView.dataSource = self
     }
     
     @IBAction func infobtnWasPressed(_ sender: UIButton) {
-        print("info button was pressed")
-        infoButtonDidSelect(sender)
-    }
-    
-    func infoButtonDidSelect(_ infoBtn: UIButton) {
-        let indexPath = tableView.getIndexPath(for: infoBtn)
+        let indexPath = tableView.getIndexPath(for: sender)
+        
         if indexPath.indices.count < 1 {
-            print("Fatal error")
+            self.showAlertInternalError()
             return
         }
         
+       self.presentPostVCForRow(indexPath.row)
+    }
+    
+    func presentPostVCForRow(_ row:Int) {
         let presentInfo = PostInfoVC()
-        presentInfo.post = self.postArray[indexPath.row]
+        presentInfo.post = self.postArray[row]
         presentInfo.modalPresentationStyle = .fullScreen
         present(presentInfo, animated: true, completion: nil)
     }

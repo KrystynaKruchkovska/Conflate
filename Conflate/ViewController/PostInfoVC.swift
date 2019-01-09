@@ -25,13 +25,13 @@ class PostInfoVC: UIViewController {
         setupView()
     }
     
-   func setupView(){
-    dateLbl.text = (dateLbl.text ?? "") + " " + post.date
-    titleLbl.text = (titleLbl.text ?? "") + " " + post.title
-    locationLbl.text = (locationLbl.text ?? "") + " " + "lat:\(post.location.lat)" + " " + "long:\(post.location.long)"
-    descriptionLbl.text = (descriptionLbl.text ?? "") + " " + post.description
-    participantsLbl.text = (participantsLbl.text ?? "") + " " + String(post.numberOfParticipants)
-    category.text = (category.text ?? "") + " " + String(post.category)
+    func setupView() {
+        dateLbl.text = (dateLbl.text ?? "") + " " + post.date
+        titleLbl.text = (titleLbl.text ?? "") + " " + post.title
+        locationLbl.text = (locationLbl.text ?? "") + " " + "lat:\(post.location.lat)" + " " + "long:\(post.location.long)"
+        descriptionLbl.text = (descriptionLbl.text ?? "") + " " + post.description
+        participantsLbl.text = (participantsLbl.text ?? "") + " " + String(post.numberOfParticipants)
+        category.text = (category.text ?? "") + " " + String(post.category)
     }
     
     @IBAction func backBtnWasPressed(_ sender: Any) {
@@ -44,6 +44,5 @@ class PostInfoVC: UIViewController {
     
     @IBAction func goBtnWasPressed(_ sender: Any) {
     }
-    
     
 }
