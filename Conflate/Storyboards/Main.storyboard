@@ -90,50 +90,6 @@
             </objects>
             <point key="canvasLocation" x="-954" y="78"/>
         </scene>
-        <!--Location Search Table-->
-        <scene sceneID="fhF-rw-xz4">
-            <objects>
-                <tableViewController storyboardIdentifier="LocationSearchTable" id="cq4-h5-t7o" customClass="LocationSearchTable" customModule="Conflate" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qBg-za-2t4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="locationCell" textLabel="Vgr-Ir-8Is" detailTextLabel="dll-KX-1tO" style="IBUITableViewCellStyleSubtitle" id="3Ts-zc-ASW">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Ts-zc-ASW" id="bTQ-xe-1xI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vgr-Ir-8Is">
-                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dll-KX-1tO">
-                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="cq4-h5-t7o" id="EjU-gm-e0x"/>
-                            <outlet property="delegate" destination="cq4-h5-t7o" id="YbU-0f-ac9"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z6T-zl-UAG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-210" y="78"/>
-        </scene>
         <!--Add PostVC-->
         <scene sceneID="rnL-C5-eTb">
             <objects>
@@ -529,6 +485,14 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHR-42-UYQ" customClass="SpinnerView" customModule="Conflate" customModuleProvider="target">
+                                <rect key="frame" x="147.5" y="269" width="80" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Mfy-Km-rPf"/>
+                                    <constraint firstAttribute="height" constant="80" id="bVd-H9-3nU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.50196078430000002" green="0.40000000000000002" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -536,7 +500,9 @@ Give me one good reason why I should give up my limited spare time to come to yo
                             <constraint firstItem="Uhn-XQ-Y39" firstAttribute="top" secondItem="5B9-nn-Xq8" secondAttribute="top" constant="16" id="7C8-c6-oBO"/>
                             <constraint firstItem="6dI-Br-G6U" firstAttribute="bottom" secondItem="5B9-nn-Xq8" secondAttribute="bottom" id="7pX-yN-nRp"/>
                             <constraint firstItem="Uhn-XQ-Y39" firstAttribute="centerX" secondItem="gWk-at-sDQ" secondAttribute="centerX" id="Afx-OW-UCx"/>
+                            <constraint firstItem="oHR-42-UYQ" firstAttribute="centerY" secondItem="gWk-at-sDQ" secondAttribute="centerY" id="IHK-FX-Yo8"/>
                             <constraint firstItem="6dI-Br-G6U" firstAttribute="trailing" secondItem="5B9-nn-Xq8" secondAttribute="trailing" id="Sib-4V-HrJ"/>
+                            <constraint firstItem="oHR-42-UYQ" firstAttribute="centerX" secondItem="gWk-at-sDQ" secondAttribute="centerX" id="er0-Ef-WcA"/>
                             <constraint firstItem="6dI-Br-G6U" firstAttribute="top" secondItem="Uhn-XQ-Y39" secondAttribute="bottom" constant="16" id="yig-TJ-2gb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5B9-nn-Xq8"/>
@@ -545,6 +511,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
                         <color key="badgeColor" red="0.50196078430000002" green="0.40000000000000002" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="spinnerView" destination="oHR-42-UYQ" id="Zc3-5O-Cug"/>
                         <outlet property="tableView" destination="6dI-Br-G6U" id="bQm-uQ-q51"/>
                     </connections>
                 </viewController>

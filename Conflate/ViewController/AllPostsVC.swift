@@ -11,20 +11,20 @@ import UIKit
 class AllPostsVC: UIViewController{
     
     var postViewModel:PostViewModel!
-    var spinnerView = SpinnerView()
     private var postArray = [Post]()
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var spinnerView: SpinnerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
-        setupSpinnerView()
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.view.addSubview(spinnerView)
+
         self.spinnerView.showSpinner()
         self.readPost()
     }
@@ -40,14 +40,7 @@ class AllPostsVC: UIViewController{
             
         }
     }
-    
-    func setupSpinnerView(){
-        self.spinnerView.frame.size.height = 80
-        self.spinnerView.frame.size.width = 80
-        self.spinnerView.center = CGPoint(x: self.view.frame.size.width  / 2,
-                                          y: self.view.frame.size.height / 2)
-        self.spinnerView.isHidden = true
-    }
+   
     
     func setupTableView() {
         self.tableView.dataSource = self
