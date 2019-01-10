@@ -54,7 +54,7 @@ extension PopUpVC : UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifier.categoryPopVCViewCell) as? CategoryCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ReusableIdentifier.categoryPopVCViewCell) as? CategoryCell else {
             fatalError(Constants.Strings.fatalError)
         }
         let category = categories[indexPath.row]

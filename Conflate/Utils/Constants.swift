@@ -50,9 +50,10 @@ struct Constants {
         static let description = "description"
     }
     
-    struct CellIdentifier {
+    struct ReusableIdentifier {
         static let postTableViewCell = "postTableViewCell"
         static let categoryPopVCViewCell = "CategoryCell"
+        static let mapPin = "droppablePin"
     }
     
     struct CategoryImage {

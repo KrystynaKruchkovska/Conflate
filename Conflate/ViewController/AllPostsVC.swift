@@ -72,7 +72,7 @@ extension AllPostsVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellIdentifier.postTableViewCell) as? PostTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ReusableIdentifier.postTableViewCell) as? PostTableViewCell else {
             fatalError(Constants.Strings.fatalError)
         }
       
