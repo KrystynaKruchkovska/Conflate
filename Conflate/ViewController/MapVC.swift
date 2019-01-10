@@ -29,13 +29,14 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.readPostAddAnnotation()
+       
    
     }
    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupLocation()
+        self.readPostAddAnnotation()
     }
     
     
@@ -145,7 +146,8 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
                 vc?.postViewModel = self.postViewModel
             }
             
-            vc?.location = self.location    
+            vc?.location = self.location
+            removeGestureAddedPin()
         }
     }
     
