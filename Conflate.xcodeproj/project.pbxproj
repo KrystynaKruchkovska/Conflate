@@ -38,6 +38,7 @@
 		04F6040A21E4C1910099A1B6 /* PopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6040921E4C1910099A1B6 /* PopUpVC.swift */; };
 		04F6040C21E4CEFF0099A1B6 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6040B21E4CEFF0099A1B6 /* Category.swift */; };
 		04F6040E21E4DABC0099A1B6 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6040D21E4DABC0099A1B6 /* CategoryCell.swift */; };
+		04F88AF721E7C4EB00CC484A /* FloatingActionBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F88AF621E7C4EB00CC484A /* FloatingActionBtn.swift */; };
 		04F9C34621D0F9E200CCFB00 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9C34521D0F9E200CCFB00 /* AuthViewModel.swift */; };
 		04F9C34821D10D5700CCFB00 /* UIViewController+hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9C34721D10D5700CCFB00 /* UIViewController+hideKeyboard.swift */; };
 		04FC43BB21DBDD44002D8683 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FC43BA21DBDD44002D8683 /* MapVC.swift */; };
@@ -100,6 +101,7 @@
 		04F6040921E4C1910099A1B6 /* PopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpVC.swift; sourceTree = "<group>"; };
 		04F6040B21E4CEFF0099A1B6 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		04F6040D21E4DABC0099A1B6 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		04F88AF621E7C4EB00CC484A /* FloatingActionBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionBtn.swift; sourceTree = "<group>"; };
 		04F9C34521D0F9E200CCFB00 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		04F9C34721D10D5700CCFB00 /* UIViewController+hideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+hideKeyboard.swift"; sourceTree = "<group>"; };
 		04FC43BA21DBDD44002D8683 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				049EC90821E3F25E0061F7A1 /* SpinnerView.swift */,
 				04F6040D21E4DABC0099A1B6 /* CategoryCell.swift */,
 				04B00DF321E631F900247AF0 /* DroppablePin.swift */,
+				04F88AF621E7C4EB00CC484A /* FloatingActionBtn.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				049EC90521E3C9CA0061F7A1 /* TableView+GetIndexPath.swift in Sources */,
 				04B3766021CE575B00784506 /* AppDelegate.swift in Sources */,
 				042DC19421DE9996000F7114 /* AllPostsVC.swift in Sources */,
+				04F88AF721E7C4EB00CC484A /* FloatingActionBtn.swift in Sources */,
 				0424B22921D66CE00005E3C3 /* UITextField+Button.swift in Sources */,
 				0424B22D21D688CA0005E3C3 /* UIViewController+Spinner.swift in Sources */,
 				04B3768421CE8AC300784506 /* GradientView.swift in Sources */,

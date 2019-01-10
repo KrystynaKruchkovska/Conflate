@@ -30,7 +30,6 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        
-   
     }
    
     override func viewDidAppear(_ animated: Bool) {
@@ -50,8 +49,6 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         
         if gestureRecognizer.state != .began { return }
         removeGestureAddedPin()
-        //removeSpinner()
-       // addSpinner()
         let touchPoint = gestureRecognizer.location(in: mapView)
         let touchMapCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         self.location = Location(lat: touchMapCoordinate.latitude, long: touchMapCoordinate.longitude)
@@ -75,7 +72,6 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
             DispatchQueue.main.async {
                 self.addAnnotation()
             }
-            
         }
     }
     
@@ -95,7 +91,6 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
             if let currentLocation = locationManager.location {
                 self.location = Location(lat:currentLocation.coordinate.latitude, long:currentLocation.coordinate.longitude)
             }
-            
         }
     }
     
@@ -150,8 +145,8 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
             removeGestureAddedPin()
         }
     }
-    
 }
+
 extension MapVC:MKMapViewDelegate{
    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

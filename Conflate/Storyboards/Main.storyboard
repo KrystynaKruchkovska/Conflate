@@ -53,10 +53,16 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FHo-oz-hWj">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjs-U7-Iwq">
-                                <rect key="frame" x="334" y="118" width="22" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQI-V2-Rie" customClass="FloatingActionBtn" customModule="Conflate" customModuleProvider="target">
+                                <rect key="frame" x="300" y="591" width="56" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.50196078430000002" green="0.40000000000000002" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
+                                </accessibility>
+                                <state key="normal" image="floatingAddBtn"/>
                                 <connections>
-                                    <segue destination="jj8-Cq-hYl" kind="presentation" identifier="" id="cAW-hY-3k2"/>
+                                    <segue destination="jj8-Cq-hYl" kind="presentation" id="2Vw-5S-uqQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -66,8 +72,6 @@
                             <constraint firstItem="FHo-oz-hWj" firstAttribute="trailing" secondItem="uDV-QF-1yz" secondAttribute="trailing" id="AfC-4F-Kc1"/>
                             <constraint firstItem="FHo-oz-hWj" firstAttribute="leading" secondItem="uDV-QF-1yz" secondAttribute="leading" id="Etf-4m-xDQ"/>
                             <constraint firstItem="FHo-oz-hWj" firstAttribute="top" secondItem="uDV-QF-1yz" secondAttribute="top" id="PQ3-dB-xY9"/>
-                            <constraint firstItem="mjs-U7-Iwq" firstAttribute="leading" secondItem="uDV-QF-1yz" secondAttribute="leading" constant="334" id="VKP-KB-kC6"/>
-                            <constraint firstItem="uDV-QF-1yz" firstAttribute="bottom" secondItem="mjs-U7-Iwq" secondAttribute="bottom" constant="527" id="bHr-Zw-CTz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uDV-QF-1yz"/>
                     </view>
@@ -550,6 +554,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
         <image name="add" width="43.5" height="43.5"/>
         <image name="back-filled" width="112.5" height="112.5"/>
         <image name="category" width="43.5" height="43.5"/>
+        <image name="floatingAddBtn" width="181.56521606445312" height="181.56521606445312"/>
         <image name="location" width="43.5" height="43.5"/>
         <image name="map" width="43.5" height="43.5"/>
         <image name="post" width="43.5" height="43.5"/>
