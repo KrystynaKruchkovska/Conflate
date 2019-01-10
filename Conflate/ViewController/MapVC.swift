@@ -16,39 +16,74 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     var location: Location!
     var postArray:[Post] = []
-    var arrAnnotation:[DroppablePin] = []
-    let annotation = MKPointAnnotation()
-    
-
-    
-    var resultSearchController = UISearchController()
+    var arrayLocations:[DroppablePin] = []
+    var gesturePin:DroppablePin!
     
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        longPressRecogniser()
         self.mapView.delegate = self
-        let location = CLLocationCoordinate2D(latitude:49.8397, longitude:24.0297)
-        //let pin = DroppablePin(coordinate: location, title: "Lwow")
-        //mapView.addAnnotation(pin)
-//        mapView.showAnnotations(arrAnnotation, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.readPostAddAnnotation()
+   
+    }
+   
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupLocation()
     }
     
-    func readPost() {
+    
+    func longPressRecogniser(){
+        let longPressRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(MapVC.dropPin(_:)))
+        longPressRecogniser.minimumPressDuration = 1.0
+        mapView.addGestureRecognizer(longPressRecogniser)
+    }
+    
+    @objc func dropPin(_ gestureRecognizer : UIGestureRecognizer){
+        
+        if gestureRecognizer.state != .began { return }
+        removeGestureAddedPin()
+        //removeSpinner()
+       // addSpinner()
+        let touchPoint = gestureRecognizer.location(in: mapView)
+        let touchMapCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        self.location = Location(lat: touchMapCoordinate.latitude, long: touchMapCoordinate.longitude)
+        gesturePin = DroppablePin(coordinate:Location(lat: touchMapCoordinate.latitude, long: touchMapCoordinate.longitude), title: "Addeed with gesture")
+        
+        mapView.addAnnotation(gesturePin)
+        
+    }
+    
+    func removeGestureAddedPin(){
+        if gesturePin != nil {
+            mapView.removeAnnotation(gesturePin)
+        }
+    }
+    
+    
+    func readPostAddAnnotation() {
         self.postViewModel.readPosts { (posts) in
             self.postArray = posts
-            
-            let annotatitons = self.postArray.map({ [$0.title, $0.location] })
-            
+            self.arrayLocations = self.postArray.map({ DroppablePin(coordinate:  $0.location, title: $0.title) })
             DispatchQueue.main.async {
-             
+                self.addAnnotation()
             }
             
+        }
+    }
+    
+    func addAnnotation(){
+        for location in self.arrayLocations{
+            let annotation = MKPointAnnotation()
+            annotation.title = location.title
+            annotation.coordinate = location.coordinate
+            self.mapView.addAnnotation(annotation)
         }
     }
     
