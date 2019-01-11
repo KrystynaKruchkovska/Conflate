@@ -48,6 +48,7 @@ struct Constants {
         static let title = "title"
         static let participants = "numberOfParticipants"
         static let description = "description"
+        static let authorID = "authorID"
     }
     
     struct ReusableIdentifier {

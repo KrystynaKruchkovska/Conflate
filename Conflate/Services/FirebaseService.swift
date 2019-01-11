@@ -64,7 +64,7 @@ class FirebaseService:UserService, PostService {
     }
     
     func createPost(post:DataSnapshot) -> Post{
-        let authorID = post.childSnapshot(forPath: Constants.PostData.category).value as! String
+        let authorID = post.childSnapshot(forPath: Constants.PostData.authorID).value as! String
         let title = post.childSnapshot(forPath: Constants.PostData.title).value as! String
         let description = post.childSnapshot(forPath: Constants.PostData.description).value as! String
         let numberOfParticipants = post.childSnapshot(forPath: Constants.PostData.participants).value as! Int
@@ -75,7 +75,7 @@ class FirebaseService:UserService, PostService {
         let long = post.childSnapshot(forPath: Constants.PostData.locationLong).value as! Double
         
         let location = Location(lat:lat, long:long)
-        
+
         let post = Post(author: authorID, title: title, description: description, numberOfParticipants: numberOfParticipants, location: location, date: date, category: category)
         
         return post

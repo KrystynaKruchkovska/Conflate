@@ -88,8 +88,8 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
                     handler(post)
                     return
                 }
-                 handler(nil)
             }
+            handler(nil)
         }
     }
     
@@ -186,11 +186,14 @@ extension MapVC:MKMapViewDelegate {
         if control == view.rightCalloutAccessoryView {
             print(view.annotation!.title! as Any)
             self.getPostInfo(title: view.annotation!.title!!) { (post) in
-                if post != nil{
-                    self.presentPostInfoVCForPost(post: post!)
+                
+                if post == nil {
+                    self.showAlertWithMessage("Click add button to create new post", title: "You've choosen location", handler: nil)
                     return
                 }
-                    self.showAlertWithMessage("Click add button to create new post", title: "You've choosen location", handler: nil)
+                
+                self.presentPostInfoVCForPost(post: post!)
+    
             }
         }
     }

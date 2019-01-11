@@ -67,7 +67,7 @@ class AllPostsVC: UIViewController{
 extension AllPostsVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postArray.count
+        return self.postArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,7 +75,7 @@ extension AllPostsVC : UITableViewDelegate, UITableViewDataSource {
             fatalError(Constants.Strings.fatalError)
         }
       
-        let post = postArray[indexPath.row]
+        let post = self.postArray[indexPath.row]
         
         cell.configureCell(title: post.title)
         
