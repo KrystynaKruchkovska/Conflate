@@ -21,7 +21,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.longPressRecogniser()
+        self.setUpLongPressRecogniser()
         self.mapView.delegate = self
         
     }
@@ -29,15 +29,14 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-   
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.setupLocation()
         self.addAnnotations()
     }
     
-    
-    func longPressRecogniser(){
+    func setUpLongPressRecogniser(){
         let longPressRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(MapVC.dropPinAnnotation(_:)))
         longPressRecogniser.minimumPressDuration = 1.0
         self.mapView.addGestureRecognizer(longPressRecogniser)
@@ -78,7 +77,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
             self.mapView.addAnnotation(annotation)
         }
     }
-
+    
     
     func getPostFor(uniquePostID:String,handler:@escaping (_ post: Post?) -> ()){
         
@@ -165,7 +164,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
 }
 
 extension MapVC:MKMapViewDelegate {
-   
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is MKUserLocation {
@@ -183,25 +182,29 @@ extension MapVC:MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
-        if control == view.rightCalloutAccessoryView {
+        if control != view.rightCalloutAccessoryView {
+            return
+        }
+        
+        let annotationPin = self.getDroppablePinAnnotationForView(view)
+        
+        guard let uniquePostID = annotationPin?.uniquePostID else {
+            self.showAlertWithMessage("Click add button to create new post", title: "You've choosen location", handler: nil)
+            return
+        }
+        
+        presentPostInfoVCFor(uniquePostID)
+    }
+    
+    func presentPostInfoVCFor(_ uniquePostID:String){
+        self.getPostFor(uniquePostID: uniquePostID) { (post) in
             
-            let annotationPin = self.getDroppablePinAnnotationForView(view)
-            
-            guard let uniquePostID = annotationPin?.uniquePostID else {
-                self.showAlertWithMessage("Click add button to create new post", title: "You've choosen location", handler: nil)
-                
+            guard let post = post else {
+                self.showAlertWithMessage("Post may have been deleted.", title: Constants.Alerts.errorAlertTitle, handler: nil)
                 return
             }
             
-            self.getPostFor(uniquePostID: uniquePostID) { (post) in
-                
-                guard let post = post else {
-                    self.showAlertWithMessage("Post may have been deleted.", title: Constants.Alerts.errorAlertTitle, handler: nil)
-                    return
-                }
-                
-                self.presentPostInfoVCForPost(post: post)
-            }
+            self.presentPostInfoVCForPost(post: post)
         }
     }
     
