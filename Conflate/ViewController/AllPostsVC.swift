@@ -29,7 +29,7 @@ class AllPostsVC: UIViewController{
         self.readPosts()
     }
     
-    func readPosts() {
+    private func readPosts() {
         self.postViewModel.readPosts { (posts) in
             self.postArray = posts
             
@@ -40,7 +40,7 @@ class AllPostsVC: UIViewController{
         }
     }
    
-    func setupTableView() {
+   private func setupTableView() {
         self.tableView.dataSource = self
     }
     
@@ -55,7 +55,7 @@ class AllPostsVC: UIViewController{
        self.presentPostInfoVCForRow(indexPath.row)
     }
     
-    func presentPostInfoVCForRow(_ row:Int) {
+    private func presentPostInfoVCForRow(_ row:Int) {
         let presentInfo = PostInfoVC()
         presentInfo.post = self.postArray[row]
         presentInfo.modalPresentationStyle = .fullScreen

@@ -13,16 +13,16 @@ class ForgotPasswordVC: UIViewController {
     
     var authViewModel:AuthViewModel!
     
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var spinnerView: SpinnerView!
     @IBOutlet weak var emailTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideSpinnerAndControlOn(spinner: spinner)
+        self.spinnerView.hideSpinner()
     }
     
     @IBAction func sendResetPasswordEmailWasPressed(_ sender: UIButton) {
-        self.showSpinnerAndControlOff(spinner: spinner)
+        self.spinnerView.showSpinner()
         guard let email = emailTextField.text else{
             print("email == nil")
             return
@@ -34,13 +34,13 @@ class ForgotPasswordVC: UIViewController {
     @IBAction func backButtonWasPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    func resetPassword(email:String){
+    private func resetPassword(email:String){
         self.authViewModel.resetPassword(email: email) { [weak self](error) in
-            self?.hideSpinnerAndControlOn(spinner: self?.spinner)
+            self?.spinnerView.hideSpinner()
             if error != nil{
                 self?.showAlertWithError(error)
             } else {
-                self?.showAlertWithMessage(Constants.Strings.password_reset, title: Constants.Alerts.successAlertTitle, handler: { (alertAction) in
+                self?.showAlertWithMessage(Constants.Strings.password_reset, title: Constants.Alerts.successAlertTitle, handler: { [weak self] (alertAction) in
                     self?.dismiss(animated: true, completion: nil)
                 })
             }

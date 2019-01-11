@@ -17,12 +17,13 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var confirmPasswordTxtField: UITextField!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
+
+    @IBOutlet weak var spinnerView: SpinnerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        self.hideSpinnerAndControlOn(spinner: spinner)
+        self.spinnerView.hideSpinner()
     }
     
     @IBAction func backbuttonWasPressed(_ sender: UIButton) {
@@ -40,18 +41,18 @@ class SignUpVC: UIViewController {
             self.showAlertWithMessage(Constants.Strings.different_passwords, title: Constants.Alerts.errorAlertTitle, handler:nil)
             return
         }
-        showSpinnerAndControlOff(spinner: spinner)
+       self.spinnerView.showSpinner()
         self.createUser(nickname: nickname, email: useremail, password: userpassword)
         
     }
     
-    func createUser(nickname:String,email: String, password: String){
+    private func createUser(nickname:String,email: String, password: String){
         self.authViewModel.createUser(nickname:nickname,email: email, password: password) { [weak self] (error, user) in
             
             if error != nil {
                 print("user create failed")
                 self?.showAlertWithError(error)
-                self?.hideSpinnerAndControlOn(spinner: self?.spinner)
+                self?.spinnerView.hideSpinner()
             } else {
                 guard let user = user else {
                     self?.showAlertInternalError()
@@ -64,7 +65,7 @@ class SignUpVC: UIViewController {
         }
     }
     
-    func sendVertificationEmail(user:CUser) {
+    private func sendVertificationEmail(user:CUser) {
 
         self.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
             if let error = error {
@@ -76,21 +77,21 @@ class SignUpVC: UIViewController {
         })
     }
     
-    func addUser(user:CUser) {
-        self.authViewModel.addUser(user:user, handler: { (error) in
-            self.hideSpinnerAndControlOn(spinner: self.spinner)
+    private func addUser(user:CUser) {
+        self.authViewModel.addUser(user:user, handler: { [weak self] (error) in
+            self?.spinnerView.hideSpinner()
             if let error = error {
-                self.showAlertWithError(error)
+                self?.showAlertWithError(error)
             }
             
-            self.showAlertWithMessage(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler: { (alertAction) in
-                self.showSignInVC()
+            self?.showAlertWithMessage(Constants.Strings.verification_sent, title: Constants.Alerts.successAlertTitle, handler: { [weak self] (alertAction) in
+                self?.showSignInVC()
             })
             
         })
     }
     
-    func showSignInVC() {
+    private func showSignInVC() {
         self.dismiss(animated: true, completion:nil)
     }
     

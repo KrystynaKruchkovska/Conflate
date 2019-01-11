@@ -11,8 +11,7 @@ import UIKit
 class ConflateTabBarController: UITabBarController {
 
     var postViewModel:PostViewModel!
-    
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +22,6 @@ class ConflateTabBarController: UITabBarController {
         allPostVC?.postViewModel = postViewModel
     }
     
-
     private func getTabVC<T:UIViewController>() -> T? {
         
         for controller in self.viewControllers! {
@@ -31,8 +29,6 @@ class ConflateTabBarController: UITabBarController {
                 return vc
             }
         }
-        
         return nil
     }
-    
 }

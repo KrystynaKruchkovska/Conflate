@@ -13,17 +13,19 @@ import FBSDKLoginKit
 class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
     
     var authViewModel:AuthViewModel!
-    var forgotPasswordBtn = UIButton()
-    var fbLoginButton = FBSDKLoginButton()
+    private var forgotPasswordBtn = UIButton()
+    private let fbLoginButton = FBSDKLoginButton()
     
+    @IBOutlet weak var spinnerView: SpinnerView!
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        self.hideSpinnerAndControlOn(spinner: spinner)
+        
+        self.spinnerView.hideSpinner()
         self.configureForgotPasswordButton(button: forgotPasswordBtn)
         self.configureFBLogin()
     }
@@ -39,12 +41,12 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
     
-    func configureFBLogin() {
+    private func configureFBLogin() {
         self.fbLoginButton.delegate = self
         self.fbLoginButton.readPermissions = ["email", "public_profile"]
     }
     
-    func configureForgotPasswordButton(button:UIButton){
+    private func configureForgotPasswordButton(button:UIButton){
         button.frame = CGRect(x: 0, y: 0, width: self.passwordTxtField.frame.width/3.0, height: self.passwordTxtField.frame.height)
         button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.setTitleColor(#colorLiteral(red: 0.5019607843, green: 0.4, blue: 0.768627451, alpha: 1), for: .normal)
@@ -64,21 +66,20 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     @IBAction func loginWithFBWasPressed(_ sender: UIButton) {
-        self.showSpinnerAndControlOff(spinner: self.spinner)
+        self.spinnerView.showSpinner()
         self.fbLoginButton.sendActions(for:.touchUpInside)
     }
     
     @IBAction func loginBtnWasPressed(_ sender: UIButton) {
         guard let useremail = emailTxtField.text else { return}
         guard let userpassword = passwordTxtField.text else { return}
-        
-        self.showSpinnerAndControlOff(spinner: spinner)
+        self.spinnerView.showSpinner()
         self.signInWithEmail(useremail: useremail, userpassword: userpassword)
     }
     
-    func signInWithEmail(useremail:String, userpassword:String) {
+    private func signInWithEmail(useremail:String, userpassword:String) {
         self.authViewModel.signIn(email: useremail, password: userpassword) { [weak self](error, user) in
-            self?.hideSpinnerAndControlOn(spinner: self?.spinner)
+            self?.spinnerView.hideSpinner()
             
             if let error = error {
                 print("user sign in failed")
@@ -102,21 +103,20 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
     
-    func showResendVerificationAlert(user:CUser) {
+    private func showResendVerificationAlert(user:CUser) {
         let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : Constants.Strings.verification_invalid])
         
         let secondAction = UIAlertAction(title: Constants.Alerts.resend, style: UIAlertAction.Style.default) { [weak self] (action)  in
-            self?.showSpinnerAndControlOff(spinner: self?.spinner)
-            
+            self?.spinnerView.showSpinner()
             self?.sendVarificationEmail(user: user)
         }
         
         self.showAlertWithError(error, secondAlertAction: secondAction)
     }
     
-    func sendVarificationEmail(user:CUser){
+    private func sendVarificationEmail(user:CUser){
         self.authViewModel.sendVerificationEmail(user: user, handler: { [weak self] (error) in
-            self?.hideSpinnerAndControlOn(spinner: self?.spinner)
+            self?.spinnerView.hideSpinner()
             
             if let error = error {
                 self?.showAlertWithError(error)
@@ -126,7 +126,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         })
     }
     
-    func hideLoginVC() {
+    private func hideLoginVC() {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -134,7 +134,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         
         if let error = error {
             self.showAlertWithError(error, secondAlertAction: nil)
-            self.hideSpinnerAndControlOn(spinner: self.spinner)
+            self.spinnerView.hideSpinner()
             return
         }
         
@@ -142,7 +142,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         
         if (FBSDKAccessToken.current() == nil) {
             self.showAlertWithMessage(Constants.Strings.facebook_login_fail, title: Constants.Alerts.errorAlertTitle, handler:nil)
-            self.hideSpinnerAndControlOn(spinner: self.spinner)
+            self.spinnerView.hideSpinner()
             return
         }
         
@@ -152,7 +152,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
             if let error = error {
                 print("login button with facebook fir complete with error:\(error)")
                 self?.showAlertWithError(error, secondAlertAction: nil)
-                self?.hideSpinnerAndControlOn(spinner: self?.spinner)
+                self?.spinnerView.hideSpinner()
                 return
             }
             
@@ -168,9 +168,9 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     
-    func addUser(user:CUser) {
+    private func addUser(user:CUser) {
         self.authViewModel.addUser(user:user, handler: { [weak self] (error) in
-            self?.hideSpinnerAndControlOn(spinner: self?.spinner)
+            self?.spinnerView.hideSpinner()
             if let error = error {
                 self?.showAlertWithError(error)
             }
@@ -180,7 +180,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        self.hideSpinnerAndControlOn(spinner: self.spinner)
+        self.spinnerView.hideSpinner()
     }
 }
 

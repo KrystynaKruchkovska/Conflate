@@ -168,44 +168,6 @@
                                                     <!--2019-01-01 12:58:56 +0000-->
                                                 </date>
                                             </datePicker>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1X5-Gw-bfc">
-                                                <rect key="frame" x="0.0" y="398" width="667" height="70"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Rve-pH-hiy">
-                                                        <rect key="frame" x="301" y="0.0" width="65" height="70"/>
-                                                        <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="fnB-sh-jhg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="65" height="35"/>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AddPost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDB-w8-Mai">
-                                                                <rect key="frame" x="0.0" y="35" width="65" height="35"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BY-Iz-b1A">
-                                                        <rect key="frame" x="301" y="0.0" width="65" height="70"/>
-                                                        <state key="normal">
-                                                            <color key="titleColor" red="0.13725490200000001" green="0.10980392160000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="addBtnWasPressed:" destination="jj8-Cq-hYl" eventType="touchUpInside" id="vh7-Mm-uHE"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="Rve-pH-hiy" firstAttribute="centerY" secondItem="1X5-Gw-bfc" secondAttribute="centerY" id="5PM-Rh-342"/>
-                                                    <constraint firstItem="2BY-Iz-b1A" firstAttribute="width" secondItem="Rve-pH-hiy" secondAttribute="width" id="KPS-uU-Ccl"/>
-                                                    <constraint firstItem="2BY-Iz-b1A" firstAttribute="height" secondItem="Rve-pH-hiy" secondAttribute="height" id="QPG-nN-GNu"/>
-                                                    <constraint firstItem="Rve-pH-hiy" firstAttribute="centerX" secondItem="1X5-Gw-bfc" secondAttribute="centerX" id="bkH-ul-hJV"/>
-                                                    <constraint firstItem="Rve-pH-hiy" firstAttribute="height" secondItem="1X5-Gw-bfc" secondAttribute="height" id="cbG-zK-E6R"/>
-                                                    <constraint firstItem="2BY-Iz-b1A" firstAttribute="centerX" secondItem="Rve-pH-hiy" secondAttribute="centerX" id="kVK-yc-dzT"/>
-                                                    <constraint firstItem="2BY-Iz-b1A" firstAttribute="centerY" secondItem="Rve-pH-hiy" secondAttribute="centerY" id="yLz-qB-MPe"/>
-                                                </constraints>
-                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="vZO-4a-VM9">
                                                 <rect key="frame" x="66.5" y="177" width="534" height="200"/>
                                                 <subviews>
@@ -273,15 +235,11 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="1X5-Gw-bfc" secondAttribute="bottom" id="7o5-1V-ddT"/>
                                             <constraint firstItem="pWk-2P-F0b" firstAttribute="top" secondItem="beY-7g-JA6" secondAttribute="top" constant="16" id="8ux-xe-8Lk"/>
                                             <constraint firstItem="pWk-2P-F0b" firstAttribute="leading" secondItem="beY-7g-JA6" secondAttribute="leading" constant="16" id="9aE-NW-Fry"/>
                                             <constraint firstItem="R7V-xS-AGj" firstAttribute="top" secondItem="7Sn-XA-jzf" secondAttribute="bottom" constant="12" id="AVe-Ez-zUv"/>
                                             <constraint firstItem="7Sn-XA-jzf" firstAttribute="centerX" secondItem="beY-7g-JA6" secondAttribute="centerX" id="Jb7-fu-OgU"/>
-                                            <constraint firstItem="1X5-Gw-bfc" firstAttribute="height" secondItem="beY-7g-JA6" secondAttribute="height" multiplier="0.15" id="MA5-4l-zeH"/>
-                                            <constraint firstAttribute="trailing" secondItem="1X5-Gw-bfc" secondAttribute="trailing" id="SH2-gd-aqZ"/>
                                             <constraint firstItem="R7V-xS-AGj" firstAttribute="width" secondItem="beY-7g-JA6" secondAttribute="width" multiplier="0.8" id="UBf-99-SHw"/>
-                                            <constraint firstItem="1X5-Gw-bfc" firstAttribute="leading" secondItem="beY-7g-JA6" secondAttribute="leading" id="UNW-BF-vhS"/>
                                             <constraint firstItem="7Sn-XA-jzf" firstAttribute="top" secondItem="beY-7g-JA6" secondAttribute="top" constant="16" id="Wz1-XK-apV"/>
                                             <constraint firstItem="N9o-nL-DxU" firstAttribute="centerY" secondItem="beY-7g-JA6" secondAttribute="centerY" id="Zjf-Cs-6qo"/>
                                             <constraint firstItem="R7V-xS-AGj" firstAttribute="centerX" secondItem="beY-7g-JA6" secondAttribute="centerX" id="cUm-Tr-nOI"/>
@@ -294,6 +252,16 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                             <constraint firstItem="vZO-4a-VM9" firstAttribute="width" secondItem="beY-7g-JA6" secondAttribute="width" multiplier="0.8" id="xSv-3z-OYC"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BY-Iz-b1A" customClass="FloatingActionBtn" customModule="Conflate" customModuleProvider="target">
+                                        <rect key="frame" x="305" y="412" width="56" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <state key="normal" image="done">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.10980392160000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addBtnWasPressed:" destination="jj8-Cq-hYl" eventType="touchUpInside" id="vh7-Mm-uHE"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="beY-7g-JA6" firstAttribute="top" secondItem="HKe-bC-KhN" secondAttribute="top" id="1V2-nS-84F"/>
@@ -551,9 +519,9 @@ Give me one good reason why I should give up my limited spare time to come to yo
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="43.5" height="43.5"/>
         <image name="back-filled" width="112.5" height="112.5"/>
         <image name="category" width="43.5" height="43.5"/>
+        <image name="done" width="181.56521606445312" height="181.56521606445312"/>
         <image name="floatingAddBtn" width="181.56521606445312" height="181.56521606445312"/>
         <image name="location" width="43.5" height="43.5"/>
         <image name="map" width="43.5" height="43.5"/>

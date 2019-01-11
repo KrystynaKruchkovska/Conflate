@@ -25,7 +25,7 @@ class PostInfoVC: UIViewController {
         setupView()
     }
     
-    func setupView() {
+    private func setupView() {
         dateLbl.text = (dateLbl.text ?? "") + " " + post.date
         titleLbl.text = (titleLbl.text ?? "") + " " + post.title
         locationLbl.text = (locationLbl.text ?? "") + " " + "lat:\(post.location.lat)" + " " + "long:\(post.location.long)"

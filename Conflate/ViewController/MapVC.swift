@@ -13,9 +13,9 @@ import CoreLocation
 class MapVC: UIViewController,CLLocationManagerDelegate {
     
     var postViewModel:PostViewModel!
-    var locationManager = CLLocationManager()
     var userLocation: Location!
-    var gesturePinAnnotation:DroppablePinAnnotation!
+    private var locationManager = CLLocationManager()
+    private var gesturePinAnnotation:DroppablePinAnnotation!
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -36,7 +36,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         self.addAnnotations()
     }
     
-    func setUpLongPressRecogniser(){
+    private func setUpLongPressRecogniser(){
         let longPressRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(MapVC.dropPinAnnotation(_:)))
         longPressRecogniser.minimumPressDuration = 1.0
         self.mapView.addGestureRecognizer(longPressRecogniser)
@@ -55,33 +55,32 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         self.mapView.addAnnotation(gesturePinAnnotation)
     }
     
-    func removeGestureAddedPinAnnotation(){
+    private func removeGestureAddedPinAnnotation(){
         if gesturePinAnnotation != nil {
             self.mapView.removeAnnotation(gesturePinAnnotation)
         }
     }
     
-    func addAnnotations() {
-        self.postViewModel.readPosts { (posts) in
+    private func addAnnotations() {
+        self.postViewModel.readPosts { [weak self] (posts) in
             
             let annotations = posts.map({ DroppablePinAnnotation(coordinate:  $0.location, title: $0.title, uniquePostID: $0.uuid) })
             
             DispatchQueue.main.async {
-                self.addAnnotation(annotations)
+                self?.addAnnotation(annotations)
             }
         }
     }
     
-    func addAnnotation(_ annotations:[DroppablePinAnnotation]) {
+    private func addAnnotation(_ annotations:[DroppablePinAnnotation]) {
         for annotation in annotations {
             self.mapView.addAnnotation(annotation)
         }
     }
     
     
-    func getPostFor(uniquePostID:String,handler:@escaping (_ post: Post?) -> ()){
-        
-        self.postViewModel.readPosts { (allPosts) in
+    private func getPostFor(uniquePostID:String,handler:@escaping (_ post: Post?) -> ()){
+        self.postViewModel.readPosts {(allPosts) in
             for post in allPosts {
                 if post.uuid == uniquePostID {
                     handler(post)
@@ -89,18 +88,17 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
                 }
             }
             handler(nil)
-            
         }
     }
     
-    func presentPostInfoVCForPost(post:Post) {
+    private func presentPostInfoVCForPost(post:Post) {
         let presentInfo = PostInfoVC()
         presentInfo.post = post
         presentInfo.modalPresentationStyle = .fullScreen
         present(presentInfo, animated: true, completion: nil)
     }
     
-    func getLocation() {
+    private func getLocation() {
         if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
             CLLocationManager.authorizationStatus() ==  .authorizedAlways) {
             
@@ -110,12 +108,12 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         }
     }
     
-    func zoomMap(lat:Double, lon:Double) {
+    private func zoomMap(lat:Double, lon:Double) {
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: lon), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
         self.mapView.setRegion(region, animated: true)
     }
     
-    func setupLocation() {
+    private func setupLocation() {
         if self.isLocationNotAuthorized() {
             locationManager.requestWhenInUseAuthorization()
         }
@@ -126,7 +124,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
     
-    func isLocationNotAuthorized() -> Bool {
+    private func isLocationNotAuthorized() -> Bool {
         return CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .denied ||  CLLocationManager.authorizationStatus() == .notDetermined
     }
     
@@ -165,7 +163,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
 
 extension MapVC:MKMapViewDelegate {
     
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is MKUserLocation {
             return nil
@@ -196,7 +194,7 @@ extension MapVC:MKMapViewDelegate {
         presentPostInfoVCFor(uniquePostID)
     }
     
-    func presentPostInfoVCFor(_ uniquePostID:String){
+   private func presentPostInfoVCFor(_ uniquePostID:String){
         self.getPostFor(uniquePostID: uniquePostID) { (post) in
             
             guard let post = post else {
@@ -208,7 +206,7 @@ extension MapVC:MKMapViewDelegate {
         }
     }
     
-    func getDroppablePinAnnotationForView(_ view:MKAnnotationView) -> DroppablePinAnnotation? {
+    private func getDroppablePinAnnotationForView(_ view:MKAnnotationView) -> DroppablePinAnnotation? {
         guard let annotation = view.annotation as? DroppablePinAnnotation else {
             return nil
         }

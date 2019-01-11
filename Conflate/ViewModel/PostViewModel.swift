@@ -10,6 +10,8 @@ import Foundation
 import Firebase
 
 class PostViewModel {
+   // var posts:[Post]
+    
     private let postService:PostService
     
     init(postService:PostService) {

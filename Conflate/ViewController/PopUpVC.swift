@@ -10,8 +10,8 @@ import UIKit
 
 class PopUpVC: UIViewController {
     
-    var categories: [Category] = []
-    var categoryTypeToPass:String?
+    private var categories: [Category] = []
+    private var categoryTypeToPass:String?
     
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -30,18 +30,18 @@ class PopUpVC: UIViewController {
             self.dismiss(animated: true, completion: nil)
     }
     
-    func setCategoryArray(){
+    private func setCategoryArray(){
         categories = [Category(image: Constants.CategoryImage.lostAndFound, title: Constants.CategoryTitle.lostAndFound),
                       Category(image: Constants.CategoryImage.healthAndFitness, title: Constants.CategoryTitle.healthAndFitness),
                       Category(image: Constants.CategoryImage.party, title: Constants.CategoryTitle.party)]
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
     
-    func setUpPopView(){
+    private func setUpPopView(){
         self.popUpView.layer.cornerRadius = 10
         self.popUpView.layer.masksToBounds = true
     }

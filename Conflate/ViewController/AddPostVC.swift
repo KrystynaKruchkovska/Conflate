@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import MapKit
+
 class AddPostVC: UIViewController {
     
     var postViewModel:PostViewModel!
@@ -25,6 +26,7 @@ class AddPostVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.descriptionTxtView.delegate = self
         self.spinnerView.hideSpinner()
         self.datePicker.addTarget(self, action: #selector(dataPickerChanged(_:)), for: .valueChanged)
     }
@@ -57,7 +59,7 @@ class AddPostVC: UIViewController {
         }
     }
     
-    func addPost(post:Post) {
+   private func addPost(post:Post) {
         self.postViewModel.addPost(post) { [weak self] (error) in
             
             self?.spinnerView.hideSpinner()
@@ -79,8 +81,14 @@ class AddPostVC: UIViewController {
         self.hideSelfVC()
     }
     
-    func hideSelfVC() {
+    private func hideSelfVC() {
         self.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension AddPostVC: UITextViewDelegate{
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        descriptionTxtView.text = ""
+    }
 }
