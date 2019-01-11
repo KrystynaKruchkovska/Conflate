@@ -9,6 +9,7 @@
 import Foundation
 
 struct Post : Encodable {
+    var uuid:String
     var authorID:String
     var title:String
     var description:String
@@ -17,7 +18,9 @@ struct Post : Encodable {
     var date:String
     var category:String
     
-    init(author:String, title:String, description:String, numberOfParticipants:Int, location:Location, date:String, category:String) {
+    
+    init(uuid:String, author:String, title:String, description:String, numberOfParticipants:Int, location:Location, date:String, category:String) {
+        self.uuid = uuid
         self.authorID = author
         self.title = title
         self.description = description

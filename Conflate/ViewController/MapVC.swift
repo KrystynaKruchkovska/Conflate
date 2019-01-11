@@ -51,7 +51,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         let touchPoint = gestureRecognizer.location(in: mapView)
         let touchMapCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         self.userLocation = Location(lat: touchMapCoordinate.latitude, long: touchMapCoordinate.longitude)
-        self.gesturePinAnnotation = DroppablePinAnnotation(coordinate:Location(lat: touchMapCoordinate.latitude, long: touchMapCoordinate.longitude), title: "Addeed with gesture")
+        self.gesturePinAnnotation = DroppablePinAnnotation(coordinate:Location(lat: touchMapCoordinate.latitude, long: touchMapCoordinate.longitude), title: "Addeed with gesture", uniquePostID: nil)
         
         self.mapView.addAnnotation(gesturePinAnnotation)
     }
@@ -65,7 +65,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     func addAnnotations() {
         self.postViewModel.readPosts { (posts) in
             
-            let annotations = posts.map({ DroppablePinAnnotation(coordinate:  $0.location, title: $0.title) })
+            let annotations = posts.map({ DroppablePinAnnotation(coordinate:  $0.location, title: $0.title, uniquePostID: $0.uuid) })
             
             DispatchQueue.main.async {
                 self.addAnnotation(annotations)
@@ -80,16 +80,17 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     }
 
     
-    func getPostInfo(title:String,handler:@escaping (_ post: Post?) -> ()){
+    func getPostFor(uniquePostID:String,handler:@escaping (_ post: Post?) -> ()){
         
         self.postViewModel.readPosts { (allPosts) in
-            for post in allPosts{
-                if post.title == title {
+            for post in allPosts {
+                if post.uuid == uniquePostID {
                     handler(post)
                     return
                 }
             }
             handler(nil)
+            
         }
     }
     
@@ -176,26 +177,40 @@ extension MapVC:MKMapViewDelegate {
         pinAnnotation.pinTintColor = #colorLiteral(red: 0.2745098039, green: 0.2196078431, blue: 0.4196078431, alpha: 1)
         pinAnnotation.rightCalloutAccessoryView = button
         pinAnnotation.canShowCallout = true
-        pinAnnotation.animatesDrop = true
+        pinAnnotation.animatesDrop = false
         return pinAnnotation
     }
     
-    // When user taps on the button info you can perform a segue to navigate to another view controller
-    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
         if control == view.rightCalloutAccessoryView {
-            print(view.annotation!.title! as Any)
-            self.getPostInfo(title: view.annotation!.title!!) { (post) in
+            
+            let annotationPin = self.getDroppablePinAnnotationForView(view)
+            
+            guard let uniquePostID = annotationPin?.uniquePostID else {
+                self.showAlertWithMessage("Click add button to create new post", title: "You've choosen location", handler: nil)
                 
-                if post == nil {
-                    self.showAlertWithMessage("Click add button to create new post", title: "You've choosen location", handler: nil)
+                return
+            }
+            
+            self.getPostFor(uniquePostID: uniquePostID) { (post) in
+                
+                guard let post = post else {
+                    self.showAlertWithMessage("Post may have been deleted.", title: Constants.Alerts.errorAlertTitle, handler: nil)
                     return
                 }
                 
-                self.presentPostInfoVCForPost(post: post!)
-    
+                self.presentPostInfoVCForPost(post: post)
             }
         }
+    }
+    
+    func getDroppablePinAnnotationForView(_ view:MKAnnotationView) -> DroppablePinAnnotation? {
+        guard let annotation = view.annotation as? DroppablePinAnnotation else {
+            return nil
+        }
+        
+        return annotation
     }
     
     

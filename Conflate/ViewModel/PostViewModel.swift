@@ -67,7 +67,9 @@ class PostViewModel {
             return
         }
         
-        let post = Post(author: currentUser.uid, title: title, description: description, numberOfParticipants: Int(participantNumber)!, location:location, date: date, category: category)
+        let uuid = UUID().uuidString
+        
+        let post = Post(uuid:uuid, author: currentUser.uid, title: title, description: description, numberOfParticipants: Int(participantNumber)!, location:location, date: date, category: category)
         
         completionHandler(nil, post)
     }

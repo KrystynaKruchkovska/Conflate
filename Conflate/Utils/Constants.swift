@@ -41,6 +41,7 @@ struct Constants {
     }
     
     struct PostData {
+        static let uuid = "uuid"
         static let locationLat = "location/lat"
         static let locationLong = "location/long"
         static let category = "category"
