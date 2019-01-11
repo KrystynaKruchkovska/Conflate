@@ -53,10 +53,10 @@ class AllPostsVC: UIViewController{
             return
         }
         
-       self.presentPostVCForRow(indexPath.row)
+       self.presentPostInfoVCForRow(indexPath.row)
     }
     
-    func presentPostVCForRow(_ row:Int) {
+    func presentPostInfoVCForRow(_ row:Int) {
         let presentInfo = PostInfoVC()
         presentInfo.post = self.postArray[row]
         presentInfo.modalPresentationStyle = .fullScreen

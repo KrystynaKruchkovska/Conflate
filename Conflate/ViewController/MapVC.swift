@@ -23,6 +23,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         super.viewDidLoad()
         longPressRecogniser()
         self.mapView.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,6 +78,27 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
             self.mapView.addAnnotation(annotation)
         }
     }
+
+    
+    func getPostInfo(title:String,handler:@escaping (_ post: Post?) -> ()){
+        
+        self.postViewModel.readPosts { (allPosts) in
+            for post in allPosts{
+                if post.title == title {
+                    handler(post)
+                    return
+                }
+                 handler(nil)
+            }
+        }
+    }
+    
+    func presentPostInfoVCForPost(post:Post) {
+        let presentInfo = PostInfoVC()
+        presentInfo.post = post
+        presentInfo.modalPresentationStyle = .fullScreen
+        present(presentInfo, animated: true, completion: nil)
+    }
     
     func getLocation() {
         if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
@@ -122,7 +144,9 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        fatalError("Implement this function")
+        if let clErr = error as? CLError {
+            showAlertWithError(clErr)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -148,9 +172,28 @@ extension MapVC:MKMapViewDelegate {
         }
         
         let pinAnnotation = MKPinAnnotationView(annotation: annotation, reuseIdentifier: Constants.ReusableIdentifier.mapPin)
+        let button = UIButton(type: .infoDark) as UIButton
         pinAnnotation.pinTintColor = #colorLiteral(red: 0.2745098039, green: 0.2196078431, blue: 0.4196078431, alpha: 1)
+        pinAnnotation.rightCalloutAccessoryView = button
         pinAnnotation.canShowCallout = true
         pinAnnotation.animatesDrop = true
         return pinAnnotation
     }
+    
+    // When user taps on the button info you can perform a segue to navigate to another view controller
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            print(view.annotation!.title! as Any)
+            getPostInfo(title: view.annotation!.title!!) { (post) in
+                if post != nil{
+                    self.presentPostInfoVCForPost(post: post!)
+                    return
+                }
+                    self.showAlertWithMessage("Click add button to create new post", title: "You've choosen location", handler: nil)
+            }
+        }
+    }
+    
+    
 }
