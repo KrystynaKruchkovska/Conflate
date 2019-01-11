@@ -24,7 +24,7 @@ class PopUpVC: UIViewController {
     
     @IBAction func doneBtnWasPressed(_ sender: UIButton) {
             if let presenter = self.presentingViewController as? AddPostVC {
-                presenter.categoryType = self.categoryTypeToPass
+              presenter.categoryType = self.categoryTypeToPass
             }
     
             self.dismiss(animated: true, completion: nil)
@@ -54,7 +54,7 @@ extension PopUpVC : UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ReusableIdentifier.categoryPopVCViewCell) as? CategoryCell else {
+        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: Constants.ReusableIdentifier.categoryPopVCViewCell) as? CategoryCell else {
             fatalError(Constants.Strings.fatalError)
         }
         let category = categories[indexPath.row]
@@ -71,7 +71,7 @@ extension PopUpVC : UITableViewDataSource,UITableViewDelegate {
         guard let currentCell = tableView.cellForRow(at: indexPath) as? CategoryCell else {
             fatalError(Constants.Strings.fatalError)
         }
-        categoryTypeToPass = currentCell.categoryTitle.text
+        self.categoryTypeToPass = currentCell.categoryTitle.text
     }
     
 }

@@ -22,7 +22,7 @@ class ForgotPasswordVC: UIViewController {
     }
     
     @IBAction func sendResetPasswordEmailWasPressed(_ sender: UIButton) {
-        showSpinnerAndControlOff(spinner: spinner)
+        self.showSpinnerAndControlOff(spinner: spinner)
         guard let email = emailTextField.text else{
             print("email == nil")
             return
@@ -32,7 +32,7 @@ class ForgotPasswordVC: UIViewController {
     }
     
     @IBAction func backButtonWasPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     func resetPassword(email:String){
         self.authViewModel.resetPassword(email: email) { [weak self](error) in

@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class DroppablePin: NSObject, MKAnnotation {
+class DroppablePinAnnotation: NSObject, MKAnnotation {
     public dynamic var coordinate: CLLocationCoordinate2D
     var title:String?
     

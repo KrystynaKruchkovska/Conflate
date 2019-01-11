@@ -24,8 +24,8 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         self.hideSpinnerAndControlOn(spinner: spinner)
-        configureForgotPasswordButton(button: forgotPasswordBtn)
-        configureFBLogin()
+        self.configureForgotPasswordButton(button: forgotPasswordBtn)
+        self.configureFBLogin()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,7 +51,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         button.setTitle(Constants.Strings.forgot, for: .normal)
         button.addTarget(self, action: #selector(forgotPasswordButtonAction), for: .touchUpInside)
         
-        passwordTxtField.addButton(forgotPasswordBtn)
+        self.passwordTxtField.addButton(forgotPasswordBtn)
     }
     
     @objc func forgotPasswordButtonAction(sender: UIButton!) {
@@ -72,8 +72,8 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
         guard let useremail = emailTxtField.text else { return}
         guard let userpassword = passwordTxtField.text else { return}
         
-        showSpinnerAndControlOff(spinner: spinner)
-        signInWithEmail(useremail: useremail, userpassword: userpassword)
+        self.showSpinnerAndControlOff(spinner: spinner)
+        self.signInWithEmail(useremail: useremail, userpassword: userpassword)
     }
     
     func signInWithEmail(useremail:String, userpassword:String) {

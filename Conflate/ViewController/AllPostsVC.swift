@@ -37,7 +37,6 @@ class AllPostsVC: UIViewController{
                 self.tableView.reloadData()
                 self.spinnerView.hideSpinner()
             }
-            
         }
     }
    
@@ -46,7 +45,7 @@ class AllPostsVC: UIViewController{
     }
     
     @IBAction func infobtnWasPressed(_ sender: UIButton) {
-        let indexPath = tableView.getIndexPath(for: sender)
+        let indexPath = self.tableView.getIndexPath(for: sender)
         
         if indexPath.indices.count < 1 {
             self.showAlertInternalError()
@@ -72,7 +71,7 @@ extension AllPostsVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ReusableIdentifier.postTableViewCell) as? PostTableViewCell else {
+        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: Constants.ReusableIdentifier.postTableViewCell) as? PostTableViewCell else {
             fatalError(Constants.Strings.fatalError)
         }
       

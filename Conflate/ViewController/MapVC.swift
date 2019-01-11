@@ -15,13 +15,13 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     var postViewModel:PostViewModel!
     var locationManager = CLLocationManager()
     var userLocation: Location!
-    var gesturePin:DroppablePin!
+    var gesturePinAnnotation:DroppablePinAnnotation!
     
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        longPressRecogniser()
+        self.longPressRecogniser()
         self.mapView.delegate = self
         
     }
@@ -32,40 +32,40 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupLocation()
+        self.setupLocation()
         self.addAnnotations()
     }
     
     
     func longPressRecogniser(){
-        let longPressRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(MapVC.dropPin(_:)))
+        let longPressRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(MapVC.dropPinAnnotation(_:)))
         longPressRecogniser.minimumPressDuration = 1.0
-        mapView.addGestureRecognizer(longPressRecogniser)
+        self.mapView.addGestureRecognizer(longPressRecogniser)
     }
     
-    @objc func dropPin(_ gestureRecognizer : UIGestureRecognizer){
+    @objc func dropPinAnnotation(_ gestureRecognizer : UIGestureRecognizer){
         
         if gestureRecognizer.state != .began { return }
-        removeGestureAddedPin()
+        self.removeGestureAddedPinAnnotation()
         
         let touchPoint = gestureRecognizer.location(in: mapView)
         let touchMapCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         self.userLocation = Location(lat: touchMapCoordinate.latitude, long: touchMapCoordinate.longitude)
-        gesturePin = DroppablePin(coordinate:Location(lat: touchMapCoordinate.latitude, long: touchMapCoordinate.longitude), title: "Addeed with gesture")
+        self.gesturePinAnnotation = DroppablePinAnnotation(coordinate:Location(lat: touchMapCoordinate.latitude, long: touchMapCoordinate.longitude), title: "Addeed with gesture")
         
-        mapView.addAnnotation(gesturePin)
+        self.mapView.addAnnotation(gesturePinAnnotation)
     }
     
-    func removeGestureAddedPin(){
-        if gesturePin != nil {
-            mapView.removeAnnotation(gesturePin)
+    func removeGestureAddedPinAnnotation(){
+        if gesturePinAnnotation != nil {
+            self.mapView.removeAnnotation(gesturePinAnnotation)
         }
     }
     
     func addAnnotations() {
         self.postViewModel.readPosts { (posts) in
             
-            let annotations = posts.map({ DroppablePin(coordinate:  $0.location, title: $0.title) })
+            let annotations = posts.map({ DroppablePinAnnotation(coordinate:  $0.location, title: $0.title) })
             
             DispatchQueue.main.async {
                 self.addAnnotation(annotations)
@@ -73,7 +73,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         }
     }
     
-    func addAnnotation(_ annotations:[DroppablePin]) {
+    func addAnnotation(_ annotations:[DroppablePinAnnotation]) {
         for annotation in annotations {
             self.mapView.addAnnotation(annotation)
         }
@@ -139,13 +139,13 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         if isLocationNotAuthorized() {
             showAlertWithMessage(Constants.Strings.location_Is_not_authorized, title: Constants.Alerts.errorAlertTitle, handler: nil)
         } else {
-            locationManager.requestLocation()
+            self.locationManager.requestLocation()
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         if let clErr = error as? CLError {
-            showAlertWithError(clErr)
+            self.showAlertWithError(clErr)
         }
     }
     
@@ -158,7 +158,7 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
             }
             
             vc?.location = self.userLocation
-            removeGestureAddedPin()
+            self.removeGestureAddedPinAnnotation()
         }
     }
 }
@@ -185,7 +185,7 @@ extension MapVC:MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             print(view.annotation!.title! as Any)
-            getPostInfo(title: view.annotation!.title!!) { (post) in
+            self.getPostInfo(title: view.annotation!.title!!) { (post) in
                 if post != nil{
                     self.presentPostInfoVCForPost(post: post!)
                     return

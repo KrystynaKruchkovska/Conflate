@@ -26,7 +26,7 @@
 		04763B4321D0ED3200421DA0 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04763B4221D0ED3200421DA0 /* SignUpVC.swift */; };
 		049EC90521E3C9CA0061F7A1 /* TableView+GetIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EC90421E3C9CA0061F7A1 /* TableView+GetIndexPath.swift */; };
 		049EC90921E3F25E0061F7A1 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049EC90821E3F25E0061F7A1 /* SpinnerView.swift */; };
-		04B00DF421E631F900247AF0 /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B00DF321E631F900247AF0 /* DroppablePin.swift */; };
+		04B00DF421E631F900247AF0 /* DroppablePinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B00DF321E631F900247AF0 /* DroppablePinAnnotation.swift */; };
 		04B3766021CE575B00784506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3765F21CE575B00784506 /* AppDelegate.swift */; };
 		04B3766221CE575B00784506 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3766121CE575B00784506 /* SignInVC.swift */; };
 		04B3766521CE575B00784506 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B3766321CE575B00784506 /* Auth.storyboard */; };
@@ -85,7 +85,7 @@
 		04763B4221D0ED3200421DA0 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		049EC90421E3C9CA0061F7A1 /* TableView+GetIndexPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+GetIndexPath.swift"; sourceTree = "<group>"; };
 		049EC90821E3F25E0061F7A1 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
-		04B00DF321E631F900247AF0 /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
+		04B00DF321E631F900247AF0 /* DroppablePinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePinAnnotation.swift; sourceTree = "<group>"; };
 		04B3765C21CE575B00784506 /* Conflate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conflate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B3765F21CE575B00784506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B3766121CE575B00784506 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 				042DC19521DE9A8B000F7114 /* PostTableViewCell.swift */,
 				049EC90821E3F25E0061F7A1 /* SpinnerView.swift */,
 				04F6040D21E4DABC0099A1B6 /* CategoryCell.swift */,
-				04B00DF321E631F900247AF0 /* DroppablePin.swift */,
+				04B00DF321E631F900247AF0 /* DroppablePinAnnotation.swift */,
 				04F88AF621E7C4EB00CC484A /* FloatingActionBtn.swift */,
 			);
 			path = View;
@@ -540,7 +540,7 @@
 				04F9C34821D10D5700CCFB00 /* UIViewController+hideKeyboard.swift in Sources */,
 				E551AD2021DCEE610055D494 /* Post.swift in Sources */,
 				0424B22F21D692250005E3C3 /* UIViewController+Alert.swift in Sources */,
-				04B00DF421E631F900247AF0 /* DroppablePin.swift in Sources */,
+				04B00DF421E631F900247AF0 /* DroppablePinAnnotation.swift in Sources */,
 				049EC90521E3C9CA0061F7A1 /* TableView+GetIndexPath.swift in Sources */,
 				04B3766021CE575B00784506 /* AppDelegate.swift in Sources */,
 				042DC19421DE9996000F7114 /* AllPostsVC.swift in Sources */,

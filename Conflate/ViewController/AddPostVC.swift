@@ -26,7 +26,7 @@ class AddPostVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.spinnerView.hideSpinner()
-        datePicker.addTarget(self, action: #selector(dataPickerChanged(_:)), for: .valueChanged)
+        self.datePicker.addTarget(self, action: #selector(dataPickerChanged(_:)), for: .valueChanged)
     }
     
     @IBAction func locationBtnWasPressed(_ sender: Any) {
