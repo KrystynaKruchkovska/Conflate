@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sf8-TN-SH6">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="UWf-EN-JE2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dcj-1K-3yT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="343"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="gyG-EO-9df"/>
@@ -31,7 +31,7 @@
             <objects>
                 <navigationController id="3Z2-EN-VZf" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bh4-Nl-QXv">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -47,14 +47,15 @@
             <objects>
                 <viewController id="MQM-Ga-2ew" customClass="MapVC" customModule="Conflate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F7l-QA-xQR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FHo-oz-hWj">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FHo-oz-hWj">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQI-V2-Rie" customClass="FloatingActionBtn" customModule="Conflate" customModuleProvider="target">
-                                <rect key="frame" x="300" y="591" width="56" height="56"/>
+                                <rect key="frame" x="595" y="299" width="56" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -67,12 +68,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="FHo-oz-hWj" firstAttribute="bottom" secondItem="uDV-QF-1yz" secondAttribute="bottom" id="0rR-W0-bJb"/>
-                            <constraint firstItem="FHo-oz-hWj" firstAttribute="trailing" secondItem="uDV-QF-1yz" secondAttribute="trailing" id="AfC-4F-Kc1"/>
-                            <constraint firstItem="FHo-oz-hWj" firstAttribute="leading" secondItem="uDV-QF-1yz" secondAttribute="leading" id="Etf-4m-xDQ"/>
-                            <constraint firstItem="FHo-oz-hWj" firstAttribute="top" secondItem="uDV-QF-1yz" secondAttribute="top" id="PQ3-dB-xY9"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="uDV-QF-1yz"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="map" image="map" selectedImage="map" id="xZ8-sc-EOl"/>
@@ -92,21 +87,21 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-954" y="78"/>
+            <point key="canvasLocation" x="-954.39999999999998" y="77.811094452773617"/>
         </scene>
         <!--Add PostVC-->
         <scene sceneID="rnL-C5-eTb">
             <objects>
                 <viewController id="jj8-Cq-hYl" customClass="AddPostVC" customModule="Conflate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="09E-m5-EsR" customClass="GradientView" customModule="Conflate" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="488"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKe-bC-KhN">
-                                <rect key="frame" x="0.0" y="20" width="667" height="468"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beY-7g-JA6" userLabel="ContentView" customClass="GradientView" customModule="Conflate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="667" height="468"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWk-2P-F0b" userLabel="Cancel">
                                                 <rect key="frame" x="16" y="16" width="30" height="30"/>
@@ -168,7 +163,7 @@
                                                     <!--2019-01-01 12:58:56 +0000-->
                                                 </date>
                                             </datePicker>
-                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="vZO-4a-VM9">
+                                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="vZO-4a-VM9">
                                                 <rect key="frame" x="66.5" y="177" width="534" height="200"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zII-9C-5Te">
@@ -223,15 +218,26 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                                         </constraints>
                                                     </view>
                                                 </subviews>
+                                                <variation key="heightClass=compact-widthClass=regular" hidden="NO"/>
                                             </stackView>
                                             <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9o-nL-DxU" customClass="SpinnerView" customModule="Conflate" customModuleProvider="target">
-                                                <rect key="frame" x="293.5" y="194" width="80" height="80"/>
+                                                <rect key="frame" x="293.5" y="147.5" width="80" height="80"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="5po-IY-L55"/>
                                                     <constraint firstAttribute="height" constant="80" id="G2i-Cz-IFj"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BY-Iz-b1A" customClass="FloatingActionBtn" customModule="Conflate" customModuleProvider="target">
+                                                <rect key="frame" x="603" y="292" width="56" height="56"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                                <state key="normal" image="done">
+                                                    <color key="titleColor" red="0.13725490200000001" green="0.10980392160000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="addBtnWasPressed:" destination="jj8-Cq-hYl" eventType="touchUpInside" id="vh7-Mm-uHE"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -252,16 +258,6 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                             <constraint firstItem="vZO-4a-VM9" firstAttribute="width" secondItem="beY-7g-JA6" secondAttribute="width" multiplier="0.8" id="xSv-3z-OYC"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BY-Iz-b1A" customClass="FloatingActionBtn" customModule="Conflate" customModuleProvider="target">
-                                        <rect key="frame" x="305" y="412" width="56" height="56"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <state key="normal" image="done">
-                                            <color key="titleColor" red="0.13725490200000001" green="0.10980392160000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="addBtnWasPressed:" destination="jj8-Cq-hYl" eventType="touchUpInside" id="vh7-Mm-uHE"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="beY-7g-JA6" firstAttribute="top" secondItem="HKe-bC-KhN" secondAttribute="top" id="1V2-nS-84F"/>
@@ -284,7 +280,6 @@ Give me one good reason why I should give up my limited spare time to come to yo
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VbU-3T-LU7"/>
                     </view>
-                    <size key="freeformSize" width="667" height="488"/>
                     <connections>
                         <outlet property="datePicker" destination="gbz-e1-LMp" id="jcd-Ln-l8A"/>
                         <outlet property="descriptionTxtView" destination="hde-6U-4aR" id="vfi-V0-aPw"/>
@@ -302,32 +297,45 @@ Give me one good reason why I should give up my limited spare time to come to yo
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="lNJ-Ym-6U8" customClass="PopUpVC" customModule="Conflate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lDh-cQ-mkA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="orW-2i-thm">
-                                <rect key="frame" x="37.5" y="167" width="300" height="333.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="orW-2i-thm" customClass="GradientView" customModule="Conflate" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mFJ-yn-DSz">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="266.5"/>
-                                        <color key="backgroundColor" red="0.90588235289999997" green="0.89019607840000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="667" height="300"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="40" id="ZzH-S6-r9C" customClass="CategoryCell" customModule="Conflate" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="300" height="40"/>
+                                                <rect key="frame" x="0.0" y="28" width="667" height="40"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZzH-S6-r9C" id="DYE-Hn-bG8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="39.5"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZzH-S6-r9C" id="DYE-Hn-bG8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="667" height="39.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BRt-bq-DQG">
-                                                            <rect key="frame" x="0.0" y="-0.5" width="40" height="40"/>
+                                                            <rect key="frame" x="10" y="0.0" width="40" height="39.5"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="6qH-XG-Mpb"/>
                                                                 <constraint firstAttribute="height" constant="40" id="ZYH-d1-WZZ"/>
                                                                 <constraint firstAttribute="width" constant="40" id="iiz-WU-pwu"/>
                                                             </constraints>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="6qH-XG-Mpb"/>
+                                                                </mask>
+                                                            </variation>
+                                                            <variation key="heightClass=compact">
+                                                                <mask key="constraints">
+                                                                    <include reference="6qH-XG-Mpb"/>
+                                                                    <exclude reference="ZYH-d1-WZZ"/>
+                                                                    <exclude reference="iiz-WU-pwu"/>
+                                                                </mask>
+                                                            </variation>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="50" translatesAutoresizingMaskIntoConstraints="NO" id="HoS-EG-ot8">
-                                                            <rect key="frame" x="50" y="-0.5" width="172" height="40.5"/>
+                                                            <rect key="frame" x="60" y="0.0" width="230" height="39.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="172" id="QmM-YI-qj7"/>
@@ -335,18 +343,58 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.13725490196078433" green="0.10980392156862745" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
+                                                            <variation key="heightClass=compact">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="QmM-YI-qj7"/>
+                                                                </mask>
+                                                            </variation>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="BRt-bq-DQG" firstAttribute="leading" secondItem="DYE-Hn-bG8" secondAttribute="leading" id="01S-W8-cDY"/>
+                                                        <constraint firstItem="BRt-bq-DQG" firstAttribute="leading" secondItem="DYE-Hn-bG8" secondAttribute="leading" constant="10" id="01S-W8-cDY"/>
+                                                        <constraint firstItem="HoS-EG-ot8" firstAttribute="top" secondItem="DYE-Hn-bG8" secondAttribute="top" id="3vA-Ax-Fys"/>
                                                         <constraint firstItem="HoS-EG-ot8" firstAttribute="top" secondItem="BRt-bq-DQG" secondAttribute="top" id="7Ma-lH-8WB"/>
+                                                        <constraint firstItem="HoS-EG-ot8" firstAttribute="leading" secondItem="BRt-bq-DQG" secondAttribute="trailing" constant="10" id="7aS-va-fH0"/>
+                                                        <constraint firstItem="BRt-bq-DQG" firstAttribute="top" secondItem="DYE-Hn-bG8" secondAttribute="top" id="8XO-zY-b2H"/>
                                                         <constraint firstAttribute="bottom" secondItem="BRt-bq-DQG" secondAttribute="bottom" id="J95-qO-08L"/>
+                                                        <constraint firstAttribute="bottom" secondItem="BRt-bq-DQG" secondAttribute="bottom" id="PRk-Ob-9BX"/>
+                                                        <constraint firstAttribute="bottom" secondItem="HoS-EG-ot8" secondAttribute="bottom" id="RK7-18-Dld"/>
                                                         <constraint firstItem="HoS-EG-ot8" firstAttribute="centerY" secondItem="DYE-Hn-bG8" secondAttribute="centerY" id="W47-Ln-PkW"/>
+                                                        <constraint firstItem="BRt-bq-DQG" firstAttribute="leading" secondItem="DYE-Hn-bG8" secondAttribute="leading" constant="10" id="dV4-2l-vWX"/>
+                                                        <constraint firstAttribute="trailing" secondItem="HoS-EG-ot8" secondAttribute="trailing" constant="10" id="gdI-fI-EPI"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="HoS-EG-ot8" secondAttribute="trailing" constant="50" id="hdV-o2-n2r"/>
-                                                        <constraint firstItem="HoS-EG-ot8" firstAttribute="leading" secondItem="BRt-bq-DQG" secondAttribute="trailing" constant="10" id="jBL-Sd-GMy"/>
+                                                        <constraint firstItem="HoS-EG-ot8" firstAttribute="leading" secondItem="BRt-bq-DQG" secondAttribute="trailing" constant="8" symbolic="YES" id="jBL-Sd-GMy"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="8XO-zY-b2H"/>
+                                                            <exclude reference="PRk-Ob-9BX"/>
+                                                            <exclude reference="dV4-2l-vWX"/>
+                                                            <exclude reference="3vA-Ax-Fys"/>
+                                                            <exclude reference="7aS-va-fH0"/>
+                                                            <exclude reference="RK7-18-Dld"/>
+                                                            <exclude reference="gdI-fI-EPI"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=compact">
+                                                        <mask key="constraints">
+                                                            <exclude reference="01S-W8-cDY"/>
+                                                            <include reference="8XO-zY-b2H"/>
+                                                            <exclude reference="J95-qO-08L"/>
+                                                            <include reference="PRk-Ob-9BX"/>
+                                                            <include reference="dV4-2l-vWX"/>
+                                                            <include reference="3vA-Ax-Fys"/>
+                                                            <exclude reference="7Ma-lH-8WB"/>
+                                                            <include reference="7aS-va-fH0"/>
+                                                            <include reference="RK7-18-Dld"/>
+                                                            <exclude reference="W47-Ln-PkW"/>
+                                                            <include reference="gdI-fI-EPI"/>
+                                                            <exclude reference="hdV-o2-n2r"/>
+                                                            <exclude reference="jBL-Sd-GMy"/>
+                                                        </mask>
+                                                    </variation>
                                                 </tableViewCellContentView>
-                                                <color key="backgroundColor" red="0.90588235294117647" green="0.8901960784313725" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.90588235289999997" green="0.89019607840000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <outlet property="categoryImg" destination="BRt-bq-DQG" id="ygl-bN-sOG"/>
                                                     <outlet property="categoryTitle" destination="HoS-EG-ot8" id="xX8-UL-rJq"/>
@@ -354,35 +402,84 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yU2-s0-cWO">
-                                        <rect key="frame" x="0.0" y="266.5" width="300" height="67"/>
-                                        <state key="normal" title="Done"/>
-                                        <connections>
-                                            <action selector="doneBtnWasPressed:" destination="lNJ-Ym-6U8" eventType="touchUpInside" id="1tK-eL-ut1"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.90588235289999997" green="0.89019607840000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="mFJ-yn-DSz" firstAttribute="width" secondItem="orW-2i-thm" secondAttribute="width" id="3oe-T2-YaG"/>
                                     <constraint firstItem="mFJ-yn-DSz" firstAttribute="centerX" secondItem="orW-2i-thm" secondAttribute="centerX" id="ADz-7k-784"/>
-                                    <constraint firstItem="yU2-s0-cWO" firstAttribute="width" secondItem="orW-2i-thm" secondAttribute="width" id="Bl9-fL-JwR"/>
-                                    <constraint firstItem="mFJ-yn-DSz" firstAttribute="leading" secondItem="yU2-s0-cWO" secondAttribute="leading" id="Nii-Tm-API"/>
                                     <constraint firstItem="mFJ-yn-DSz" firstAttribute="height" secondItem="orW-2i-thm" secondAttribute="height" multiplier="0.8" id="QMX-1C-M4P"/>
-                                    <constraint firstAttribute="bottom" secondItem="yU2-s0-cWO" secondAttribute="bottom" id="UTy-71-X7B"/>
-                                    <constraint firstItem="yU2-s0-cWO" firstAttribute="height" secondItem="orW-2i-thm" secondAttribute="height" multiplier="0.2" id="kya-eG-iyD"/>
+                                    <constraint firstAttribute="trailing" secondItem="mFJ-yn-DSz" secondAttribute="trailing" id="SHr-2b-TOu"/>
+                                    <constraint firstItem="mFJ-yn-DSz" firstAttribute="top" secondItem="orW-2i-thm" secondAttribute="top" id="ZfN-Yg-Cl6"/>
+                                    <constraint firstItem="mFJ-yn-DSz" firstAttribute="height" secondItem="orW-2i-thm" secondAttribute="height" multiplier="0.8" id="h9s-PI-bHF"/>
                                     <constraint firstItem="mFJ-yn-DSz" firstAttribute="top" secondItem="orW-2i-thm" secondAttribute="top" id="osX-R1-4OU"/>
+                                    <constraint firstItem="mFJ-yn-DSz" firstAttribute="leading" secondItem="orW-2i-thm" secondAttribute="leading" id="vQz-AE-Rgm"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="SHr-2b-TOu"/>
+                                        <exclude reference="ZfN-Yg-Cl6"/>
+                                        <exclude reference="h9s-PI-bHF"/>
+                                        <exclude reference="vQz-AE-Rgm"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="3oe-T2-YaG"/>
+                                        <exclude reference="ADz-7k-784"/>
+                                        <exclude reference="QMX-1C-M4P"/>
+                                        <include reference="SHr-2b-TOu"/>
+                                        <include reference="ZfN-Yg-Cl6"/>
+                                        <include reference="h9s-PI-bHF"/>
+                                        <exclude reference="osX-R1-4OU"/>
+                                        <include reference="vQz-AE-Rgm"/>
+                                    </mask>
+                                </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yU2-s0-cWO" customClass="FloatingActionBtn" customModule="Conflate" customModuleProvider="target">
+                                <rect key="frame" x="313" y="153" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" image="done"/>
+                                <connections>
+                                    <action selector="doneBtnWasPressed:" destination="lNJ-Ym-6U8" eventType="touchUpInside" id="1tK-eL-ut1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="orW-2i-thm" firstAttribute="top" secondItem="jMc-jH-SXP" secondAttribute="top" constant="94" id="3uS-1E-aL8">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="orW-2i-thm" firstAttribute="centerX" secondItem="lDh-cQ-mkA" secondAttribute="centerX" id="Fz6-fC-yeD"/>
                             <constraint firstItem="orW-2i-thm" firstAttribute="height" secondItem="lDh-cQ-mkA" secondAttribute="height" multiplier="0.5" id="IE9-Vo-B0R"/>
+                            <constraint firstItem="orW-2i-thm" firstAttribute="height" secondItem="jMc-jH-SXP" secondAttribute="height" id="Pe6-K1-O61"/>
+                            <constraint firstItem="orW-2i-thm" firstAttribute="width" secondItem="jMc-jH-SXP" secondAttribute="width" id="gJA-8a-PO2"/>
+                            <constraint firstItem="orW-2i-thm" firstAttribute="leading" secondItem="jMc-jH-SXP" secondAttribute="leading" constant="66.5" id="jPd-bI-lVw">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="orW-2i-thm" firstAttribute="width" secondItem="lDh-cQ-mkA" secondAttribute="width" multiplier="0.8" id="oaJ-mB-ruo"/>
                             <constraint firstItem="orW-2i-thm" firstAttribute="centerY" secondItem="lDh-cQ-mkA" secondAttribute="centerY" id="s0S-tu-vIR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jMc-jH-SXP"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3uS-1E-aL8"/>
+                                <exclude reference="Pe6-K1-O61"/>
+                                <exclude reference="gJA-8a-PO2"/>
+                                <exclude reference="jPd-bI-lVw"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="3uS-1E-aL8"/>
+                                <exclude reference="Fz6-fC-yeD"/>
+                                <exclude reference="IE9-Vo-B0R"/>
+                                <include reference="Pe6-K1-O61"/>
+                                <include reference="gJA-8a-PO2"/>
+                                <include reference="jPd-bI-lVw"/>
+                                <exclude reference="oaJ-mB-ruo"/>
+                                <exclude reference="s0S-tu-vIR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="popUpView" destination="orW-2i-thm" id="5pL-2K-SdA"/>
@@ -391,30 +488,25 @@ Give me one good reason why I should give up my limited spare time to come to yo
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sEF-3d-TQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1800.8" y="776.76161919040487"/>
+            <point key="canvasLocation" x="1799.2" y="774.96251874062978"/>
         </scene>
         <!--Post_list-->
         <scene sceneID="YTa-z5-fs5">
             <objects>
                 <viewController id="5LD-vG-emf" customClass="AllPostsVC" customModule="Conflate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gWk-at-sDQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                    <view key="view" contentMode="scaleToFill" id="gWk-at-sDQ" customClass="GradientView" customModule="Conflate" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="343"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="caq-zD-HaP" customClass="SpinnerView" customModule="Conflate" customModuleProvider="target">
-                                <rect key="frame" x="67" y="245" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6dI-Br-G6U">
-                                <rect key="frame" x="0.0" y="83.5" width="375" height="534.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="63.5" width="667" height="279.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postTableViewCell" rowHeight="60" id="PgC-q5-Uua" customClass="PostTableViewCell" customModule="Conflate" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="28" width="667" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PgC-q5-Uua" id="B9Z-fN-ORW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="667" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="9Ff-gE-x39">
@@ -443,6 +535,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                                 <constraint firstItem="9B2-iN-oRm" firstAttribute="trailing" secondItem="B9Z-fN-ORW" secondAttribute="trailingMargin" id="lk7-GZ-42K"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.90588235289999997" green="0.89019607840000003" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="infoButton" destination="9B2-iN-oRm" id="8mx-h2-ZTQ"/>
                                             <outlet property="titleLbl" destination="9Ff-gE-x39" id="Th3-U3-Ehh"/>
@@ -451,13 +544,13 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All posts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhn-XQ-Y39">
-                                <rect key="frame" x="144.5" y="36" width="86.5" height="31.5"/>
+                                <rect key="frame" x="290.5" y="16" width="86.5" height="31.5"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHR-42-UYQ" customClass="SpinnerView" customModule="Conflate" customModuleProvider="target">
-                                <rect key="frame" x="147.5" y="269" width="80" height="80"/>
+                                <rect key="frame" x="293.5" y="131.5" width="80" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="Mfy-Km-rPf"/>
@@ -465,7 +558,7 @@ Give me one good reason why I should give up my limited spare time to come to yo
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.50196078430000002" green="0.40000000000000002" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6dI-Br-G6U" firstAttribute="leading" secondItem="5B9-nn-Xq8" secondAttribute="leading" id="4dQ-T6-rNT"/>
                             <constraint firstItem="Uhn-XQ-Y39" firstAttribute="top" secondItem="5B9-nn-Xq8" secondAttribute="top" constant="16" id="7C8-c6-oBO"/>

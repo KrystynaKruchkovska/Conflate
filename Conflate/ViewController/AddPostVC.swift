@@ -26,6 +26,7 @@ class AddPostVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setUpTextField()
         self.descriptionTxtView.delegate = self
         self.spinnerView.hideSpinner()
         self.datePicker.addTarget(self, action: #selector(dataPickerChanged(_:)), for: .valueChanged)
@@ -57,6 +58,11 @@ class AddPostVC: UIViewController {
             
             self?.addPost(post: post)
         }
+    }
+    private func setUpTextField(){
+        self.titleTxtField.delegate = self
+        self.participanceTxtField.delegate = self
+        self.hideKeyboardWhenTappedAround()
     }
     
    private func addPost(post:Post) {
@@ -90,5 +96,11 @@ class AddPostVC: UIViewController {
 extension AddPostVC: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
         descriptionTxtView.text = ""
+    }
+}
+extension AddPostVC:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

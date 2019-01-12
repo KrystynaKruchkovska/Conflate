@@ -22,7 +22,7 @@ class SignUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
+        self.setUpTextField()
         self.spinnerView.hideSpinner()
     }
     
@@ -44,6 +44,14 @@ class SignUpVC: UIViewController {
        self.spinnerView.showSpinner()
         self.createUser(nickname: nickname, email: useremail, password: userpassword)
         
+    }
+    
+    private func setUpTextField(){
+        self.nicknameTxtField.delegate = self
+        self.emailTxtField.delegate = self
+        self.passwordTxtField.delegate = self
+        self.confirmPasswordTxtField.delegate = self
+        self.hideKeyboardWhenTappedAround()
     }
     
     private func createUser(nickname:String,email: String, password: String){
@@ -97,3 +105,9 @@ class SignUpVC: UIViewController {
     
 }
 
+extension SignUpVC:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

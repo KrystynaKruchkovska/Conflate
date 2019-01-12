@@ -19,6 +19,7 @@ class ForgotPasswordVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.spinnerView.hideSpinner()
+        self.setUpTextField()
     }
     
     @IBAction func sendResetPasswordEmailWasPressed(_ sender: UIButton) {
@@ -34,6 +35,11 @@ class ForgotPasswordVC: UIViewController {
     @IBAction func backButtonWasPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    private func setUpTextField(){
+        self.emailTextField.delegate = self
+        self.hideKeyboardWhenTappedAround()
+    }
     private func resetPassword(email:String){
         self.authViewModel.resetPassword(email: email) { [weak self](error) in
             self?.spinnerView.hideSpinner()
@@ -47,4 +53,11 @@ class ForgotPasswordVC: UIViewController {
         }
     }
     
+}
+
+extension ForgotPasswordVC:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

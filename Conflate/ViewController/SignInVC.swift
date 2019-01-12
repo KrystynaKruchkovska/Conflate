@@ -23,8 +23,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-        
+        self.setUpTextField()
         self.spinnerView.hideSpinner()
         self.configureForgotPasswordButton(button: forgotPasswordBtn)
         self.configureFBLogin()
@@ -39,6 +38,11 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
             }
             
         }
+    }
+    private func setUpTextField(){
+        self.emailTxtField.delegate = self
+        self.passwordTxtField.delegate = self
+        self.hideKeyboardWhenTappedAround()
     }
     
     private func configureFBLogin() {
@@ -181,6 +185,12 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         self.spinnerView.hideSpinner()
+    }
+}
+extension SignInVC:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

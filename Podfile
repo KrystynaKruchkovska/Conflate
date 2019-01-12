@@ -11,8 +11,7 @@ target 'Conflate' do
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'FirebaseUI/Facebook'
-  pod 'FBSDKLoginKit'
-
+  pod 'IQKeyboardManagerSwift'
 
 
   target 'ConflateTests' do
