@@ -12,6 +12,7 @@ target 'Conflate' do
   pod 'Firebase/Auth'
   pod 'FirebaseUI/Facebook'
   pod 'IQKeyboardManagerSwift'
+  pod 'TextFieldEffects'
 
 
   target 'ConflateTests' do

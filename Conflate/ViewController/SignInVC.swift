@@ -51,7 +51,7 @@ class SignInVC: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     private func configureForgotPasswordButton(button:UIButton){
-        button.frame = CGRect(x: 0, y: 0, width: self.passwordTxtField.frame.width/3.0, height: self.passwordTxtField.frame.height)
+        button.frame = CGRect(x: 0, y: 0, width: self.passwordTxtField.frame.width/3.0, height: self.passwordTxtField.frame.height/2)
         button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         button.setTitleColor(#colorLiteral(red: 0.5019607843, green: 0.4, blue: 0.768627451, alpha: 1), for: .normal)
         button.setTitle(Constants.Strings.forgot, for: .normal)
