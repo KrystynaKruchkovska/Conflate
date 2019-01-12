@@ -209,13 +209,30 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="59l-Vq-dja"/>
+                                            </mask>
+                                        </variation>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wke-8F-M6A">
                                         <rect key="frame" x="0.0" y="43" width="300" height="5"/>
                                         <color key="backgroundColor" red="0.50196078430000002" green="0.40000000000000002" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="5" id="9z1-6m-jbg"/>
                                             <constraint firstAttribute="height" constant="5" id="VWh-QF-veb"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="9z1-6m-jbg"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="9z1-6m-jbg"/>
+                                                <exclude reference="VWh-QF-veb"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8BL-Yc-6Bx" customClass="HoshiTextField" customModule="TextFieldEffects">
                                         <rect key="frame" x="0.0" y="51" width="300" height="40"/>
@@ -248,13 +265,30 @@
                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="gNX-Ya-hyI"/>
+                                            </mask>
+                                        </variation>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJg-fi-sbP">
                                         <rect key="frame" x="0.0" y="94" width="300" height="5"/>
                                         <color key="backgroundColor" red="0.50196078430000002" green="0.40000000000000002" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="atU-tT-mG9"/>
+                                            <constraint firstAttribute="height" constant="5" id="zjV-1e-pYg"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="zjV-1e-pYg"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="atU-tT-mG9"/>
+                                                <include reference="zjV-1e-pYg"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o0W-gL-ro3" customClass="HoshiTextField" customModule="TextFieldEffects">
                                         <rect key="frame" x="0.0" y="102" width="300" height="40"/>
@@ -287,13 +321,30 @@
                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="4lF-ea-AT0"/>
+                                            </mask>
+                                        </variation>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqv-tq-AGq">
                                         <rect key="frame" x="0.0" y="145" width="300" height="5"/>
                                         <color key="backgroundColor" red="0.50196078430000002" green="0.40000000000000002" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="5" id="3Nr-aC-0pn"/>
                                             <constraint firstAttribute="height" constant="5" id="kpN-Tj-tvb"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="3Nr-aC-0pn"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="3Nr-aC-0pn"/>
+                                                <exclude reference="kpN-Tj-tvb"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MuE-J3-ZRK" customClass="HoshiTextField" customModule="TextFieldEffects">
                                         <rect key="frame" x="0.0" y="153" width="300" height="40"/>
@@ -326,15 +377,45 @@
                                                 <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="ZGH-43-clP"/>
+                                            </mask>
+                                        </variation>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8iI-0e-1SU">
                                         <rect key="frame" x="0.0" y="196" width="300" height="5"/>
                                         <color key="backgroundColor" red="0.50196078430000002" green="0.40000000000000002" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="5" id="ngH-i0-k8j"/>
+                                            <constraint firstAttribute="height" constant="5" id="wIa-nA-vpp"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="wIa-nA-vpp"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="ngH-i0-k8j"/>
+                                                <include reference="wIa-nA-vpp"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="Tqv-tq-AGq" firstAttribute="width" secondItem="h4L-iV-IQQ" secondAttribute="width" id="Fjn-yL-OyO"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Fjn-yL-OyO"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Fjn-yL-OyO"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create new account!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXa-8B-c4b">
                                 <rect key="frame" x="59.5" y="28" width="256" height="40"/>
@@ -347,10 +428,26 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="EDj-7E-74m"/>
                                     <constraint firstAttribute="width" constant="40" id="Fyn-id-eqR"/>
+                                    <constraint firstAttribute="height" constant="40" id="Ri8-ko-8c1"/>
+                                    <constraint firstAttribute="width" constant="40" id="gSE-SO-Z3A"/>
                                 </constraints>
                                 <state key="normal" image="back-filled">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ri8-ko-8c1"/>
+                                        <exclude reference="gSE-SO-Z3A"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="EDj-7E-74m"/>
+                                        <exclude reference="Fyn-id-eqR"/>
+                                        <include reference="Ri8-ko-8c1"/>
+                                        <include reference="gSE-SO-Z3A"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="backbuttonWasPressed:" destination="MFv-Rv-tqu" eventType="touchUpInside" id="Gmp-Dc-K67"/>
                                 </connections>
@@ -359,12 +456,28 @@
                                 <rect key="frame" x="159.5" y="305.5" width="56" height="56"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Fap-g4-hay"/>
+                                    <constraint firstAttribute="width" constant="56" id="PYJ-zs-quD"/>
                                     <constraint firstAttribute="width" constant="56" id="enF-Ee-imV"/>
                                     <constraint firstAttribute="height" constant="56" id="f9F-Ys-6to"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Fap-g4-hay"/>
+                                        <exclude reference="PYJ-zs-quD"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Fap-g4-hay"/>
+                                        <include reference="PYJ-zs-quD"/>
+                                        <exclude reference="enF-Ee-imV"/>
+                                        <exclude reference="f9F-Ys-6to"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWh-rX-nbV">
-                                <rect key="frame" x="37" y="369" width="300" height="42"/>
+                                <rect key="frame" x="37.5" y="369" width="300" height="42"/>
                                 <color key="backgroundColor" red="0.50196078430000002" green="0.40000000000000002" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="vE5-5A-bM3"/>
@@ -373,6 +486,11 @@
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <variation key="heightClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="vE5-5A-bM3"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="createUserBtnWasPressed:" destination="MFv-Rv-tqu" eventType="touchUpInside" id="znO-VY-GJZ"/>
                                     <action selector="loginBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="haS-Bn-B09"/>
@@ -381,20 +499,76 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="WWh-rX-nbV" firstAttribute="centerX" secondItem="5PD-aW-Wn9" secondAttribute="centerX" id="0WQ-iF-fOs"/>
                             <constraint firstItem="h4L-iV-IQQ" firstAttribute="centerX" secondItem="5PD-aW-Wn9" secondAttribute="centerX" id="0hh-nZ-bc9"/>
+                            <constraint firstItem="Dkf-ka-gye" firstAttribute="leading" secondItem="vCy-so-hmu" secondAttribute="leading" constant="16" id="0mN-1L-Fgl"/>
                             <constraint firstItem="dqZ-A0-Fn0" firstAttribute="centerX" secondItem="5PD-aW-Wn9" secondAttribute="centerX" id="91v-ij-iSZ"/>
                             <constraint firstItem="h4L-iV-IQQ" firstAttribute="top" secondItem="AXa-8B-c4b" secondAttribute="bottom" constant="70" id="Ap9-vB-SYi"/>
+                            <constraint firstItem="dqZ-A0-Fn0" firstAttribute="centerX" secondItem="5PD-aW-Wn9" secondAttribute="centerX" id="BPc-a2-RZZ"/>
                             <constraint firstItem="Dkf-ka-gye" firstAttribute="top" secondItem="vCy-so-hmu" secondAttribute="top" constant="8" id="DDT-jB-h5S"/>
+                            <constraint firstItem="AXa-8B-c4b" firstAttribute="centerY" secondItem="Dkf-ka-gye" secondAttribute="centerY" id="GLp-ch-WVF"/>
+                            <constraint firstItem="h4L-iV-IQQ" firstAttribute="centerX" secondItem="vCy-so-hmu" secondAttribute="centerX" id="Hni-te-TXw"/>
                             <constraint firstItem="dqZ-A0-Fn0" firstAttribute="centerY" secondItem="5PD-aW-Wn9" secondAttribute="centerY" id="K1i-66-zn7"/>
                             <constraint firstItem="WWh-rX-nbV" firstAttribute="width" secondItem="o0W-gL-ro3" secondAttribute="width" id="K3G-KN-N6t"/>
                             <constraint firstItem="Dkf-ka-gye" firstAttribute="leading" secondItem="vCy-so-hmu" secondAttribute="leading" constant="16" id="LKg-Sw-TdI"/>
                             <constraint firstItem="WWh-rX-nbV" firstAttribute="top" secondItem="h4L-iV-IQQ" secondAttribute="bottom" constant="30" id="Nhc-xV-01a"/>
                             <constraint firstItem="h4L-iV-IQQ" firstAttribute="width" secondItem="5PD-aW-Wn9" secondAttribute="width" multiplier="0.8" id="QIg-Da-rds"/>
                             <constraint firstItem="WWh-rX-nbV" firstAttribute="centerX" secondItem="5PD-aW-Wn9" secondAttribute="centerX" id="Qjy-Yp-bON"/>
+                            <constraint firstItem="dqZ-A0-Fn0" firstAttribute="centerY" secondItem="5PD-aW-Wn9" secondAttribute="centerY" id="Tvv-b8-U88"/>
                             <constraint firstItem="AXa-8B-c4b" firstAttribute="centerY" secondItem="Dkf-ka-gye" secondAttribute="centerY" id="V2L-Fa-SIe"/>
+                            <constraint firstItem="WWh-rX-nbV" firstAttribute="width" secondItem="Tqv-tq-AGq" secondAttribute="width" id="drU-yc-ShL"/>
+                            <constraint firstItem="AXa-8B-c4b" firstAttribute="centerX" secondItem="vCy-so-hmu" secondAttribute="centerX" id="ehj-Co-Wkf"/>
+                            <constraint firstItem="WWh-rX-nbV" firstAttribute="top" secondItem="h4L-iV-IQQ" secondAttribute="bottom" constant="30" id="gY6-Px-8JX"/>
+                            <constraint firstItem="h4L-iV-IQQ" firstAttribute="centerY" secondItem="vCy-so-hmu" secondAttribute="centerY" id="mXu-Ms-von"/>
+                            <constraint firstItem="h4L-iV-IQQ" firstAttribute="width" secondItem="5PD-aW-Wn9" secondAttribute="width" multiplier="0.8" id="ohO-UK-0MO"/>
                             <constraint firstItem="AXa-8B-c4b" firstAttribute="centerX" secondItem="5PD-aW-Wn9" secondAttribute="centerX" id="qY0-bh-zJe"/>
+                            <constraint firstItem="Dkf-ka-gye" firstAttribute="top" secondItem="vCy-so-hmu" secondAttribute="top" constant="8" id="wIG-U1-exi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vCy-so-hmu"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0mN-1L-Fgl"/>
+                                <exclude reference="wIG-U1-exi"/>
+                                <exclude reference="Hni-te-TXw"/>
+                                <exclude reference="mXu-Ms-von"/>
+                                <exclude reference="ohO-UK-0MO"/>
+                                <exclude reference="GLp-ch-WVF"/>
+                                <exclude reference="ehj-Co-Wkf"/>
+                                <exclude reference="0WQ-iF-fOs"/>
+                                <exclude reference="drU-yc-ShL"/>
+                                <exclude reference="gY6-Px-8JX"/>
+                                <exclude reference="BPc-a2-RZZ"/>
+                                <exclude reference="Tvv-b8-U88"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="0mN-1L-Fgl"/>
+                                <exclude reference="DDT-jB-h5S"/>
+                                <exclude reference="LKg-Sw-TdI"/>
+                                <include reference="wIG-U1-exi"/>
+                                <exclude reference="0hh-nZ-bc9"/>
+                                <exclude reference="Ap9-vB-SYi"/>
+                                <include reference="Hni-te-TXw"/>
+                                <exclude reference="QIg-Da-rds"/>
+                                <include reference="mXu-Ms-von"/>
+                                <include reference="ohO-UK-0MO"/>
+                                <include reference="GLp-ch-WVF"/>
+                                <exclude reference="V2L-Fa-SIe"/>
+                                <include reference="ehj-Co-Wkf"/>
+                                <exclude reference="qY0-bh-zJe"/>
+                                <include reference="0WQ-iF-fOs"/>
+                                <exclude reference="K3G-KN-N6t"/>
+                                <exclude reference="Nhc-xV-01a"/>
+                                <exclude reference="Qjy-Yp-bON"/>
+                                <include reference="drU-yc-ShL"/>
+                                <include reference="gY6-Px-8JX"/>
+                                <exclude reference="91v-ij-iSZ"/>
+                                <include reference="BPc-a2-RZZ"/>
+                                <exclude reference="K1i-66-zn7"/>
+                                <include reference="Tvv-b8-U88"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="confirmPasswordTxtField" destination="MuE-J3-ZRK" id="jNB-lN-9zh"/>
