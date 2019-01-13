@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Post : Encodable {
     var uuid:String
@@ -34,4 +35,12 @@ struct Post : Encodable {
 struct Location : Encodable {
     var lat:Double
     var long:Double
+    
+    func distanceFrom(location:Location) -> Double {
+        let selfLocation = CLLocation(latitude: self.lat, longitude: self.long)
+        return selfLocation.distance(from: CLLocation(latitude: location.lat, longitude: location.long))
+    }
+    
 }
+
+

@@ -11,11 +11,12 @@ import UIKit
 class PostTableViewCell: UITableViewCell {
   
     @IBOutlet weak var titleLbl: UILabel!
-    
+    @IBOutlet weak var distanceLbl: UILabel!
     @IBOutlet weak var infoButton: UIButton!
     
-    func configureCell(title:String) {
+    func configureCell(title:String, distanceFrom:String) {
         self.titleLbl.text = title
+        self.distanceLbl.text = distanceFrom
     }
     
 }
