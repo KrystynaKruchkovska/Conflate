@@ -51,6 +51,7 @@
 		E551AD2221DCEEB70055D494 /* Encodable+toDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E551AD2121DCEEB70055D494 /* Encodable+toDictionary.swift */; };
 		E585015121D2AD9C00FCEFBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E585015021D2AD9C00FCEFBB /* Main.storyboard */; };
 		E59E1F1321E406CF004BC40A /* UIView+CenterInSuperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59E1F1221E406CF004BC40A /* UIView+CenterInSuperView.swift */; };
+		E5E86B1621EBDF6F00E6F946 /* Double+Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E86B1521EBDF6F00E6F946 /* Double+Round.swift */; };
 		E5FD211B21D16CFC003A9E4A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FD211A21D16CFC003A9E4A /* Constants.swift */; };
 		E5FD211D21D16E0F003A9E4A /* UITextField+ErrorBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FD211C21D16E0F003A9E4A /* UITextField+ErrorBorder.swift */; };
 /* End PBXBuildFile section */
@@ -117,6 +118,7 @@
 		E551AD2121DCEEB70055D494 /* Encodable+toDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+toDictionary.swift"; sourceTree = "<group>"; };
 		E585015021D2AD9C00FCEFBB /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E59E1F1221E406CF004BC40A /* UIView+CenterInSuperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CenterInSuperView.swift"; sourceTree = "<group>"; };
+		E5E86B1521EBDF6F00E6F946 /* Double+Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Round.swift"; sourceTree = "<group>"; };
 		E5FD211A21D16CFC003A9E4A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E5FD211C21D16E0F003A9E4A /* UITextField+ErrorBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+ErrorBorder.swift"; sourceTree = "<group>"; };
 		F3208DFE4742E8CABFEEDDB2 /* Pods-ConflateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConflateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConflateTests/Pods-ConflateTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				E551AD2121DCEEB70055D494 /* Encodable+toDictionary.swift */,
 				049EC90421E3C9CA0061F7A1 /* TableView+GetIndexPath.swift */,
 				E59E1F1221E406CF004BC40A /* UIView+CenterInSuperView.swift */,
+				E5E86B1521EBDF6F00E6F946 /* Double+Round.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				044556D221DBA71F00C474C1 /* AddPostVC.swift in Sources */,
 				04F6040C21E4CEFF0099A1B6 /* Category.swift in Sources */,
 				04B3766221CE575B00784506 /* SignInVC.swift in Sources */,
+				E5E86B1621EBDF6F00E6F946 /* Double+Round.swift in Sources */,
 				042DC19621DE9A8B000F7114 /* PostTableViewCell.swift in Sources */,
 				049EC90921E3F25E0061F7A1 /* SpinnerView.swift in Sources */,
 				044556CC21D7B53800C474C1 /* FirebaseService.swift in Sources */,

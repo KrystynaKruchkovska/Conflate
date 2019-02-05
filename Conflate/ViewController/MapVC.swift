@@ -10,11 +10,10 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapVC: UIViewController,CLLocationManagerDelegate {
+class MapVC: UIViewController {
     
     var postViewModel:PostViewModel!
-    var userLocation: Location!
-    private var locationManager = CLLocationManager()
+    var userLocation: Location?
     private var gesturePinAnnotation:DroppablePinAnnotation!
     
     @IBOutlet weak var mapView: MKMapView!
@@ -22,18 +21,30 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpLongPressRecogniser()
-        self.mapView.delegate = self
-        
+        self.setupMapView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        zoomMap()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.setupLocation()
         self.addAnnotations()
+    }
+    
+    func updateUserLocation(_ location:Location) {
+        self.userLocation = location
+        
+        if self.mapView != nil {
+             self.zoomMap()
+        }
+    }
+    
+    private func setupMapView() {
+        self.mapView.delegate = self
+        self.mapView.showsUserLocation = true
     }
     
     private func setUpLongPressRecogniser(){
@@ -98,53 +109,13 @@ class MapVC: UIViewController,CLLocationManagerDelegate {
         present(presentInfo, animated: true, completion: nil)
     }
     
-    private func getLocation() {
-        if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
-            CLLocationManager.authorizationStatus() ==  .authorizedAlways) {
-            
-            if let currentLocation = locationManager.location {
-                self.userLocation = Location(lat:currentLocation.coordinate.latitude, long:currentLocation.coordinate.longitude)
-            }
-        }
-    }
-    
-    private func zoomMap(lat:Double, lon:Double) {
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: lon), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
-        self.mapView.setRegion(region, animated: true)
-    }
-    
-    private func setupLocation() {
-        if self.isLocationNotAuthorized() {
-            locationManager.requestWhenInUseAuthorization()
+    private func zoomMap() {
+        guard let location = self.userLocation else {
+            return
         }
         
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.delegate = self
-        self.mapView.showsUserLocation = true
-        locationManager.startUpdatingLocation()
-    }
-    
-    private func isLocationNotAuthorized() -> Bool {
-        return CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .denied ||  CLLocationManager.authorizationStatus() == .notDetermined
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.getLocation()
-        self.zoomMap(lat: locations[0].coordinate.latitude, lon: locations[0].coordinate.longitude)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if isLocationNotAuthorized() {
-            showAlertWithMessage(Constants.Strings.location_Is_not_authorized, title: Constants.Alerts.errorAlertTitle, handler: nil)
-        } else {
-            self.locationManager.requestLocation()
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        if let clErr = error as? CLError {
-            self.showAlertWithError(clErr)
-        }
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: location.lat, longitude: location.long), span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
+        self.mapView.setRegion(region, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -12,7 +12,8 @@ class AllPostsVC: UIViewController{
     
     var postViewModel:PostViewModel!
     private var postArray = [Post]()
-
+    private var userLocation:Location?
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var spinnerView: SpinnerView!
     
@@ -29,6 +30,11 @@ class AllPostsVC: UIViewController{
         self.readPosts()
     }
     
+    func updateUserLocation(_ location:Location) {
+        self.userLocation = location
+        self.reloadTableView()
+    }
+    
     private func readPosts() {
         self.postViewModel.readPosts { (posts) in
             self.postArray = posts
@@ -40,7 +46,13 @@ class AllPostsVC: UIViewController{
         }
     }
    
-   private func setupTableView() {
+    private func reloadTableView() {
+        self.spinnerView.showSpinner()
+        self.tableView.reloadData()
+        self.spinnerView.hideSpinner()
+    }
+    
+    private func setupTableView() {
         self.tableView.dataSource = self
     }
     
@@ -77,9 +89,22 @@ extension AllPostsVC : UITableViewDelegate, UITableViewDataSource {
       
         let post = self.postArray[indexPath.row]
         
-        cell.configureCell(title: post.title)
+        
+        cell.configureCell(title: post.title, distanceFrom:self.getDistanceToPost(post))
         
         return cell
+    }
+    
+    func getDistanceToPost(_ post:Post) -> String {
+        guard let location = self.userLocation else {
+            return ""
+        }
+        
+        let mInKm = 1000.0
+        let distance = (post.location.distanceFrom(location: location))/mInKm
+        let rounded = distance.roundToDecimal(1)
+        
+        return "\(rounded) km"
     }
    
     
